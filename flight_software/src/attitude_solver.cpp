@@ -42,6 +42,127 @@ void AttitudeSolver::pixelToBearing(
     bearing[2U] = z * inverse_norm;
 }
 
+namespace {
+
+/// Sum of squared disagreement between measured and catalogue separations for a
+/// trial focal length. Zero when the focal length is exactly right and the
+/// centroids are noiseless.
+double separationCost(
+    const std::array<std::array<float, 2U>, AttitudeSolver::kMaxStars>& offsets,
+    const std::array<std::array<float, 3U>, AttitudeSolver::kMaxStars>& reference,
+    std::size_t count,
+    double focal) {
+    const double focal_squared = focal * focal;
+    double cost = 0.0;
+    for (std::size_t i = 0U; i < count; ++i) {
+        const double uix = offsets[i][0U];
+        const double uiy = offsets[i][1U];
+        const double ni = std::sqrt(focal_squared + (uix * uix) + (uiy * uiy));
+        for (std::size_t j = i + 1U; j < count; ++j) {
+            const double ujx = offsets[j][0U];
+            const double ujy = offsets[j][1U];
+            const double nj =
+                std::sqrt(focal_squared + (ujx * ujx) + (ujy * ujy));
+            const double measured =
+                (focal_squared + (uix * ujx) + (uiy * ujy)) / (ni * nj);
+
+            const double expected =
+                (static_cast<double>(reference[i][0U]) *
+                 static_cast<double>(reference[j][0U])) +
+                (static_cast<double>(reference[i][1U]) *
+                 static_cast<double>(reference[j][1U])) +
+                (static_cast<double>(reference[i][2U]) *
+                 static_cast<double>(reference[j][2U]));
+
+            const double difference = measured - expected;
+            cost += difference * difference;
+        }
+    }
+    return cost;
+}
+
+}  // namespace
+
+float AttitudeSolver::refineFocalLength(
+    const Centroiding::Result& centroids,
+    const LisGridMatcher::MatchResult& matches,
+    const LisGridMatcher::Catalog& catalog,
+    std::size_t catalog_count,
+    float principal_x,
+    float principal_y,
+    float initial_focal_pixels) {
+    std::array<std::array<float, 2U>, kMaxStars> offsets;
+    std::array<std::array<float, 3U>, kMaxStars> reference;
+    std::size_t paired = 0U;
+
+    const std::size_t centroid_count =
+        (centroids.count < kMaxStars) ? centroids.count : kMaxStars;
+
+    for (std::size_t index = 0U; index < centroid_count; ++index) {
+        const std::uint32_t star_id = matches.star_ids[index];
+        if (star_id == 0U) {
+            continue;
+        }
+        std::size_t catalog_index = catalog_count;
+        for (std::size_t scan = 0U; scan < catalog_count; ++scan) {
+            if (catalog[scan].star_id == star_id) {
+                catalog_index = scan;
+                break;
+            }
+        }
+        if (catalog_index >= catalog_count) {
+            continue;
+        }
+        // Same offset convention as pixelToBearing: bearing is proportional to
+        // (focal, principal_x - x, principal_y - y), so focal length is the
+        // only unknown scaling the in-plane offsets against the boresight.
+        offsets[paired][0U] = principal_x - centroids.points[index].x;
+        offsets[paired][1U] = principal_y - centroids.points[index].y;
+        reference[paired][0U] = catalog[catalog_index].x;
+        reference[paired][1U] = catalog[catalog_index].y;
+        reference[paired][2U] = catalog[catalog_index].z;
+        ++paired;
+        if (paired >= kMaxStars) {
+            break;
+        }
+    }
+
+    if ((paired < 3U) || (initial_focal_pixels <= 0.0F)) {
+        return initial_focal_pixels;
+    }
+
+    // Bracket generously: thermal drift is well under 15%, and a wider bracket
+    // costs nothing because the iteration count is fixed.
+    double low = 0.85 * static_cast<double>(initial_focal_pixels);
+    double high = 1.15 * static_cast<double>(initial_focal_pixels);
+
+    const double kInverseGolden = 0.6180339887498949;
+    double c = high - (kInverseGolden * (high - low));
+    double d = low + (kInverseGolden * (high - low));
+    double fc = separationCost(offsets, reference, paired, c);
+    double fd = separationCost(offsets, reference, paired, d);
+
+    // 40 iterations shrink the bracket by 0.618^40 ~ 1e-8 relative: far below
+    // any physically meaningful focal-length change.
+    for (std::size_t iteration = 0U; iteration < 40U; ++iteration) {
+        if (fc < fd) {
+            high = d;
+            d = c;
+            fd = fc;
+            c = high - (kInverseGolden * (high - low));
+            fc = separationCost(offsets, reference, paired, c);
+        } else {
+            low = c;
+            c = d;
+            fc = fd;
+            d = low + (kInverseGolden * (high - low));
+            fd = separationCost(offsets, reference, paired, d);
+        }
+    }
+
+    return static_cast<float>(0.5 * (low + high));
+}
+
 void AttitudeSolver::quaternionToMatrix(
     const std::array<float, 4U>& q, float m[3U][3U]) {
     const float x = q[0U];

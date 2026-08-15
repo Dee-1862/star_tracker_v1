@@ -96,6 +96,32 @@ public:
     /// Returns a unit bearing in the camera frame for a pixel coordinate.
     void pixelToBearing(float pixel_x, float pixel_y, float bearing[3U]) const;
 
+    /// Recover focal length from an already-matched star set.
+    ///
+    /// Every matched pair is a calibration standard: the catalogue states their
+    /// angular separation exactly, and the image measures their pixel
+    /// separation. Only one focal length reconciles the two. A 15-star clique
+    /// supplies 105 such pairs, so the estimate is strongly overdetermined.
+    ///
+    /// The pipeline already computes both halves and discards them; this is the
+    /// step that keeps them. Used two ways:
+    ///   - after a search lock, to convert a coarse guess into a precise value
+    ///   - every accepted frame thereafter, to track thermal drift of the lens
+    ///
+    /// Golden-section minimisation over a fixed bracket, fixed iteration count,
+    /// no derivatives -- so the cost is constant and known, which matters more
+    /// than asymptotic speed on a scheduled processor.
+    ///
+    /// Returns initial_focal_pixels unchanged if fewer than 3 stars pair up.
+    static float refineFocalLength(
+        const Centroiding::Result& centroids,
+        const LisGridMatcher::MatchResult& matches,
+        const LisGridMatcher::Catalog& catalog,
+        std::size_t catalog_count,
+        float principal_x,
+        float principal_y,
+        float initial_focal_pixels);
+
     Solution solve(
         const Centroiding::Result& centroids,
         const LisGridMatcher::MatchResult& matches,

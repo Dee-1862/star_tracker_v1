@@ -225,7 +225,40 @@ int main() {
         assert(solution.residual_rms_arcsec < 3.0F * kPerturbArcsec);
     }
 
-    // --- 4. Too few matched stars must refuse, not guess --------------------
+    // --- 4. Focal length must be recoverable from the matched stars ---------
+    // Each matched pair is a calibration standard: the catalogue fixes their
+    // angular separation, the image measures their pixel separation, and only
+    // one focal length reconciles the two. This is what lets the tracker
+    // recalibrate itself after thermal drift instead of needing a ground pass.
+    {
+        star_tracker::Centroiding::Result centroids;
+        star_tracker::LisGridMatcher::MatchResult matches;
+        buildScene(ra_deg, dec_deg, roll_deg, centroids, matches);
+
+        // The scene was built at kFocalLength. Start the search badly wrong in
+        // both directions and require recovery to better than 0.1%.
+        const float truth = kFocalLength;
+        const float starts[3] = {truth * 0.90F, truth * 1.08F, truth};
+        for (std::size_t trial = 0U; trial < 3U; ++trial) {
+            const float recovered = star_tracker::AttitudeSolver::refineFocalLength(
+                centroids, matches, catalog, kStarCount,
+                kPrincipal, kPrincipal, starts[trial]);
+            const float relative = std::fabs(recovered - truth) / truth;
+            assert(relative < 0.001F);
+        }
+
+        // Too few pairs to constrain the fit: return the input untouched
+        // rather than inventing a number.
+        star_tracker::LisGridMatcher::MatchResult sparse;
+        sparse.star_ids[0U] = matches.star_ids[0U];
+        sparse.matched_count = 1U;
+        const float unchanged = star_tracker::AttitudeSolver::refineFocalLength(
+            centroids, sparse, catalog, kStarCount,
+            kPrincipal, kPrincipal, 1234.0F);
+        assert(std::fabs(unchanged - 1234.0F) < 1e-3F);
+    }
+
+    // --- 5. Too few matched stars must refuse, not guess --------------------
     {
         star_tracker::Centroiding::Result centroids;
         star_tracker::LisGridMatcher::MatchResult matches;

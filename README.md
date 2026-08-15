@@ -203,7 +203,61 @@ be filtered by brightness:
 
 At 50% contamination it still solves 26/30 correctly and degrades into honest refusals.
 
-### 3.5 Integrity threshold
+### 3.5 Focal-length self-calibration
+
+A lens changes focal length as it warms. Section 3.3 shows that leaves the solver
+refusing everything — safe, but useless. It does not have to be.
+
+**Every matched pair is a calibration standard.** The catalogue states two stars are
+7.0031° apart, exactly and permanently; the image measures them 355.2 pixels apart. Only
+one focal length reconciles the two. A 15-star group supplies **105 such measurements per
+frame**. The pipeline already computes both halves and was discarding them.
+
+The difficulty is circular — you need roughly-right focal length to match stars, and
+matched stars to measure focal length. It is broken by **searching**, and the search is
+only safe because a wrong focal length yields *nothing* rather than a wrong answer:
+
+```
+sweep focal length across the plausible thermal range
+    if a group forms AND the integrity gate passes -> locked
+then compute focal length exactly from every matched pair
+```
+
+12 fields per row. True focal length 2903.70 px:
+
+| Lens drift | Solved | **Wrong** | Refused | Recovered focal | Error | Trials |
+|---|---|---|---|---|---|---|
+| 0.0% | 12 | **0** | 0 | 2903.56 | −0.005% | 1 |
+| −0.5% | 12 | **0** | 0 | 2903.56 | −0.005% | 13 |
+| −1.0% | 12 | **0** | 0 | 2903.56 | −0.005% | 12 |
+| −2.0% | 12 | **0** | 0 | 2903.57 | −0.004% | 10 |
+| −3.0% | 10 | **0** | 2 | 2903.76 | +0.002% | 8 |
+| +1.0% | 12 | **0** | 0 | 2903.58 | −0.004% | 16 |
+| +2.0% | 12 | **0** | 0 | 2903.56 | −0.005% | 18 |
+| +3.0% | 8 | **0** | 4 | 2903.44 | −0.009% | 20 |
+| +5.0% | 9 | **0** | 3 | 2903.05 | −0.022% | 24 |
+
+Without the search, every one of these rows except the first is 0 solved / 12 refused.
+
+- **±2% drift is fully recovered** — 12/12, where before it was 0/12.
+- **Focal length is recovered to within 0.005–0.022%**, i.e. better than 0.15 px out of
+  2903.7, from a starting guess wrong by up to 5%.
+- **Zero wrong answers in every row.** The search cannot lock onto a false scale, because
+  a false scale produces no group at all.
+- Partial recovery at ±3% and ±5% is a *step granularity* limit, not a capability limit:
+  25 steps over ±6% is 0.5% per step and some fields fall between steps. More steps costs
+  linear time and nothing else.
+
+> **This is a capability the baselines cannot have.** LOST at the wrong focal length
+> returns a confident wrong answer (section 3.1), so a blind sweep would "succeed" at the
+> wrong scale and lock the error in permanently. Refusing is what makes searching safe.
+
+Once locked, every accepted frame yields a fresh estimate, so thermal drift is *tracked*
+rather than treated as a fault — and the drift rate becomes free health telemetry.
+
+Run it: `python bench/run_focal_selfcal.py`
+
+### 3.6 Integrity threshold
 
 Derived from data, not tuned. Over **190 correct solves** spanning uniform sky and up to
 50% contamination, reprojection residual ranged **3.0 to 14.7 arcsec** (median 4.8).
@@ -213,7 +267,7 @@ The residual gate is a *backstop*, not the primary filter: the consistency and h
 checks remove wrong answers upstream, and **no wrong answer reached the gate in any
 sweep**.
 
-### 3.6 Footprint
+### 3.7 Footprint
 
 Measured with `sizeof`, x86-64 release:
 
@@ -381,8 +435,11 @@ python bench/run_roll_sweep.py
 # Quick 12-field version of the same comparison
 python bench/run_three_way_decoupled.py
 
-# Section 3.3 / 3.5 -- robustness sweep and threshold derivation
+# Section 3.3 / 3.6 -- robustness sweep and threshold derivation
 python bench/run_gate_calibration.py
+
+# Section 3.5 -- focal-length self-calibration under simulated lens drift
+python bench/run_focal_selfcal.py
 ```
 
 Single frame through our solver:
@@ -399,10 +456,9 @@ including `clique_size`, `residual_rms_arcsec`, `gate_reason`, `attitude_known`.
 
 ## 6. Honest limitations
 
-- **Focal sensitivity.** Refuses under ±2% focal error, exactly like LOST. tetra3 tolerates
-  ±5% because proportions cancel scale. The intended fix is a two-path design: a
-  scale-invariant method for occasional calibration, ours for every frame afterwards. Not
-  built.
+- **Focal acquisition is bounded by step granularity.** Section 3.5 recovers ±2% fully and
+  ±3–5% partially. Wider or finer search costs linear time; the capture range per step has
+  not been characterised.
 - **The integrity gate is unfalsified, not validated.** No wrong answer was produced in any
   sweep, so there is no measured false-solve rate — and therefore no basis for an
   aerospace-style integrity risk figure.

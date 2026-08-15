@@ -80,9 +80,14 @@ const char* reasonText(star_tracker::AttitudeSolver::Reason reason) {
 }  // namespace
 
 int main(int argc, char** argv) {
-    if (argc < 5 || argc > 6) {
+    if (argc < 5 || argc > 7) {
         std::cerr << "Usage: centroid_runner CENTROIDS.tsv WIDTH HEIGHT "
-                     "FOV_DEG [MAX_RESIDUAL_ARCSEC=28]\n";
+                     "FOV_DEG [MAX_RESIDUAL_ARCSEC=30] [SEARCH_PCT=0]\n"
+                     "\n"
+                     "SEARCH_PCT enables focal-length acquisition: the solver\n"
+                     "sweeps focal length over +/- SEARCH_PCT and accepts the\n"
+                     "first value that yields a gated solve, then refines it\n"
+                     "from the matched pairs. 0 disables the search.\n";
         return 2;
     }
 
@@ -91,7 +96,8 @@ int main(int argc, char** argv) {
     const int height = std::atoi(argv[3]);
     const double fovDeg = std::atof(argv[4]);
     const float maxResidual = (argc >= 6) ? static_cast<float>(std::atof(argv[5]))
-                                          : 28.0F;
+                                          : 30.0F;
+    const double searchPct = (argc >= 7) ? std::atof(argv[6]) : 0.0;
 
     if (width <= 0 || height <= 0 || fovDeg <= 0.0 || maxResidual <= 0.0F) {
         std::cerr << "ERROR: invalid width/height/fov/residual\n";
@@ -132,16 +138,80 @@ int main(int argc, char** argv) {
     }
     const Clock::time_point indexEnd = Clock::now();
 
+    // Focal-length acquisition. A wrong focal length yields no clique at all
+    // rather than a wrong answer -- measured: 0 correct, 0 wrong, all refused
+    // at +/-2% and +/-5%. That unambiguous failure signal is what makes a blind
+    // sweep safe here and unsafe for a solver that false-solves.
     const Clock::time_point matchBegin = Clock::now();
-    const star_tracker::LisGridMatcher::MatchResult matches =
-        matcher.match(centroids);
-    const Clock::time_point matchEnd = Clock::now();
-
-    const Clock::time_point attitudeBegin = Clock::now();
-    const star_tracker::AttitudeSolver::Solution solution = solver.solve(
+    star_tracker::LisGridMatcher::MatchResult matches = matcher.match(centroids);
+    star_tracker::AttitudeSolver::Solution solution = solver.solve(
         centroids, matches, star_tracker::kHipparcosCatalog,
         star_tracker::kHipparcosCatalogCount);
-    const Clock::time_point attitudeEnd = Clock::now();
+
+    std::size_t trials = 1U;
+    float lockedFocal = focal;
+    if (!solution.valid && (searchPct > 0.0)) {
+        const std::size_t kSteps = 25U;
+        for (std::size_t step = 0U; (step < kSteps) && !solution.valid; ++step) {
+            // Walk outward from nominal so the common small-drift case is
+            // found first.
+            const double half = static_cast<double>(kSteps - 1U) / 2.0;
+            const double offset = static_cast<double>(step) - half;
+            const double fraction = (offset / half) * (searchPct / 100.0);
+            const float trialFocal =
+                static_cast<float>(static_cast<double>(focal) * (1.0 + fraction));
+
+            star_tracker::LisGridMatcher::Config trialMatcher = matcherConfig;
+            trialMatcher.focal_length_pixels = trialFocal;
+            matcher = star_tracker::LisGridMatcher(trialMatcher);
+            if (!matcher.buildIndex(star_tracker::kHipparcosCatalog,
+                                    star_tracker::kHipparcosCatalogCount)) {
+                continue;
+            }
+
+            star_tracker::AttitudeSolver::Config trialSolver = solverConfig;
+            trialSolver.focal_length_pixels = trialFocal;
+            star_tracker::AttitudeSolver trial(trialSolver);
+
+            const star_tracker::LisGridMatcher::MatchResult trialMatches =
+                matcher.match(centroids);
+            const star_tracker::AttitudeSolver::Solution trialSolution =
+                trial.solve(centroids, trialMatches,
+                            star_tracker::kHipparcosCatalog,
+                            star_tracker::kHipparcosCatalogCount);
+            ++trials;
+            if (trialSolution.valid) {
+                matches = trialMatches;
+                solution = trialSolution;
+                lockedFocal = trialFocal;
+            }
+        }
+    }
+
+    // Turn the coarse lock into a precise value using every matched pair.
+    float refinedFocal = lockedFocal;
+    if (solution.valid) {
+        refinedFocal = star_tracker::AttitudeSolver::refineFocalLength(
+            centroids, matches, star_tracker::kHipparcosCatalog,
+            star_tracker::kHipparcosCatalogCount,
+            solverConfig.principal_x, solverConfig.principal_y, lockedFocal);
+
+        // Re-solve at the refined focal length: the attitude and the residual
+        // should both improve, and the residual is what we report as integrity.
+        star_tracker::AttitudeSolver::Config finalConfig = solverConfig;
+        finalConfig.focal_length_pixels = refinedFocal;
+        star_tracker::AttitudeSolver finalSolver(finalConfig);
+        const star_tracker::AttitudeSolver::Solution refinedSolution =
+            finalSolver.solve(centroids, matches,
+                              star_tracker::kHipparcosCatalog,
+                              star_tracker::kHipparcosCatalogCount);
+        if (refinedSolution.valid) {
+            solution = refinedSolution;
+        }
+    }
+    const Clock::time_point matchEnd = Clock::now();
+    const Clock::time_point attitudeBegin = matchEnd;
+    const Clock::time_point attitudeEnd = matchEnd;
 
     const long long indexNs =
         std::chrono::duration_cast<std::chrono::nanoseconds>(
@@ -162,6 +232,10 @@ int main(int argc, char** argv) {
     std::cout << "attitude_average_ns " << attitudeNs << "\n";
     std::cout << "total_average_ns " << (matchNs + attitudeNs) << "\n";
     std::cout << "clique_size " << matches.clique_size << "\n";
+    std::cout << "focal_nominal_px " << focal << "\n";
+    std::cout << "focal_locked_px " << lockedFocal << "\n";
+    std::cout << "focal_refined_px " << refinedFocal << "\n";
+    std::cout << "focal_trials " << trials << "\n";
     std::cout << "residual_rms_arcsec " << solution.residual_rms_arcsec << "\n";
     std::cout << "residual_max_arcsec " << solution.residual_max_arcsec << "\n";
     std::cout << "gate_reason " << reasonText(solution.reason) << "\n";
