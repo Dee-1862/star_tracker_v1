@@ -1,0 +1,12 @@
+# Numerical and astronomical coordinate calculations
+astropy
+numpy
+pandas
+
+# Synthetic image generation and analysis
+matplotlib
+opencv-python
+Pillow
+
+# Python simulator tests
+pytest

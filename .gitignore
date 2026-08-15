@@ -1,0 +1,103 @@
+# ---------------------------------------------------------------------------
+# Third-party baselines: cloned, never committed.
+# See README "Fetching the baselines" for the exact clone + pinned commits.
+# Committing these would (a) bloat the repo with ~50 MB of databases and
+# (b) make it impossible to prove we compared against the published code
+# rather than a modified copy.
+# ---------------------------------------------------------------------------
+benchmarking/lost_baseline/
+benchmarking/tetra3_baseline/
+
+# ---------------------------------------------------------------------------
+# External datasets: downloaded, never committed.
+# See README "External data" for what each one is and where it goes.
+# DUST.zip alone is 822 MB -- committing it would make the repository
+# effectively unclonable, and git cannot ever forget it afterwards.
+# ---------------------------------------------------------------------------
+benchmarking/dust/
+
+# Any archive, anywhere. Datasets arrive as archives; none belong in git.
+*.zip
+*.tar
+*.tar.*
+*.tgz
+*.gz
+*.bz2
+*.xz
+*.7z
+*.rar
+
+# Generated star catalogues and databases (rebuild with the commands in README)
+sim_environment/data/raw/
+sim_environment/data/processed/
+sim_environment/output/
+bench/data/*.dat
+bench/data/*.tsv
+!bench/data/.gitkeep
+
+# Frozen centroid exports (regenerate with bench/export_centroids.py)
+bench/centroids/**/*.json
+bench/centroids/**/*.txt
+bench/centroids/**/*.tsv
+
+# Rendered synthetic frames (5.4 MB, regenerate with bench/export_centroids.py).
+# bench/images/real/ IS committed: 1.4 MB of real sensor frames, derived from
+# tetra3's example data, which is itself git-ignored -- so ignoring these would
+# lose the only real-imagery test inputs in the repo.
+bench/images/synthetic/
+
+# Compiled baseline adapter (built inside WSL against lost_baseline)
+bench/adapters/lost_from_centroids
+bench/adapters/*.o
+
+# ---------------------------------------------------------------------------
+# Build output
+# ---------------------------------------------------------------------------
+build/
+build-vs/
+out/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+Testing/
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.exe
+*.pdb
+*.ilk
+*.exp
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---------------------------------------------------------------------------
+# Editors / OS
+# ---------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ---------------------------------------------------------------------------
+# Scratch
+# ---------------------------------------------------------------------------
+*.raw
+*.log
+tmp/
+scratch/
+.gyst/

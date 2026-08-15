@@ -1,0 +1,33 @@
+# Build LOST from-centroids adapter against the vendored LOST object files.
+# Run inside WSL from this directory:
+#   make -f Makefile.lost_adapter
+
+LOST_ROOT := ../../benchmarking/lost_baseline
+CXX := g++-12
+CXXFLAGS := -I$(LOST_ROOT)/vendor -I$(LOST_ROOT)/src -I/usr/include/eigen3 \
+	-Wall -Wextra -Wno-missing-field-initializers -pedantic --std=c++14 \
+	-O2 -DLOST_DISABLE_ASAN
+LDFLAGS :=
+LIBS :=
+
+LOST_OBJS := \
+	$(LOST_ROOT)/src/attitude-estimators.o \
+	$(LOST_ROOT)/src/attitude-utils.o \
+	$(LOST_ROOT)/src/camera.o \
+	$(LOST_ROOT)/src/centroiders.o \
+	$(LOST_ROOT)/src/databases.o \
+	$(LOST_ROOT)/src/io.o \
+	$(LOST_ROOT)/src/star-id.o \
+	$(LOST_ROOT)/src/star-utils.o
+
+BIN := lost_from_centroids
+
+.PHONY: all clean
+
+all: $(BIN)
+
+$(BIN): lost_from_centroids.cpp $(LOST_OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ lost_from_centroids.cpp $(LOST_OBJS) $(LDFLAGS) -lcairo
+
+clean:
+	rm -f $(BIN)

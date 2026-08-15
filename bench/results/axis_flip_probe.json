@@ -1,0 +1,47 @@
+[
+  {
+    "mode": "none",
+    "tetra3_true": 5,
+    "tetra3_false": 0,
+    "lost_true": 5,
+    "lost_false": 0,
+    "tetra3_median_err_deg": 0.0006950734802185297,
+    "lost_median_err_deg": 0.0
+  },
+  {
+    "mode": "yflip",
+    "tetra3_true": 5,
+    "tetra3_false": 0,
+    "lost_true": 0,
+    "lost_false": 5,
+    "tetra3_median_err_deg": 0.019128101806974985,
+    "lost_median_err_deg": 87.25887708724471
+  },
+  {
+    "mode": "xflip",
+    "tetra3_true": 5,
+    "tetra3_false": 0,
+    "lost_true": 0,
+    "lost_false": 5,
+    "tetra3_median_err_deg": 0.01990106158982512,
+    "lost_median_err_deg": 87.24979932348637
+  },
+  {
+    "mode": "xyflip",
+    "tetra3_true": 5,
+    "tetra3_false": 0,
+    "lost_true": 5,
+    "lost_false": 0,
+    "tetra3_median_err_deg": 0.02762436914247359,
+    "lost_median_err_deg": 0.027682621604572175
+  },
+  {
+    "mode": "swapxy",
+    "tetra3_true": 5,
+    "tetra3_false": 0,
+    "lost_true": 0,
+    "lost_false": 5,
+    "tetra3_median_err_deg": 0.0006950734802185297,
+    "lost_median_err_deg": 87.24140590693064
+  }
+]

@@ -1,0 +1,7008 @@
+{
+  "methodology": {
+    "cpp_index_build_excluded_from_pipeline_latency": true,
+    "real_cpp_threshold": 32,
+    "seed": 20260802,
+    "synthetic_cpp_threshold": 8,
+    "synthetic_fov_deg": 20.0,
+    "tetra3_database": {
+      "epoch_equinox": 2000,
+      "epoch_proper_motion": 2023.0,
+      "max_fov": 30.0,
+      "min_fov": 10.0,
+      "pattern_bins": 50,
+      "pattern_max_error": 0.004999999888241291,
+      "pattern_mode": "edge_ratio",
+      "pattern_size": 4,
+      "pattern_stars_per_fov": 10,
+      "presort_patterns": true,
+      "range_dec": [
+        null,
+        null
+      ],
+      "range_ra": [
+        null,
+        null
+      ],
+      "simplify_pattern": false,
+      "star_catalog": "hip_main",
+      "star_max_magnitude": 7.0,
+      "verification_stars_per_fov": 30
+    },
+    "tetra3_revision": "f9fa2eb9a32a5efc529e2d86f0b59f35b1e9028d"
+  },
+  "real": [
+    {
+      "cpp": {
+        "agreed_ids": 0,
+        "agreement_rate": 0.0,
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_us": 3699.2,
+        "centroids": 50,
+        "cleaned_centroids": 50,
+        "disagreed_ids": 20,
+        "filter_object_bytes": 1864,
+        "filter_us": 1.3,
+        "index_us": 22592.4,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "match_us": 332.9,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5951488,
+        "pipeline_ms": 4.0334,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 2313,
+            "star_id": 85340,
+            "votes": 7,
+            "x": 634.893188,
+            "y": 132.250763
+          },
+          {
+            "index": 1,
+            "intensity": 1920,
+            "star_id": 0,
+            "votes": 0,
+            "x": 369.728638,
+            "y": 852.603638
+          },
+          {
+            "index": 2,
+            "intensity": 1717,
+            "star_id": 0,
+            "votes": 0,
+            "x": 822.122864,
+            "y": 492.051849
+          },
+          {
+            "index": 3,
+            "intensity": 2239,
+            "star_id": 0,
+            "votes": 0,
+            "x": 594.79187,
+            "y": 890.703857
+          },
+          {
+            "index": 4,
+            "intensity": 1987,
+            "star_id": 0,
+            "votes": 0,
+            "x": 862.34021,
+            "y": 724.990967
+          },
+          {
+            "index": 5,
+            "intensity": 1839,
+            "star_id": 0,
+            "votes": 0,
+            "x": 691.369202,
+            "y": 372.785217
+          },
+          {
+            "index": 6,
+            "intensity": 1669,
+            "star_id": 0,
+            "votes": 0,
+            "x": 858.238464,
+            "y": 656.283997
+          },
+          {
+            "index": 7,
+            "intensity": 1655,
+            "star_id": 0,
+            "votes": 0,
+            "x": 721.056824,
+            "y": 881.688843
+          },
+          {
+            "index": 8,
+            "intensity": 2241,
+            "star_id": 0,
+            "votes": 0,
+            "x": 248.305222,
+            "y": 619.522522
+          },
+          {
+            "index": 9,
+            "intensity": 2983,
+            "star_id": 52419,
+            "votes": 7,
+            "x": 329.78479,
+            "y": 828.212891
+          },
+          {
+            "index": 10,
+            "intensity": 2430,
+            "star_id": 67457,
+            "votes": 6,
+            "x": 403.64444,
+            "y": 355.576538
+          },
+          {
+            "index": 11,
+            "intensity": 2093,
+            "star_id": 0,
+            "votes": 0,
+            "x": 681.04303,
+            "y": 355.518402
+          },
+          {
+            "index": 12,
+            "intensity": 4022,
+            "star_id": 53253,
+            "votes": 6,
+            "x": 503.620575,
+            "y": 341.672546
+          },
+          {
+            "index": 13,
+            "intensity": 1857,
+            "star_id": 0,
+            "votes": 0,
+            "x": 277.861053,
+            "y": 523.257385
+          },
+          {
+            "index": 14,
+            "intensity": 2970,
+            "star_id": 22797,
+            "votes": 7,
+            "x": 639.863647,
+            "y": 888.970032
+          },
+          {
+            "index": 15,
+            "intensity": 2301,
+            "star_id": 19167,
+            "votes": 5,
+            "x": 858.360718,
+            "y": 632.023926
+          },
+          {
+            "index": 16,
+            "intensity": 4469,
+            "star_id": 71860,
+            "votes": 5,
+            "x": 856.595642,
+            "y": 583.715576
+          },
+          {
+            "index": 17,
+            "intensity": 1656,
+            "star_id": 0,
+            "votes": 0,
+            "x": 378.605072,
+            "y": 831.454712
+          },
+          {
+            "index": 18,
+            "intensity": 2497,
+            "star_id": 33977,
+            "votes": 6,
+            "x": 266.501007,
+            "y": 691.446533
+          },
+          {
+            "index": 19,
+            "intensity": 1857,
+            "star_id": 0,
+            "votes": 0,
+            "x": 352.316101,
+            "y": 394.252563
+          },
+          {
+            "index": 20,
+            "intensity": 2702,
+            "star_id": 47175,
+            "votes": 5,
+            "x": 756.908203,
+            "y": 401.725006
+          },
+          {
+            "index": 21,
+            "intensity": 2302,
+            "star_id": 57363,
+            "votes": 5,
+            "x": 690.807983,
+            "y": 887.526489
+          },
+          {
+            "index": 22,
+            "intensity": 2010,
+            "star_id": 0,
+            "votes": 0,
+            "x": 870.136841,
+            "y": 474.571655
+          },
+          {
+            "index": 23,
+            "intensity": 1890,
+            "star_id": 0,
+            "votes": 0,
+            "x": 840.896851,
+            "y": 669.442871
+          },
+          {
+            "index": 24,
+            "intensity": 2278,
+            "star_id": 0,
+            "votes": 0,
+            "x": 491.378845,
+            "y": 330.112823
+          },
+          {
+            "index": 25,
+            "intensity": 3656,
+            "star_id": 111043,
+            "votes": 5,
+            "x": 802.63623,
+            "y": 778.103394
+          },
+          {
+            "index": 26,
+            "intensity": 2292,
+            "star_id": 78104,
+            "votes": 5,
+            "x": 605.996948,
+            "y": 336.092499
+          },
+          {
+            "index": 27,
+            "intensity": 3816,
+            "star_id": 76600,
+            "votes": 8,
+            "x": 255.571014,
+            "y": 425.672943
+          },
+          {
+            "index": 28,
+            "intensity": 3313,
+            "star_id": 62322,
+            "votes": 6,
+            "x": 846.70752,
+            "y": 698.795044
+          },
+          {
+            "index": 29,
+            "intensity": 2183,
+            "star_id": 0,
+            "votes": 0,
+            "x": 301.736603,
+            "y": 448.020142
+          },
+          {
+            "index": 30,
+            "intensity": 4287,
+            "star_id": 71536,
+            "votes": 7,
+            "x": 830.36853,
+            "y": 512.600647
+          },
+          {
+            "index": 31,
+            "intensity": 2578,
+            "star_id": 89642,
+            "votes": 6,
+            "x": 279.447235,
+            "y": 701.333618
+          },
+          {
+            "index": 32,
+            "intensity": 2190,
+            "star_id": 0,
+            "votes": 0,
+            "x": 200.123749,
+            "y": 449.763
+          },
+          {
+            "index": 33,
+            "intensity": 1858,
+            "star_id": 0,
+            "votes": 0,
+            "x": 301.82077,
+            "y": 767.737366
+          },
+          {
+            "index": 34,
+            "intensity": 2178,
+            "star_id": 0,
+            "votes": 0,
+            "x": 559.338379,
+            "y": 892.153809
+          },
+          {
+            "index": 35,
+            "intensity": 1800,
+            "star_id": 0,
+            "votes": 0,
+            "x": 847.296692,
+            "y": 602.742249
+          },
+          {
+            "index": 36,
+            "intensity": 3253,
+            "star_id": 26241,
+            "votes": 5,
+            "x": 836.828491,
+            "y": 686.977539
+          },
+          {
+            "index": 37,
+            "intensity": 2274,
+            "star_id": 0,
+            "votes": 0,
+            "x": 273.745819,
+            "y": 514.087524
+          },
+          {
+            "index": 38,
+            "intensity": 2879,
+            "star_id": 64004,
+            "votes": 6,
+            "x": 364.453278,
+            "y": 381.863495
+          },
+          {
+            "index": 39,
+            "intensity": 1832,
+            "star_id": 0,
+            "votes": 0,
+            "x": 354.642456,
+            "y": 844.353149
+          },
+          {
+            "index": 40,
+            "intensity": 3614,
+            "star_id": 45238,
+            "votes": 7,
+            "x": 273.779755,
+            "y": 638.176819
+          },
+          {
+            "index": 41,
+            "intensity": 1906,
+            "star_id": 0,
+            "votes": 0,
+            "x": 795.09967,
+            "y": 438.774933
+          },
+          {
+            "index": 42,
+            "intensity": 2377,
+            "star_id": 54463,
+            "votes": 8,
+            "x": 770.320984,
+            "y": 836.089172
+          },
+          {
+            "index": 43,
+            "intensity": 1834,
+            "star_id": 0,
+            "votes": 0,
+            "x": 260.886597,
+            "y": 659.867493
+          },
+          {
+            "index": 44,
+            "intensity": 1669,
+            "star_id": 0,
+            "votes": 0,
+            "x": 314.596771,
+            "y": 413.562622
+          },
+          {
+            "index": 45,
+            "intensity": 2266,
+            "star_id": 0,
+            "votes": 0,
+            "x": 841.044983,
+            "y": 591.688904
+          },
+          {
+            "index": 46,
+            "intensity": 1776,
+            "star_id": 0,
+            "votes": 0,
+            "x": 397.814178,
+            "y": 376.054047
+          },
+          {
+            "index": 47,
+            "intensity": 1953,
+            "star_id": 0,
+            "votes": 0,
+            "x": 295.246277,
+            "y": 456.210449
+          },
+          {
+            "index": 48,
+            "intensity": 2011,
+            "star_id": 0,
+            "votes": 0,
+            "x": 253.875687,
+            "y": 637.18103
+          },
+          {
+            "index": 49,
+            "intensity": 1953,
+            "star_id": 0,
+            "votes": 0,
+            "x": 852.372253,
+            "y": 537.379944
+          }
+        ],
+        "preprocessing": "median-to-99.99th-percentile 16-to-8-bit stretch; vertically centered zero-padding to 1024x1024",
+        "reported_matches": 20
+      },
+      "image": "2019-07-29T204726_Alt40_Azi-135_Try1.tiff",
+      "provenance": "ESA tetra3 FLIR Blackfly real-world test frame",
+      "tetra3": {
+        "dec_deg": 11.034222635156596,
+        "fov_deg": 11.426214258294436,
+        "matches": 11,
+        "ra_deg": 230.66735971690508,
+        "reported_extract_ms": 48.44889999367297,
+        "reported_solve_ms": 274.2077000439167,
+        "rmse_arcsec": 6.460598759923153,
+        "roll_deg": 332.27980666284935,
+        "solved": true,
+        "wall_ms": 323.1963000725955
+      }
+    },
+    {
+      "cpp": {
+        "agreed_ids": 0,
+        "agreement_rate": 0.0,
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_us": 4051.0,
+        "centroids": 50,
+        "cleaned_centroids": 50,
+        "disagreed_ids": 20,
+        "filter_object_bytes": 1864,
+        "filter_us": 0.7,
+        "index_us": 22555.0,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "match_us": 147.3,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5943296,
+        "pipeline_ms": 4.199,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 2167,
+            "star_id": 0,
+            "votes": 0,
+            "x": 598.276855,
+            "y": 765.056274
+          },
+          {
+            "index": 1,
+            "intensity": 3723,
+            "star_id": 70090,
+            "votes": 7,
+            "x": 688.093994,
+            "y": 747.871582
+          },
+          {
+            "index": 2,
+            "intensity": 3548,
+            "star_id": 63003,
+            "votes": 5,
+            "x": 479.483093,
+            "y": 390.195038
+          },
+          {
+            "index": 3,
+            "intensity": 2617,
+            "star_id": 0,
+            "votes": 0,
+            "x": 667.956421,
+            "y": 738.523499
+          },
+          {
+            "index": 4,
+            "intensity": 2829,
+            "star_id": 0,
+            "votes": 0,
+            "x": 359.90033,
+            "y": 485.974548
+          },
+          {
+            "index": 5,
+            "intensity": 2142,
+            "star_id": 0,
+            "votes": 0,
+            "x": 333.724091,
+            "y": 646.098511
+          },
+          {
+            "index": 6,
+            "intensity": 2864,
+            "star_id": 71860,
+            "votes": 5,
+            "x": 382.17807,
+            "y": 688.563171
+          },
+          {
+            "index": 7,
+            "intensity": 2709,
+            "star_id": 0,
+            "votes": 0,
+            "x": 330.841278,
+            "y": 600.825378
+          },
+          {
+            "index": 8,
+            "intensity": 2914,
+            "star_id": 60009,
+            "votes": 5,
+            "x": 641.679138,
+            "y": 775.478027
+          },
+          {
+            "index": 9,
+            "intensity": 2857,
+            "star_id": 0,
+            "votes": 0,
+            "x": 543.916687,
+            "y": 377.169769
+          },
+          {
+            "index": 10,
+            "intensity": 2895,
+            "star_id": 80569,
+            "votes": 4,
+            "x": 339.045929,
+            "y": 585.176514
+          },
+          {
+            "index": 11,
+            "intensity": 3293,
+            "star_id": 48002,
+            "votes": 7,
+            "x": 522.699341,
+            "y": 375.136353
+          },
+          {
+            "index": 12,
+            "intensity": 3307,
+            "star_id": 24436,
+            "votes": 6,
+            "x": 318.64801,
+            "y": 527.843384
+          },
+          {
+            "index": 13,
+            "intensity": 2370,
+            "star_id": 0,
+            "votes": 0,
+            "x": 558.461182,
+            "y": 783.740479
+          },
+          {
+            "index": 14,
+            "intensity": 2057,
+            "star_id": 0,
+            "votes": 0,
+            "x": 793.447754,
+            "y": 562.103088
+          },
+          {
+            "index": 15,
+            "intensity": 2642,
+            "star_id": 0,
+            "votes": 0,
+            "x": 355.038605,
+            "y": 681.496582
+          },
+          {
+            "index": 16,
+            "intensity": 2649,
+            "star_id": 0,
+            "votes": 0,
+            "x": 416.123077,
+            "y": 720.994324
+          },
+          {
+            "index": 17,
+            "intensity": 2566,
+            "star_id": 0,
+            "votes": 0,
+            "x": 402.601715,
+            "y": 411.815674
+          },
+          {
+            "index": 18,
+            "intensity": 4370,
+            "star_id": 73334,
+            "votes": 5,
+            "x": 701.878052,
+            "y": 706.041626
+          },
+          {
+            "index": 19,
+            "intensity": 2093,
+            "star_id": 0,
+            "votes": 0,
+            "x": 346.741028,
+            "y": 609.56427
+          },
+          {
+            "index": 20,
+            "intensity": 4015,
+            "star_id": 71536,
+            "votes": 5,
+            "x": 418.587311,
+            "y": 734.201965
+          },
+          {
+            "index": 21,
+            "intensity": 2018,
+            "star_id": 0,
+            "votes": 0,
+            "x": 269.635773,
+            "y": 594.24231
+          },
+          {
+            "index": 22,
+            "intensity": 2033,
+            "star_id": 0,
+            "votes": 0,
+            "x": 750.271545,
+            "y": 472.577972
+          },
+          {
+            "index": 23,
+            "intensity": 3508,
+            "star_id": 47854,
+            "votes": 6,
+            "x": 490.739441,
+            "y": 775.199524
+          },
+          {
+            "index": 24,
+            "intensity": 2048,
+            "star_id": 0,
+            "votes": 0,
+            "x": 558.495117,
+            "y": 383.518066
+          },
+          {
+            "index": 25,
+            "intensity": 4130,
+            "star_id": 93085,
+            "votes": 5,
+            "x": 342.946716,
+            "y": 570.682556
+          },
+          {
+            "index": 26,
+            "intensity": 3069,
+            "star_id": 50371,
+            "votes": 4,
+            "x": 346.869995,
+            "y": 483.53894
+          },
+          {
+            "index": 27,
+            "intensity": 2343,
+            "star_id": 0,
+            "votes": 0,
+            "x": 414.494659,
+            "y": 396.980804
+          },
+          {
+            "index": 28,
+            "intensity": 2061,
+            "star_id": 0,
+            "votes": 0,
+            "x": 356.624939,
+            "y": 654.121277
+          },
+          {
+            "index": 29,
+            "intensity": 2585,
+            "star_id": 0,
+            "votes": 0,
+            "x": 604.666138,
+            "y": 786.463074
+          },
+          {
+            "index": 30,
+            "intensity": 2343,
+            "star_id": 0,
+            "votes": 0,
+            "x": 565.445129,
+            "y": 750.968018
+          },
+          {
+            "index": 31,
+            "intensity": 4029,
+            "star_id": 46974,
+            "votes": 7,
+            "x": 630.847839,
+            "y": 371.197083
+          },
+          {
+            "index": 32,
+            "intensity": 2295,
+            "star_id": 0,
+            "votes": 0,
+            "x": 723.663635,
+            "y": 488.408264
+          },
+          {
+            "index": 33,
+            "intensity": 2387,
+            "star_id": 0,
+            "votes": 0,
+            "x": 478.896118,
+            "y": 787.893616
+          },
+          {
+            "index": 34,
+            "intensity": 2458,
+            "star_id": 0,
+            "votes": 0,
+            "x": 685.543152,
+            "y": 762.497131
+          },
+          {
+            "index": 35,
+            "intensity": 3003,
+            "star_id": 43783,
+            "votes": 5,
+            "x": 712.585083,
+            "y": 430.31601
+          },
+          {
+            "index": 36,
+            "intensity": 2121,
+            "star_id": 0,
+            "votes": 0,
+            "x": 399.703918,
+            "y": 745.008972
+          },
+          {
+            "index": 37,
+            "intensity": 3501,
+            "star_id": 84143,
+            "votes": 4,
+            "x": 607.421875,
+            "y": 373.07254
+          },
+          {
+            "index": 38,
+            "intensity": 3441,
+            "star_id": 26311,
+            "votes": 5,
+            "x": 763.223755,
+            "y": 525.928772
+          },
+          {
+            "index": 39,
+            "intensity": 2624,
+            "star_id": 0,
+            "votes": 0,
+            "x": 318.400146,
+            "y": 571.638733
+          },
+          {
+            "index": 40,
+            "intensity": 2470,
+            "star_id": 0,
+            "votes": 0,
+            "x": 694.799622,
+            "y": 427.880157
+          },
+          {
+            "index": 41,
+            "intensity": 2507,
+            "star_id": 0,
+            "votes": 0,
+            "x": 691.100098,
+            "y": 412.896698
+          },
+          {
+            "index": 42,
+            "intensity": 3281,
+            "star_id": 24674,
+            "votes": 6,
+            "x": 592.064026,
+            "y": 855.804321
+          },
+          {
+            "index": 43,
+            "intensity": 2479,
+            "star_id": 0,
+            "votes": 0,
+            "x": 673.161743,
+            "y": 388.691803
+          },
+          {
+            "index": 44,
+            "intensity": 2587,
+            "star_id": 0,
+            "votes": 0,
+            "x": 328.578674,
+            "y": 478.933136
+          },
+          {
+            "index": 45,
+            "intensity": 3595,
+            "star_id": 45080,
+            "votes": 4,
+            "x": 399.044769,
+            "y": 729.907654
+          },
+          {
+            "index": 46,
+            "intensity": 2628,
+            "star_id": 0,
+            "votes": 0,
+            "x": 387.667816,
+            "y": 708.717285
+          },
+          {
+            "index": 47,
+            "intensity": 4309,
+            "star_id": 76552,
+            "votes": 6,
+            "x": 693.149475,
+            "y": 689.788818
+          },
+          {
+            "index": 48,
+            "intensity": 3031,
+            "star_id": 75177,
+            "votes": 6,
+            "x": 744.341797,
+            "y": 655.804993
+          },
+          {
+            "index": 49,
+            "intensity": 2270,
+            "star_id": 0,
+            "votes": 0,
+            "x": 363.477966,
+            "y": 665.062134
+          }
+        ],
+        "preprocessing": "median-to-99.99th-percentile 16-to-8-bit stretch; vertically centered zero-padding to 1024x1024",
+        "reported_matches": 20
+      },
+      "image": "2019-07-29T204726_Alt60_Azi-135_Try1.tiff",
+      "provenance": "ESA tetra3 FLIR Blackfly real-world test frame",
+      "tetra3": {
+        "dec_deg": 28.940573467352813,
+        "fov_deg": 11.4215566101019,
+        "matches": 16,
+        "ra_deg": 240.46407740375525,
+        "reported_extract_ms": 36.68779996223748,
+        "reported_solve_ms": 32.423999975435436,
+        "rmse_arcsec": 5.024352328649261,
+        "roll_deg": 329.04910092283376,
+        "solved": true,
+        "wall_ms": 69.51840000692755
+      }
+    }
+  ],
+  "summary": {
+    "cpp": {
+      "core_static_bytes_including_catalog": 454020,
+      "correct_ids": 53,
+      "false_id_rate": 0.8675,
+      "field_successes": 0,
+      "incorrect_ids": 347,
+      "median_match_ms": 0.2306,
+      "median_pipeline_ms": 1.335,
+      "peak_host_process_bytes": 5955584
+    },
+    "real_images": {
+      "count": 2,
+      "cpp_tetra3_agreed_ids": 0,
+      "cpp_tetra3_disagreed_ids": 40,
+      "tetra3_solved": 2
+    },
+    "synthetic_cases": 20,
+    "tetra3": {
+      "database_array_bytes": 99199640,
+      "false_solves": 0,
+      "field_successes": 19,
+      "median_pointing_error_deg": 0.012856296296242202,
+      "median_wall_ms": 62.83374992199242,
+      "python_rss_after_solver_bytes": 278466560,
+      "python_rss_before_solver_bytes": 177844224
+    }
+  },
+  "synthetic": [
+    {
+      "case": 0,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.1035198410420834,
+        "centroid_us": 838.6,
+        "centroids": 23,
+        "cleaned_centroids": 23,
+        "correct_ids": 0,
+        "false_id_rate": 1.0,
+        "filter_object_bytes": 1864,
+        "filter_us": 0.9,
+        "identification_success": false,
+        "incorrect_ids": 20,
+        "index_us": 21696.2,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 23,
+        "match_us": 275.3,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5931008,
+        "pipeline_ms": 1.1148,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 1014,
+            "star_id": 60823,
+            "votes": 6,
+            "x": 531.813599,
+            "y": 38.880672
+          },
+          {
+            "index": 1,
+            "intensity": 95,
+            "star_id": 0,
+            "votes": 0,
+            "x": 642.663147,
+            "y": 69.873688
+          },
+          {
+            "index": 2,
+            "intensity": 125,
+            "star_id": 66657,
+            "votes": 7,
+            "x": 737.968018,
+            "y": 120.944
+          },
+          {
+            "index": 3,
+            "intensity": 268,
+            "star_id": 53253,
+            "votes": 6,
+            "x": 850.559692,
+            "y": 164.436569
+          },
+          {
+            "index": 4,
+            "intensity": 159,
+            "star_id": 69996,
+            "votes": 8,
+            "x": 469.09433,
+            "y": 207.081757
+          },
+          {
+            "index": 5,
+            "intensity": 101,
+            "star_id": 59747,
+            "votes": 5,
+            "x": 556.039612,
+            "y": 365.683167
+          },
+          {
+            "index": 6,
+            "intensity": 334,
+            "star_id": 21589,
+            "votes": 9,
+            "x": 195.583832,
+            "y": 369.065857
+          },
+          {
+            "index": 7,
+            "intensity": 96,
+            "star_id": 45238,
+            "votes": 5,
+            "x": 747.03125,
+            "y": 372.739594
+          },
+          {
+            "index": 8,
+            "intensity": 602,
+            "star_id": 46974,
+            "votes": 5,
+            "x": 440.77243,
+            "y": 389.122925
+          },
+          {
+            "index": 9,
+            "intensity": 131,
+            "star_id": 51232,
+            "votes": 6,
+            "x": 905.770996,
+            "y": 390.839691
+          },
+          {
+            "index": 10,
+            "intensity": 513,
+            "star_id": 70090,
+            "votes": 6,
+            "x": 277.005859,
+            "y": 491.233917
+          },
+          {
+            "index": 11,
+            "intensity": 103,
+            "star_id": 61084,
+            "votes": 6,
+            "x": 279.368927,
+            "y": 618.883484
+          },
+          {
+            "index": 12,
+            "intensity": 148,
+            "star_id": 72683,
+            "votes": 5,
+            "x": 660.364868,
+            "y": 631.08783
+          },
+          {
+            "index": 13,
+            "intensity": 551,
+            "star_id": 82396,
+            "votes": 4,
+            "x": 685.177856,
+            "y": 634.500916
+          },
+          {
+            "index": 14,
+            "intensity": 193,
+            "star_id": 43023,
+            "votes": 7,
+            "x": 856.502563,
+            "y": 666.533691
+          },
+          {
+            "index": 15,
+            "intensity": 421,
+            "star_id": 42536,
+            "votes": 7,
+            "x": 309.900238,
+            "y": 681.50592
+          },
+          {
+            "index": 16,
+            "intensity": 92,
+            "star_id": 0,
+            "votes": 0,
+            "x": 368.521729,
+            "y": 741.826111
+          },
+          {
+            "index": 17,
+            "intensity": 884,
+            "star_id": 68002,
+            "votes": 6,
+            "x": 374.711548,
+            "y": 770.512451
+          },
+          {
+            "index": 18,
+            "intensity": 558,
+            "star_id": 52154,
+            "votes": 8,
+            "x": 815.494629,
+            "y": 776.894287
+          },
+          {
+            "index": 19,
+            "intensity": 185,
+            "star_id": 45496,
+            "votes": 7,
+            "x": 294.167572,
+            "y": 880.551331
+          },
+          {
+            "index": 20,
+            "intensity": 90,
+            "star_id": 0,
+            "votes": 0,
+            "x": 283.511108,
+            "y": 903.922241
+          },
+          {
+            "index": 21,
+            "intensity": 113,
+            "star_id": 22449,
+            "votes": 5,
+            "x": 838.327454,
+            "y": 905.02655
+          },
+          {
+            "index": 22,
+            "intensity": 152,
+            "star_id": 57363,
+            "votes": 6,
+            "x": 490.677643,
+            "y": 946.842102
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 16,
+        "pointing_error_deg": 0.0122322780890484,
+        "reported_extract_ms": 61.80940009653568,
+        "reported_solve_ms": 2.8427999932318926,
+        "solved": true,
+        "wall_ms": 65.24719996377826
+      },
+      "truth": {
+        "dec_deg": 8.334156410062455,
+        "ra_deg": 29.055491010738045,
+        "roll_deg": 42.621327714661646,
+        "visible_stars": 23
+      }
+    },
+    {
+      "case": 1,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.09621133683963423,
+        "centroid_us": 1635.4,
+        "centroids": 31,
+        "cleaned_centroids": 31,
+        "correct_ids": 0,
+        "false_id_rate": 1.0,
+        "filter_object_bytes": 1864,
+        "filter_us": 1.1,
+        "identification_success": false,
+        "incorrect_ids": 20,
+        "index_us": 21906.3,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 31,
+        "match_us": 437.6,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5894144,
+        "pipeline_ms": 2.0741,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 225,
+            "star_id": 59196,
+            "votes": 7,
+            "x": 263.600006,
+            "y": 97.919998
+          },
+          {
+            "index": 1,
+            "intensity": 211,
+            "star_id": 65936,
+            "votes": 8,
+            "x": 643.682434,
+            "y": 148.43602
+          },
+          {
+            "index": 2,
+            "intensity": 191,
+            "star_id": 22797,
+            "votes": 5,
+            "x": 316.654449,
+            "y": 159.612564
+          },
+          {
+            "index": 3,
+            "intensity": 193,
+            "star_id": 61585,
+            "votes": 5,
+            "x": 253.088089,
+            "y": 161.24353
+          },
+          {
+            "index": 4,
+            "intensity": 97,
+            "star_id": 0,
+            "votes": 0,
+            "x": 915.144348,
+            "y": 244.360825
+          },
+          {
+            "index": 5,
+            "intensity": 285,
+            "star_id": 68523,
+            "votes": 5,
+            "x": 415.259644,
+            "y": 271.866669
+          },
+          {
+            "index": 6,
+            "intensity": 227,
+            "star_id": 77952,
+            "votes": 6,
+            "x": 658.048462,
+            "y": 283.251099
+          },
+          {
+            "index": 7,
+            "intensity": 886,
+            "star_id": 34088,
+            "votes": 6,
+            "x": 678.646729,
+            "y": 286.616241
+          },
+          {
+            "index": 8,
+            "intensity": 127,
+            "star_id": 0,
+            "votes": 0,
+            "x": 911.511841,
+            "y": 299.921265
+          },
+          {
+            "index": 9,
+            "intensity": 893,
+            "star_id": 21421,
+            "votes": 5,
+            "x": 403.251953,
+            "y": 303.181396
+          },
+          {
+            "index": 10,
+            "intensity": 316,
+            "star_id": 51232,
+            "votes": 6,
+            "x": 399.177216,
+            "y": 315.569611
+          },
+          {
+            "index": 11,
+            "intensity": 128,
+            "star_id": 78918,
+            "votes": 5,
+            "x": 484.171875,
+            "y": 318.851562
+          },
+          {
+            "index": 12,
+            "intensity": 292,
+            "star_id": 45556,
+            "votes": 6,
+            "x": 894.441772,
+            "y": 328.33905
+          },
+          {
+            "index": 13,
+            "intensity": 104,
+            "star_id": 0,
+            "votes": 0,
+            "x": 836.673096,
+            "y": 350.932678
+          },
+          {
+            "index": 14,
+            "intensity": 106,
+            "star_id": 0,
+            "votes": 0,
+            "x": 995.68866,
+            "y": 351.92453
+          },
+          {
+            "index": 15,
+            "intensity": 165,
+            "star_id": 39953,
+            "votes": 6,
+            "x": 157.84848,
+            "y": 437.678802
+          },
+          {
+            "index": 16,
+            "intensity": 120,
+            "star_id": 0,
+            "votes": 0,
+            "x": 219.508331,
+            "y": 477.941681
+          },
+          {
+            "index": 17,
+            "intensity": 172,
+            "star_id": 80112,
+            "votes": 6,
+            "x": 479.401154,
+            "y": 570.889526
+          },
+          {
+            "index": 18,
+            "intensity": 109,
+            "star_id": 0,
+            "votes": 0,
+            "x": 978.697266,
+            "y": 584.0
+          },
+          {
+            "index": 19,
+            "intensity": 96,
+            "star_id": 0,
+            "votes": 0,
+            "x": 354.25,
+            "y": 602.979187
+          },
+          {
+            "index": 20,
+            "intensity": 332,
+            "star_id": 66657,
+            "votes": 7,
+            "x": 798.7771,
+            "y": 655.21991
+          },
+          {
+            "index": 21,
+            "intensity": 113,
+            "star_id": 0,
+            "votes": 0,
+            "x": 522.336304,
+            "y": 658.876099
+          },
+          {
+            "index": 22,
+            "intensity": 238,
+            "star_id": 68002,
+            "votes": 5,
+            "x": 503.025208,
+            "y": 694.878174
+          },
+          {
+            "index": 23,
+            "intensity": 588,
+            "star_id": 52419,
+            "votes": 7,
+            "x": 98.877548,
+            "y": 723.294189
+          },
+          {
+            "index": 24,
+            "intensity": 103,
+            "star_id": 0,
+            "votes": 0,
+            "x": 271.669891,
+            "y": 767.077698
+          },
+          {
+            "index": 25,
+            "intensity": 338,
+            "star_id": 30883,
+            "votes": 5,
+            "x": 196.16864,
+            "y": 774.84613
+          },
+          {
+            "index": 26,
+            "intensity": 140,
+            "star_id": 45496,
+            "votes": 7,
+            "x": 320.014282,
+            "y": 780.085693
+          },
+          {
+            "index": 27,
+            "intensity": 85,
+            "star_id": 0,
+            "votes": 0,
+            "x": 508.835297,
+            "y": 904.494141
+          },
+          {
+            "index": 28,
+            "intensity": 231,
+            "star_id": 60718,
+            "votes": 7,
+            "x": 670.632019,
+            "y": 982.199158
+          },
+          {
+            "index": 29,
+            "intensity": 100,
+            "star_id": 0,
+            "votes": 0,
+            "x": 365.119995,
+            "y": 989.309998
+          },
+          {
+            "index": 30,
+            "intensity": 340,
+            "star_id": 76440,
+            "votes": 8,
+            "x": 453.644104,
+            "y": 998.200012
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 23,
+        "pointing_error_deg": 0.012915836051766036,
+        "reported_extract_ms": 58.244100073352456,
+        "reported_solve_ms": 4.076899960637093,
+        "solved": true,
+        "wall_ms": 62.931699911132455
+      },
+      "truth": {
+        "dec_deg": 74.01375168553655,
+        "ra_deg": 182.19278018218742,
+        "roll_deg": 179.88710183925244,
+        "visible_stars": 32
+      }
+    },
+    {
+      "case": 2,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.1028834782384965,
+        "centroid_us": 1829.3,
+        "centroids": 23,
+        "cleaned_centroids": 23,
+        "correct_ids": 0,
+        "false_id_rate": 1.0,
+        "filter_object_bytes": 1864,
+        "filter_us": 0.9,
+        "identification_success": false,
+        "incorrect_ids": 20,
+        "index_us": 21120.4,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 23,
+        "match_us": 233.7,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5894144,
+        "pipeline_ms": 2.0639000000000003,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 138,
+            "star_id": 47854,
+            "votes": 10,
+            "x": 484.065216,
+            "y": 90.9058
+          },
+          {
+            "index": 1,
+            "intensity": 434,
+            "star_id": 80000,
+            "votes": 7,
+            "x": 334.753448,
+            "y": 100.746544
+          },
+          {
+            "index": 2,
+            "intensity": 477,
+            "star_id": 66657,
+            "votes": 7,
+            "x": 288.517822,
+            "y": 142.268341
+          },
+          {
+            "index": 3,
+            "intensity": 114,
+            "star_id": 60009,
+            "votes": 7,
+            "x": 369.850891,
+            "y": 189.35965
+          },
+          {
+            "index": 4,
+            "intensity": 101,
+            "star_id": 51232,
+            "votes": 6,
+            "x": 499.158417,
+            "y": 190.35643
+          },
+          {
+            "index": 5,
+            "intensity": 942,
+            "star_id": 46651,
+            "votes": 6,
+            "x": 329.228241,
+            "y": 274.614655
+          },
+          {
+            "index": 6,
+            "intensity": 91,
+            "star_id": 0,
+            "votes": 0,
+            "x": 326.494507,
+            "y": 285.835175
+          },
+          {
+            "index": 7,
+            "intensity": 157,
+            "star_id": 57363,
+            "votes": 7,
+            "x": 363.331207,
+            "y": 374.821655
+          },
+          {
+            "index": 8,
+            "intensity": 180,
+            "star_id": 42568,
+            "votes": 7,
+            "x": 73.900002,
+            "y": 377.077789
+          },
+          {
+            "index": 9,
+            "intensity": 218,
+            "star_id": 58758,
+            "votes": 7,
+            "x": 55.568806,
+            "y": 535.078003
+          },
+          {
+            "index": 10,
+            "intensity": 331,
+            "star_id": 61084,
+            "votes": 6,
+            "x": 408.314209,
+            "y": 546.622375
+          },
+          {
+            "index": 11,
+            "intensity": 345,
+            "star_id": 63003,
+            "votes": 6,
+            "x": 181.588409,
+            "y": 590.791321
+          },
+          {
+            "index": 12,
+            "intensity": 223,
+            "star_id": 89931,
+            "votes": 8,
+            "x": 860.538147,
+            "y": 591.44397
+          },
+          {
+            "index": 13,
+            "intensity": 99,
+            "star_id": 0,
+            "votes": 0,
+            "x": 191.979797,
+            "y": 598.747498
+          },
+          {
+            "index": 14,
+            "intensity": 112,
+            "star_id": 45080,
+            "votes": 8,
+            "x": 672.125,
+            "y": 663.830383
+          },
+          {
+            "index": 15,
+            "intensity": 261,
+            "star_id": 26311,
+            "votes": 10,
+            "x": 224.731796,
+            "y": 718.180054
+          },
+          {
+            "index": 16,
+            "intensity": 288,
+            "star_id": 71681,
+            "votes": 8,
+            "x": 957.309021,
+            "y": 733.677063
+          },
+          {
+            "index": 17,
+            "intensity": 517,
+            "star_id": 67464,
+            "votes": 6,
+            "x": 749.439087,
+            "y": 773.75824
+          },
+          {
+            "index": 18,
+            "intensity": 983,
+            "star_id": 43023,
+            "votes": 5,
+            "x": 547.35199,
+            "y": 839.623596
+          },
+          {
+            "index": 19,
+            "intensity": 130,
+            "star_id": 76600,
+            "votes": 7,
+            "x": 767.146179,
+            "y": 888.192322
+          },
+          {
+            "index": 20,
+            "intensity": 136,
+            "star_id": 72683,
+            "votes": 8,
+            "x": 553.977966,
+            "y": 900.529419
+          },
+          {
+            "index": 21,
+            "intensity": 166,
+            "star_id": 45556,
+            "votes": 7,
+            "x": 714.897583,
+            "y": 904.03009
+          },
+          {
+            "index": 22,
+            "intensity": 97,
+            "star_id": 0,
+            "votes": 0,
+            "x": 358.690735,
+            "y": 947.886597
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 15,
+        "pointing_error_deg": 0.012491647701814783,
+        "reported_extract_ms": 74.41449991893023,
+        "reported_solve_ms": 2.835800056345761,
+        "solved": true,
+        "wall_ms": 77.93130003847182
+      },
+      "truth": {
+        "dec_deg": 8.28743934083808,
+        "ra_deg": 222.58664467781907,
+        "roll_deg": 344.7244026276019,
+        "visible_stars": 23
+      }
+    },
+    {
+      "case": 3,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.07447187624712935,
+        "centroid_us": 1152.8,
+        "centroids": 32,
+        "cleaned_centroids": 32,
+        "correct_ids": 0,
+        "false_id_rate": 1.0,
+        "filter_object_bytes": 1864,
+        "filter_us": 1.3,
+        "identification_success": false,
+        "incorrect_ids": 20,
+        "index_us": 22193.3,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 32,
+        "match_us": 406.8,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5922816,
+        "pipeline_ms": 1.5609,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 1074,
+            "star_id": 45101,
+            "votes": 7,
+            "x": 704.325867,
+            "y": 49.256054
+          },
+          {
+            "index": 1,
+            "intensity": 925,
+            "star_id": 47175,
+            "votes": 5,
+            "x": 465.172974,
+            "y": 58.670269
+          },
+          {
+            "index": 2,
+            "intensity": 98,
+            "star_id": 0,
+            "votes": 0,
+            "x": 371.969391,
+            "y": 61.265305
+          },
+          {
+            "index": 3,
+            "intensity": 169,
+            "star_id": 68702,
+            "votes": 8,
+            "x": 336.00592,
+            "y": 65.04734
+          },
+          {
+            "index": 4,
+            "intensity": 110,
+            "star_id": 0,
+            "votes": 0,
+            "x": 870.509094,
+            "y": 194.100006
+          },
+          {
+            "index": 5,
+            "intensity": 120,
+            "star_id": 0,
+            "votes": 0,
+            "x": 952.974976,
+            "y": 254.333328
+          },
+          {
+            "index": 6,
+            "intensity": 347,
+            "star_id": 71352,
+            "votes": 7,
+            "x": 220.331406,
+            "y": 255.250717
+          },
+          {
+            "index": 7,
+            "intensity": 166,
+            "star_id": 59747,
+            "votes": 7,
+            "x": 88.222893,
+            "y": 281.493988
+          },
+          {
+            "index": 8,
+            "intensity": 260,
+            "star_id": 45496,
+            "votes": 5,
+            "x": 265.392303,
+            "y": 302.284607
+          },
+          {
+            "index": 9,
+            "intensity": 134,
+            "star_id": 0,
+            "votes": 0,
+            "x": 686.0224,
+            "y": 330.037323
+          },
+          {
+            "index": 10,
+            "intensity": 123,
+            "star_id": 0,
+            "votes": 0,
+            "x": 255.78862,
+            "y": 360.934967
+          },
+          {
+            "index": 11,
+            "intensity": 320,
+            "star_id": 63003,
+            "votes": 6,
+            "x": 697.196899,
+            "y": 368.40625
+          },
+          {
+            "index": 12,
+            "intensity": 267,
+            "star_id": 78384,
+            "votes": 5,
+            "x": 108.681648,
+            "y": 398.610474
+          },
+          {
+            "index": 13,
+            "intensity": 143,
+            "star_id": 73807,
+            "votes": 5,
+            "x": 212.9021,
+            "y": 404.020966
+          },
+          {
+            "index": 14,
+            "intensity": 94,
+            "star_id": 0,
+            "votes": 0,
+            "x": 855.76593,
+            "y": 407.24469
+          },
+          {
+            "index": 15,
+            "intensity": 155,
+            "star_id": 57439,
+            "votes": 6,
+            "x": 348.877411,
+            "y": 436.316132
+          },
+          {
+            "index": 16,
+            "intensity": 242,
+            "star_id": 80112,
+            "votes": 5,
+            "x": 677.181824,
+            "y": 459.966949
+          },
+          {
+            "index": 17,
+            "intensity": 1525,
+            "star_id": 70090,
+            "votes": 6,
+            "x": 187.687866,
+            "y": 475.42688
+          },
+          {
+            "index": 18,
+            "intensity": 138,
+            "star_id": 66657,
+            "votes": 8,
+            "x": 811.905823,
+            "y": 494.963776
+          },
+          {
+            "index": 19,
+            "intensity": 106,
+            "star_id": 0,
+            "votes": 0,
+            "x": 756.82074,
+            "y": 496.84906
+          },
+          {
+            "index": 20,
+            "intensity": 291,
+            "star_id": 77634,
+            "votes": 7,
+            "x": 841.656372,
+            "y": 508.735382
+          },
+          {
+            "index": 21,
+            "intensity": 1556,
+            "star_id": 50954,
+            "votes": 5,
+            "x": 454.631104,
+            "y": 536.028931
+          },
+          {
+            "index": 22,
+            "intensity": 83,
+            "star_id": 0,
+            "votes": 0,
+            "x": 869.686768,
+            "y": 563.457825
+          },
+          {
+            "index": 23,
+            "intensity": 130,
+            "star_id": 0,
+            "votes": 0,
+            "x": 136.91539,
+            "y": 641.815369
+          },
+          {
+            "index": 24,
+            "intensity": 119,
+            "star_id": 0,
+            "votes": 0,
+            "x": 436.890747,
+            "y": 687.13446
+          },
+          {
+            "index": 25,
+            "intensity": 138,
+            "star_id": 0,
+            "votes": 0,
+            "x": 76.898552,
+            "y": 704.471008
+          },
+          {
+            "index": 26,
+            "intensity": 178,
+            "star_id": 53253,
+            "votes": 9,
+            "x": 400.21347,
+            "y": 704.522461
+          },
+          {
+            "index": 27,
+            "intensity": 907,
+            "star_id": 45941,
+            "votes": 6,
+            "x": 820.004395,
+            "y": 726.746399
+          },
+          {
+            "index": 28,
+            "intensity": 243,
+            "star_id": 75141,
+            "votes": 6,
+            "x": 818.526733,
+            "y": 747.637878
+          },
+          {
+            "index": 29,
+            "intensity": 213,
+            "star_id": 68245,
+            "votes": 7,
+            "x": 685.615051,
+            "y": 773.694824
+          },
+          {
+            "index": 30,
+            "intensity": 225,
+            "star_id": 50371,
+            "votes": 8,
+            "x": 116.835556,
+            "y": 792.791138
+          },
+          {
+            "index": 31,
+            "intensity": 110,
+            "star_id": 0,
+            "votes": 0,
+            "x": 166.972733,
+            "y": 857.299988
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 22,
+        "pointing_error_deg": 0.01356748894230536,
+        "reported_extract_ms": 56.611199979670346,
+        "reported_solve_ms": 1.67859997600317,
+        "solved": true,
+        "wall_ms": 58.84369998238981
+      },
+      "truth": {
+        "dec_deg": 62.77525850581742,
+        "ra_deg": 164.48288746878097,
+        "roll_deg": 101.27983187538057,
+        "visible_stars": 32
+      }
+    },
+    {
+      "case": 4,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.08565409549624375,
+        "centroid_us": 1340.8,
+        "centroids": 20,
+        "cleaned_centroids": 20,
+        "correct_ids": 2,
+        "false_id_rate": 0.9,
+        "filter_object_bytes": 1864,
+        "filter_us": 0.9,
+        "identification_success": false,
+        "incorrect_ids": 18,
+        "index_us": 21158.9,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 20,
+        "match_us": 376.5,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5931008,
+        "pipeline_ms": 1.7182,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 368,
+            "star_id": 78384,
+            "votes": 9,
+            "x": 615.855957,
+            "y": 25.586956
+          },
+          {
+            "index": 1,
+            "intensity": 571,
+            "star_id": 45238,
+            "votes": 7,
+            "x": 681.311707,
+            "y": 150.737305
+          },
+          {
+            "index": 2,
+            "intensity": 126,
+            "star_id": 47854,
+            "votes": 7,
+            "x": 876.047607,
+            "y": 204.5
+          },
+          {
+            "index": 3,
+            "intensity": 160,
+            "star_id": 50371,
+            "votes": 7,
+            "x": 106.856247,
+            "y": 217.943756
+          },
+          {
+            "index": 4,
+            "intensity": 140,
+            "star_id": 26241,
+            "votes": 7,
+            "x": 396.957153,
+            "y": 217.485718
+          },
+          {
+            "index": 5,
+            "intensity": 1146,
+            "star_id": 57757,
+            "votes": 5,
+            "x": 726.304565,
+            "y": 366.089874
+          },
+          {
+            "index": 6,
+            "intensity": 747,
+            "star_id": 57380,
+            "votes": 5,
+            "x": 974.310547,
+            "y": 413.530121
+          },
+          {
+            "index": 7,
+            "intensity": 216,
+            "star_id": 51232,
+            "votes": 7,
+            "x": 763.458313,
+            "y": 513.425903
+          },
+          {
+            "index": 8,
+            "intensity": 161,
+            "star_id": 51576,
+            "votes": 6,
+            "x": 1013.689453,
+            "y": 561.347839
+          },
+          {
+            "index": 9,
+            "intensity": 101,
+            "star_id": 80763,
+            "votes": 7,
+            "x": 629.990112,
+            "y": 587.336609
+          },
+          {
+            "index": 10,
+            "intensity": 406,
+            "star_id": 50099,
+            "votes": 5,
+            "x": 895.852234,
+            "y": 588.285706
+          },
+          {
+            "index": 11,
+            "intensity": 104,
+            "star_id": 16228,
+            "votes": 5,
+            "x": 458.346161,
+            "y": 632.951904
+          },
+          {
+            "index": 12,
+            "intensity": 851,
+            "star_id": 70576,
+            "votes": 6,
+            "x": 457.249115,
+            "y": 649.648621
+          },
+          {
+            "index": 13,
+            "intensity": 128,
+            "star_id": 25281,
+            "votes": 5,
+            "x": 808.8125,
+            "y": 676.15625
+          },
+          {
+            "index": 14,
+            "intensity": 654,
+            "star_id": 54463,
+            "votes": 8,
+            "x": 971.863892,
+            "y": 684.510681
+          },
+          {
+            "index": 15,
+            "intensity": 101,
+            "star_id": 45101,
+            "votes": 6,
+            "x": 126.178215,
+            "y": 732.633667
+          },
+          {
+            "index": 16,
+            "intensity": 300,
+            "star_id": 116584,
+            "votes": 5,
+            "x": 638.09668,
+            "y": 740.606689
+          },
+          {
+            "index": 17,
+            "intensity": 1482,
+            "star_id": 53253,
+            "votes": 6,
+            "x": 302.660583,
+            "y": 884.784058
+          },
+          {
+            "index": 18,
+            "intensity": 113,
+            "star_id": 84143,
+            "votes": 7,
+            "x": 285.893799,
+            "y": 905.150452
+          },
+          {
+            "index": 19,
+            "intensity": 134,
+            "star_id": 48774,
+            "votes": 7,
+            "x": 473.850739,
+            "y": 918.216431
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 16,
+        "pointing_error_deg": 0.012554666798716207,
+        "reported_extract_ms": 69.45660000201315,
+        "reported_solve_ms": 2.443999983370304,
+        "solved": true,
+        "wall_ms": 72.37489998806268
+      },
+      "truth": {
+        "dec_deg": -0.8394125110621009,
+        "ra_deg": 182.06017050717114,
+        "roll_deg": 115.05328063497599,
+        "visible_stars": 20
+      }
+    },
+    {
+      "case": 5,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.0983276944876514,
+        "centroid_us": 911.6,
+        "centroids": 35,
+        "cleaned_centroids": 35,
+        "correct_ids": 0,
+        "false_id_rate": 1.0,
+        "filter_object_bytes": 1864,
+        "filter_us": 0.7,
+        "identification_success": false,
+        "incorrect_ids": 20,
+        "index_us": 23457.5,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 35,
+        "match_us": 187.0,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5898240,
+        "pipeline_ms": 1.0993000000000002,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 154,
+            "star_id": 0,
+            "votes": 0,
+            "x": 442.629883,
+            "y": 14.902597
+          },
+          {
+            "index": 1,
+            "intensity": 82,
+            "star_id": 0,
+            "votes": 0,
+            "x": 577.46344,
+            "y": 24.658537
+          },
+          {
+            "index": 2,
+            "intensity": 649,
+            "star_id": 76440,
+            "votes": 8,
+            "x": 358.098602,
+            "y": 79.258858
+          },
+          {
+            "index": 3,
+            "intensity": 376,
+            "star_id": 7607,
+            "votes": 9,
+            "x": 508.25531,
+            "y": 92.803192
+          },
+          {
+            "index": 4,
+            "intensity": 172,
+            "star_id": 84405,
+            "votes": 8,
+            "x": 512.988342,
+            "y": 111.761627
+          },
+          {
+            "index": 5,
+            "intensity": 104,
+            "star_id": 0,
+            "votes": 0,
+            "x": 503.692322,
+            "y": 123.105766
+          },
+          {
+            "index": 6,
+            "intensity": 166,
+            "star_id": 0,
+            "votes": 0,
+            "x": 740.716858,
+            "y": 191.210846
+          },
+          {
+            "index": 7,
+            "intensity": 108,
+            "star_id": 0,
+            "votes": 0,
+            "x": 328.898163,
+            "y": 251.620377
+          },
+          {
+            "index": 8,
+            "intensity": 473,
+            "star_id": 71860,
+            "votes": 5,
+            "x": 439.03595,
+            "y": 289.828766
+          },
+          {
+            "index": 9,
+            "intensity": 190,
+            "star_id": 75177,
+            "votes": 6,
+            "x": 607.06842,
+            "y": 359.06842
+          },
+          {
+            "index": 10,
+            "intensity": 125,
+            "star_id": 0,
+            "votes": 0,
+            "x": 722.903992,
+            "y": 376.519989
+          },
+          {
+            "index": 11,
+            "intensity": 260,
+            "star_id": 77952,
+            "votes": 8,
+            "x": 141.307693,
+            "y": 384.173065
+          },
+          {
+            "index": 12,
+            "intensity": 823,
+            "star_id": 68002,
+            "votes": 7,
+            "x": 906.825012,
+            "y": 458.675568
+          },
+          {
+            "index": 13,
+            "intensity": 201,
+            "star_id": 70090,
+            "votes": 8,
+            "x": 989.980103,
+            "y": 471.995026
+          },
+          {
+            "index": 14,
+            "intensity": 144,
+            "star_id": 0,
+            "votes": 0,
+            "x": 201.798615,
+            "y": 539.166687
+          },
+          {
+            "index": 15,
+            "intensity": 1595,
+            "star_id": 66657,
+            "votes": 6,
+            "x": 1019.062683,
+            "y": 544.117859
+          },
+          {
+            "index": 16,
+            "intensity": 157,
+            "star_id": 0,
+            "votes": 0,
+            "x": 699.012756,
+            "y": 552.764343
+          },
+          {
+            "index": 17,
+            "intensity": 113,
+            "star_id": 0,
+            "votes": 0,
+            "x": 631.778748,
+            "y": 570.168152
+          },
+          {
+            "index": 18,
+            "intensity": 209,
+            "star_id": 67464,
+            "votes": 5,
+            "x": 174.712921,
+            "y": 573.062195
+          },
+          {
+            "index": 19,
+            "intensity": 362,
+            "star_id": 60718,
+            "votes": 7,
+            "x": 203.743088,
+            "y": 607.588379
+          },
+          {
+            "index": 20,
+            "intensity": 188,
+            "star_id": 67472,
+            "votes": 4,
+            "x": 397.962769,
+            "y": 616.718079
+          },
+          {
+            "index": 21,
+            "intensity": 156,
+            "star_id": 0,
+            "votes": 0,
+            "x": 633.935913,
+            "y": 623.358948
+          },
+          {
+            "index": 22,
+            "intensity": 462,
+            "star_id": 62434,
+            "votes": 6,
+            "x": 367.043304,
+            "y": 629.13855
+          },
+          {
+            "index": 23,
+            "intensity": 192,
+            "star_id": 68245,
+            "votes": 5,
+            "x": 430.166656,
+            "y": 662.052063
+          },
+          {
+            "index": 24,
+            "intensity": 107,
+            "star_id": 0,
+            "votes": 0,
+            "x": 502.691589,
+            "y": 677.046753
+          },
+          {
+            "index": 25,
+            "intensity": 1520,
+            "star_id": 74395,
+            "votes": 6,
+            "x": 455.092773,
+            "y": 774.813843
+          },
+          {
+            "index": 26,
+            "intensity": 494,
+            "star_id": 43783,
+            "votes": 6,
+            "x": 876.639648,
+            "y": 780.6073
+          },
+          {
+            "index": 27,
+            "intensity": 908,
+            "star_id": 50371,
+            "votes": 5,
+            "x": 330.346924,
+            "y": 783.617859
+          },
+          {
+            "index": 28,
+            "intensity": 91,
+            "star_id": 0,
+            "votes": 0,
+            "x": 402.857147,
+            "y": 796.505493
+          },
+          {
+            "index": 29,
+            "intensity": 88,
+            "star_id": 0,
+            "votes": 0,
+            "x": 435.5,
+            "y": 834.181824
+          },
+          {
+            "index": 30,
+            "intensity": 426,
+            "star_id": 52419,
+            "votes": 7,
+            "x": 228.821594,
+            "y": 896.823914
+          },
+          {
+            "index": 31,
+            "intensity": 99,
+            "star_id": 0,
+            "votes": 0,
+            "x": 464.353546,
+            "y": 906.919189
+          },
+          {
+            "index": 32,
+            "intensity": 186,
+            "star_id": 76600,
+            "votes": 7,
+            "x": 677.741943,
+            "y": 947.026855
+          },
+          {
+            "index": 33,
+            "intensity": 102,
+            "star_id": 0,
+            "votes": 0,
+            "x": 535.029419,
+            "y": 999.362732
+          },
+          {
+            "index": 34,
+            "intensity": 237,
+            "star_id": 76552,
+            "votes": 8,
+            "x": 523.430359,
+            "y": 1018.362854
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 24,
+        "pointing_error_deg": 0.011984205165739318,
+        "reported_extract_ms": 54.37929998151958,
+        "reported_solve_ms": 7.833399926312268,
+        "solved": true,
+        "wall_ms": 62.60339997243136
+      },
+      "truth": {
+        "dec_deg": 33.6984589196375,
+        "ra_deg": 146.59742015700076,
+        "roll_deg": 272.9108378509373,
+        "visible_stars": 35
+      }
+    },
+    {
+      "case": 6,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.23226443144173606,
+        "centroid_us": 825.7,
+        "centroids": 50,
+        "cleaned_centroids": 50,
+        "correct_ids": 10,
+        "false_id_rate": 0.5,
+        "filter_object_bytes": 1864,
+        "filter_us": 0.6,
+        "identification_success": false,
+        "incorrect_ids": 10,
+        "index_us": 22304.6,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 50,
+        "match_us": 223.8,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5922816,
+        "pipeline_ms": 1.0501,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 330,
+            "star_id": 82396,
+            "votes": 6,
+            "x": 802.366638,
+            "y": 133.600006
+          },
+          {
+            "index": 1,
+            "intensity": 119,
+            "star_id": 0,
+            "votes": 0,
+            "x": 688.495789,
+            "y": 924.075623
+          },
+          {
+            "index": 2,
+            "intensity": 255,
+            "star_id": 53253,
+            "votes": 10,
+            "x": 708.901978,
+            "y": 155.196075
+          },
+          {
+            "index": 3,
+            "intensity": 229,
+            "star_id": 0,
+            "votes": 0,
+            "x": 733.759827,
+            "y": 167.375549
+          },
+          {
+            "index": 4,
+            "intensity": 135,
+            "star_id": 0,
+            "votes": 0,
+            "x": 472.792603,
+            "y": 200.214813
+          },
+          {
+            "index": 5,
+            "intensity": 169,
+            "star_id": 0,
+            "votes": 0,
+            "x": 661.088745,
+            "y": 979.00592
+          },
+          {
+            "index": 6,
+            "intensity": 113,
+            "star_id": 0,
+            "votes": 0,
+            "x": 237.805313,
+            "y": 225.796463
+          },
+          {
+            "index": 7,
+            "intensity": 163,
+            "star_id": 0,
+            "votes": 0,
+            "x": 179.957062,
+            "y": 335.834351
+          },
+          {
+            "index": 8,
+            "intensity": 167,
+            "star_id": 0,
+            "votes": 0,
+            "x": 769.125732,
+            "y": 350.682648
+          },
+          {
+            "index": 9,
+            "intensity": 1604,
+            "star_id": 18246,
+            "votes": 9,
+            "x": 612.002502,
+            "y": 819.230042
+          },
+          {
+            "index": 10,
+            "intensity": 148,
+            "star_id": 0,
+            "votes": 0,
+            "x": 376.601349,
+            "y": 401.898651
+          },
+          {
+            "index": 11,
+            "intensity": 174,
+            "star_id": 0,
+            "votes": 0,
+            "x": 487.057465,
+            "y": 402.563232
+          },
+          {
+            "index": 12,
+            "intensity": 642,
+            "star_id": 17608,
+            "votes": 9,
+            "x": 519.520264,
+            "y": 416.817749
+          },
+          {
+            "index": 13,
+            "intensity": 1007,
+            "star_id": 17499,
+            "votes": 11,
+            "x": 538.273071,
+            "y": 417.442902
+          },
+          {
+            "index": 14,
+            "intensity": 117,
+            "star_id": 0,
+            "votes": 0,
+            "x": 946.923096,
+            "y": 419.316254
+          },
+          {
+            "index": 15,
+            "intensity": 321,
+            "star_id": 87261,
+            "votes": 5,
+            "x": 116.218071,
+            "y": 424.398743
+          },
+          {
+            "index": 16,
+            "intensity": 245,
+            "star_id": 33018,
+            "votes": 5,
+            "x": 683.171448,
+            "y": 854.183655
+          },
+          {
+            "index": 17,
+            "intensity": 530,
+            "star_id": 73807,
+            "votes": 5,
+            "x": 284.875458,
+            "y": 424.469818
+          },
+          {
+            "index": 18,
+            "intensity": 181,
+            "star_id": 0,
+            "votes": 0,
+            "x": 542.889526,
+            "y": 425.20993
+          },
+          {
+            "index": 19,
+            "intensity": 1495,
+            "star_id": 17702,
+            "votes": 10,
+            "x": 510.650848,
+            "y": 429.668213
+          },
+          {
+            "index": 20,
+            "intensity": 845,
+            "star_id": 17573,
+            "votes": 9,
+            "x": 533.633118,
+            "y": 433.702972
+          },
+          {
+            "index": 21,
+            "intensity": 570,
+            "star_id": 17531,
+            "votes": 9,
+            "x": 542.298218,
+            "y": 435.389465
+          },
+          {
+            "index": 22,
+            "intensity": 1339,
+            "star_id": 17847,
+            "votes": 11,
+            "x": 492.218079,
+            "y": 436.348755
+          },
+          {
+            "index": 23,
+            "intensity": 128,
+            "star_id": 0,
+            "votes": 0,
+            "x": 536.835938,
+            "y": 442.835938
+          },
+          {
+            "index": 24,
+            "intensity": 226,
+            "star_id": 0,
+            "votes": 0,
+            "x": 292.566376,
+            "y": 961.645996
+          },
+          {
+            "index": 25,
+            "intensity": 145,
+            "star_id": 0,
+            "votes": 0,
+            "x": 550.641357,
+            "y": 452.179321
+          },
+          {
+            "index": 26,
+            "intensity": 176,
+            "star_id": 0,
+            "votes": 0,
+            "x": 106.767044,
+            "y": 461.988647
+          },
+          {
+            "index": 27,
+            "intensity": 309,
+            "star_id": 61199,
+            "votes": 6,
+            "x": 771.611633,
+            "y": 863.401306
+          },
+          {
+            "index": 28,
+            "intensity": 136,
+            "star_id": 0,
+            "votes": 0,
+            "x": 128.485291,
+            "y": 475.941162
+          },
+          {
+            "index": 29,
+            "intensity": 107,
+            "star_id": 0,
+            "votes": 0,
+            "x": 59.140186,
+            "y": 477.906555
+          },
+          {
+            "index": 30,
+            "intensity": 165,
+            "star_id": 0,
+            "votes": 0,
+            "x": 847.218201,
+            "y": 477.533325
+          },
+          {
+            "index": 31,
+            "intensity": 198,
+            "star_id": 0,
+            "votes": 0,
+            "x": 120.196968,
+            "y": 491.479797
+          },
+          {
+            "index": 32,
+            "intensity": 121,
+            "star_id": 0,
+            "votes": 0,
+            "x": 1008.305786,
+            "y": 496.049591
+          },
+          {
+            "index": 33,
+            "intensity": 228,
+            "star_id": 0,
+            "votes": 0,
+            "x": 512.837708,
+            "y": 511.184204
+          },
+          {
+            "index": 34,
+            "intensity": 176,
+            "star_id": 0,
+            "votes": 0,
+            "x": 334.721588,
+            "y": 514.681824
+          },
+          {
+            "index": 35,
+            "intensity": 134,
+            "star_id": 0,
+            "votes": 0,
+            "x": 27.634329,
+            "y": 532.208984
+          },
+          {
+            "index": 36,
+            "intensity": 501,
+            "star_id": 73334,
+            "votes": 8,
+            "x": 894.457092,
+            "y": 538.043884
+          },
+          {
+            "index": 37,
+            "intensity": 860,
+            "star_id": 20635,
+            "votes": 11,
+            "x": 71.619766,
+            "y": 546.383728
+          },
+          {
+            "index": 38,
+            "intensity": 591,
+            "star_id": 20711,
+            "votes": 8,
+            "x": 75.478851,
+            "y": 576.098145
+          },
+          {
+            "index": 39,
+            "intensity": 172,
+            "star_id": 0,
+            "votes": 0,
+            "x": 69.784882,
+            "y": 589.970947
+          },
+          {
+            "index": 40,
+            "intensity": 142,
+            "star_id": 0,
+            "votes": 0,
+            "x": 975.190125,
+            "y": 589.852112
+          },
+          {
+            "index": 41,
+            "intensity": 191,
+            "star_id": 0,
+            "votes": 0,
+            "x": 323.214661,
+            "y": 655.979065
+          },
+          {
+            "index": 42,
+            "intensity": 132,
+            "star_id": 0,
+            "votes": 0,
+            "x": 489.204559,
+            "y": 979.833313
+          },
+          {
+            "index": 43,
+            "intensity": 201,
+            "star_id": 0,
+            "votes": 0,
+            "x": 183.547256,
+            "y": 681.293518
+          },
+          {
+            "index": 44,
+            "intensity": 247,
+            "star_id": 56561,
+            "votes": 6,
+            "x": 391.825897,
+            "y": 684.643738
+          },
+          {
+            "index": 45,
+            "intensity": 295,
+            "star_id": 42913,
+            "votes": 5,
+            "x": 248.152542,
+            "y": 746.247437
+          },
+          {
+            "index": 46,
+            "intensity": 241,
+            "star_id": 42536,
+            "votes": 5,
+            "x": 420.203308,
+            "y": 750.257263
+          },
+          {
+            "index": 47,
+            "intensity": 132,
+            "star_id": 0,
+            "votes": 0,
+            "x": 939.030273,
+            "y": 768.939392
+          },
+          {
+            "index": 48,
+            "intensity": 883,
+            "star_id": 17448,
+            "votes": 11,
+            "x": 716.808594,
+            "y": 793.159668
+          },
+          {
+            "index": 49,
+            "intensity": 137,
+            "star_id": 0,
+            "votes": 0,
+            "x": 906.021912,
+            "y": 797.11676
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": null,
+        "pointing_error_deg": null,
+        "reported_extract_ms": 62.41580005735159,
+        "reported_solve_ms": 40.68750003352761,
+        "solved": false,
+        "wall_ms": 103.59149996656924
+      },
+      "truth": {
+        "dec_deg": 25.586774617016832,
+        "ra_deg": 57.60240363785388,
+        "roll_deg": 154.80749955535495,
+        "visible_stars": 59
+      }
+    },
+    {
+      "case": 7,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.0906704201350323,
+        "centroid_us": 849.6,
+        "centroids": 30,
+        "cleaned_centroids": 30,
+        "correct_ids": 0,
+        "false_id_rate": 1.0,
+        "filter_object_bytes": 1864,
+        "filter_us": 0.6,
+        "identification_success": false,
+        "incorrect_ids": 20,
+        "index_us": 21161.9,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 30,
+        "match_us": 183.6,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5943296,
+        "pipeline_ms": 1.0338,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 101,
+            "star_id": 0,
+            "votes": 0,
+            "x": 724.247498,
+            "y": 108.0
+          },
+          {
+            "index": 1,
+            "intensity": 290,
+            "star_id": 78384,
+            "votes": 6,
+            "x": 638.234497,
+            "y": 134.634476
+          },
+          {
+            "index": 2,
+            "intensity": 272,
+            "star_id": 67464,
+            "votes": 5,
+            "x": 280.488983,
+            "y": 141.584564
+          },
+          {
+            "index": 3,
+            "intensity": 131,
+            "star_id": 80763,
+            "votes": 5,
+            "x": 556.190857,
+            "y": 168.160309
+          },
+          {
+            "index": 4,
+            "intensity": 138,
+            "star_id": 68523,
+            "votes": 6,
+            "x": 632.557983,
+            "y": 186.0
+          },
+          {
+            "index": 5,
+            "intensity": 385,
+            "star_id": 67457,
+            "votes": 8,
+            "x": 717.290894,
+            "y": 185.553253
+          },
+          {
+            "index": 6,
+            "intensity": 390,
+            "star_id": 57363,
+            "votes": 8,
+            "x": 915.50769,
+            "y": 199.27179
+          },
+          {
+            "index": 7,
+            "intensity": 101,
+            "star_id": 0,
+            "votes": 0,
+            "x": 265.009888,
+            "y": 241.64357
+          },
+          {
+            "index": 8,
+            "intensity": 114,
+            "star_id": 0,
+            "votes": 0,
+            "x": 375.061401,
+            "y": 243.833328
+          },
+          {
+            "index": 9,
+            "intensity": 415,
+            "star_id": 76600,
+            "votes": 8,
+            "x": 954.330139,
+            "y": 349.891571
+          },
+          {
+            "index": 10,
+            "intensity": 109,
+            "star_id": 0,
+            "votes": 0,
+            "x": 424.614685,
+            "y": 367.899078
+          },
+          {
+            "index": 11,
+            "intensity": 1520,
+            "star_id": 71865,
+            "votes": 6,
+            "x": 43.120396,
+            "y": 373.828278
+          },
+          {
+            "index": 12,
+            "intensity": 121,
+            "star_id": 0,
+            "votes": 0,
+            "x": 641.016541,
+            "y": 398.289246
+          },
+          {
+            "index": 13,
+            "intensity": 105,
+            "star_id": 0,
+            "votes": 0,
+            "x": 371.828583,
+            "y": 414.628571
+          },
+          {
+            "index": 14,
+            "intensity": 367,
+            "star_id": 36046,
+            "votes": 4,
+            "x": 235.356949,
+            "y": 420.792908
+          },
+          {
+            "index": 15,
+            "intensity": 349,
+            "star_id": 60009,
+            "votes": 9,
+            "x": 113.63324,
+            "y": 447.378235
+          },
+          {
+            "index": 16,
+            "intensity": 117,
+            "star_id": 0,
+            "votes": 0,
+            "x": 582.341858,
+            "y": 452.923065
+          },
+          {
+            "index": 17,
+            "intensity": 175,
+            "star_id": 53253,
+            "votes": 6,
+            "x": 87.480003,
+            "y": 505.188568
+          },
+          {
+            "index": 18,
+            "intensity": 126,
+            "star_id": 71860,
+            "votes": 6,
+            "x": 292.492065,
+            "y": 541.023804
+          },
+          {
+            "index": 19,
+            "intensity": 179,
+            "star_id": 45556,
+            "votes": 7,
+            "x": 116.033516,
+            "y": 590.284912
+          },
+          {
+            "index": 20,
+            "intensity": 151,
+            "star_id": 44511,
+            "votes": 5,
+            "x": 109.662254,
+            "y": 604.11261
+          },
+          {
+            "index": 21,
+            "intensity": 110,
+            "star_id": 0,
+            "votes": 0,
+            "x": 514.054565,
+            "y": 605.718201
+          },
+          {
+            "index": 22,
+            "intensity": 137,
+            "star_id": 43023,
+            "votes": 5,
+            "x": 629.0,
+            "y": 613.072998
+          },
+          {
+            "index": 23,
+            "intensity": 101,
+            "star_id": 0,
+            "votes": 0,
+            "x": 549.990112,
+            "y": 621.702942
+          },
+          {
+            "index": 24,
+            "intensity": 263,
+            "star_id": 42312,
+            "votes": 8,
+            "x": 905.878357,
+            "y": 722.224304
+          },
+          {
+            "index": 25,
+            "intensity": 572,
+            "star_id": 42570,
+            "votes": 7,
+            "x": 437.047211,
+            "y": 791.489502
+          },
+          {
+            "index": 26,
+            "intensity": 320,
+            "star_id": 62434,
+            "votes": 7,
+            "x": 571.115601,
+            "y": 806.215637
+          },
+          {
+            "index": 27,
+            "intensity": 179,
+            "star_id": 61622,
+            "votes": 7,
+            "x": 788.094971,
+            "y": 861.910645
+          },
+          {
+            "index": 28,
+            "intensity": 302,
+            "star_id": 42536,
+            "votes": 6,
+            "x": 410.645691,
+            "y": 884.54303
+          },
+          {
+            "index": 29,
+            "intensity": 108,
+            "star_id": 0,
+            "votes": 0,
+            "x": 588.111084,
+            "y": 1008.888916
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 22,
+        "pointing_error_deg": 0.013273615613017216,
+        "reported_extract_ms": 57.544599985703826,
+        "reported_solve_ms": 1.5694999601691961,
+        "solved": true,
+        "wall_ms": 59.521300019696355
+      },
+      "truth": {
+        "dec_deg": -16.655677074726007,
+        "ra_deg": 136.53237017892383,
+        "roll_deg": 252.5753028342773,
+        "visible_stars": 30
+      }
+    },
+    {
+      "case": 8,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.0894852746688808,
+        "centroid_us": 815.6,
+        "centroids": 37,
+        "cleaned_centroids": 37,
+        "correct_ids": 0,
+        "false_id_rate": 1.0,
+        "filter_object_bytes": 1864,
+        "filter_us": 0.7,
+        "identification_success": false,
+        "incorrect_ids": 20,
+        "index_us": 21681.3,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 37,
+        "match_us": 197.2,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5955584,
+        "pipeline_ms": 1.0135,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 565,
+            "star_id": 51839,
+            "votes": 6,
+            "x": 645.631836,
+            "y": 25.890266
+          },
+          {
+            "index": 1,
+            "intensity": 369,
+            "star_id": 74376,
+            "votes": 8,
+            "x": 152.669373,
+            "y": 153.495941
+          },
+          {
+            "index": 2,
+            "intensity": 120,
+            "star_id": 0,
+            "votes": 0,
+            "x": 433.975006,
+            "y": 308.5
+          },
+          {
+            "index": 3,
+            "intensity": 200,
+            "star_id": 84143,
+            "votes": 7,
+            "x": 794.200012,
+            "y": 352.005005
+          },
+          {
+            "index": 4,
+            "intensity": 168,
+            "star_id": 51576,
+            "votes": 8,
+            "x": 936.041687,
+            "y": 361.922607
+          },
+          {
+            "index": 5,
+            "intensity": 150,
+            "star_id": 0,
+            "votes": 0,
+            "x": 229.32666,
+            "y": 381.186676
+          },
+          {
+            "index": 6,
+            "intensity": 226,
+            "star_id": 52419,
+            "votes": 6,
+            "x": 525.50885,
+            "y": 397.761047
+          },
+          {
+            "index": 7,
+            "intensity": 89,
+            "star_id": 0,
+            "votes": 0,
+            "x": 171.719101,
+            "y": 406.741577
+          },
+          {
+            "index": 8,
+            "intensity": 122,
+            "star_id": 0,
+            "votes": 0,
+            "x": 165.778687,
+            "y": 412.745911
+          },
+          {
+            "index": 9,
+            "intensity": 113,
+            "star_id": 0,
+            "votes": 0,
+            "x": 774.840698,
+            "y": 503.814148
+          },
+          {
+            "index": 10,
+            "intensity": 99,
+            "star_id": 0,
+            "votes": 0,
+            "x": 485.69696,
+            "y": 506.969696
+          },
+          {
+            "index": 11,
+            "intensity": 362,
+            "star_id": 58758,
+            "votes": 8,
+            "x": 880.414368,
+            "y": 517.099426
+          },
+          {
+            "index": 12,
+            "intensity": 100,
+            "star_id": 0,
+            "votes": 0,
+            "x": 354.98999,
+            "y": 536.359985
+          },
+          {
+            "index": 13,
+            "intensity": 101,
+            "star_id": 0,
+            "votes": 0,
+            "x": 849.287109,
+            "y": 536.990112
+          },
+          {
+            "index": 14,
+            "intensity": 116,
+            "star_id": 0,
+            "votes": 0,
+            "x": 295.086212,
+            "y": 559.163818
+          },
+          {
+            "index": 15,
+            "intensity": 905,
+            "star_id": 62434,
+            "votes": 5,
+            "x": 831.279541,
+            "y": 575.314941
+          },
+          {
+            "index": 16,
+            "intensity": 97,
+            "star_id": 0,
+            "votes": 0,
+            "x": 787.02063,
+            "y": 578.70105
+          },
+          {
+            "index": 17,
+            "intensity": 473,
+            "star_id": 56561,
+            "votes": 8,
+            "x": 284.128967,
+            "y": 583.488342
+          },
+          {
+            "index": 18,
+            "intensity": 140,
+            "star_id": 0,
+            "votes": 0,
+            "x": 864.771423,
+            "y": 614.221436
+          },
+          {
+            "index": 19,
+            "intensity": 419,
+            "star_id": 60000,
+            "votes": 6,
+            "x": 226.551315,
+            "y": 729.720764
+          },
+          {
+            "index": 20,
+            "intensity": 106,
+            "star_id": 0,
+            "votes": 0,
+            "x": 226.94339,
+            "y": 742.3396
+          },
+          {
+            "index": 21,
+            "intensity": 214,
+            "star_id": 60718,
+            "votes": 5,
+            "x": 458.5,
+            "y": 749.537354
+          },
+          {
+            "index": 22,
+            "intensity": 1117,
+            "star_id": 71352,
+            "votes": 7,
+            "x": 440.465546,
+            "y": 752.235474
+          },
+          {
+            "index": 23,
+            "intensity": 317,
+            "star_id": 22449,
+            "votes": 6,
+            "x": 264.539429,
+            "y": 774.930603
+          },
+          {
+            "index": 24,
+            "intensity": 205,
+            "star_id": 69996,
+            "votes": 6,
+            "x": 302.717072,
+            "y": 798.004883
+          },
+          {
+            "index": 25,
+            "intensity": 139,
+            "star_id": 0,
+            "votes": 0,
+            "x": 764.812927,
+            "y": 814.633118
+          },
+          {
+            "index": 26,
+            "intensity": 170,
+            "star_id": 45080,
+            "votes": 4,
+            "x": 581.229431,
+            "y": 817.5
+          },
+          {
+            "index": 27,
+            "intensity": 157,
+            "star_id": 62322,
+            "votes": 5,
+            "x": 691.878967,
+            "y": 833.980896
+          },
+          {
+            "index": 28,
+            "intensity": 257,
+            "star_id": 71860,
+            "votes": 6,
+            "x": 746.64978,
+            "y": 856.105042
+          },
+          {
+            "index": 29,
+            "intensity": 149,
+            "star_id": 0,
+            "votes": 0,
+            "x": 770.664429,
+            "y": 868.167786
+          },
+          {
+            "index": 30,
+            "intensity": 159,
+            "star_id": 42536,
+            "votes": 5,
+            "x": 431.918243,
+            "y": 874.911926
+          },
+          {
+            "index": 31,
+            "intensity": 438,
+            "star_id": 48774,
+            "votes": 7,
+            "x": 783.824219,
+            "y": 881.353882
+          },
+          {
+            "index": 32,
+            "intensity": 136,
+            "star_id": 0,
+            "votes": 0,
+            "x": 788.808838,
+            "y": 902.625
+          },
+          {
+            "index": 33,
+            "intensity": 226,
+            "star_id": 59449,
+            "votes": 6,
+            "x": 413.942474,
+            "y": 961.628296
+          },
+          {
+            "index": 34,
+            "intensity": 151,
+            "star_id": 0,
+            "votes": 0,
+            "x": 414.0,
+            "y": 988.490051
+          },
+          {
+            "index": 35,
+            "intensity": 250,
+            "star_id": 42568,
+            "votes": 7,
+            "x": 463.067993,
+            "y": 989.343994
+          },
+          {
+            "index": 36,
+            "intensity": 103,
+            "star_id": 0,
+            "votes": 0,
+            "x": 443.640778,
+            "y": 998.893188
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 19,
+        "pointing_error_deg": 0.012856296296242202,
+        "reported_extract_ms": 53.67419996764511,
+        "reported_solve_ms": 1.5257999766618013,
+        "solved": true,
+        "wall_ms": 55.657500051893294
+      },
+      "truth": {
+        "dec_deg": -37.57355143148619,
+        "ra_deg": 147.82163730536897,
+        "roll_deg": 324.07013176120273,
+        "visible_stars": 37
+      }
+    },
+    {
+      "case": 9,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.09343575547615611,
+        "centroid_us": 836.6,
+        "centroids": 47,
+        "cleaned_centroids": 47,
+        "correct_ids": 11,
+        "false_id_rate": 0.45,
+        "filter_object_bytes": 1864,
+        "filter_us": 1.2,
+        "identification_success": false,
+        "incorrect_ids": 9,
+        "index_us": 22240.8,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 47,
+        "match_us": 259.7,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5894144,
+        "pipeline_ms": 1.0975,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 657,
+            "star_id": 36366,
+            "votes": 10,
+            "x": 531.051758,
+            "y": 18.47793
+          },
+          {
+            "index": 1,
+            "intensity": 158,
+            "star_id": 0,
+            "votes": 0,
+            "x": 256.031647,
+            "y": 83.854431
+          },
+          {
+            "index": 2,
+            "intensity": 79,
+            "star_id": 0,
+            "votes": 0,
+            "x": 281.303802,
+            "y": 93.569618
+          },
+          {
+            "index": 3,
+            "intensity": 713,
+            "star_id": 36962,
+            "votes": 10,
+            "x": 760.332397,
+            "y": 145.765778
+          },
+          {
+            "index": 4,
+            "intensity": 270,
+            "star_id": 84143,
+            "votes": 5,
+            "x": 662.85553,
+            "y": 153.32222
+          },
+          {
+            "index": 5,
+            "intensity": 273,
+            "star_id": 78933,
+            "votes": 5,
+            "x": 673.868103,
+            "y": 157.12088
+          },
+          {
+            "index": 6,
+            "intensity": 101,
+            "star_id": 0,
+            "votes": 0,
+            "x": 208.970291,
+            "y": 178.732666
+          },
+          {
+            "index": 7,
+            "intensity": 923,
+            "star_id": 36046,
+            "votes": 11,
+            "x": 644.481018,
+            "y": 193.566635
+          },
+          {
+            "index": 8,
+            "intensity": 1127,
+            "star_id": 33018,
+            "votes": 10,
+            "x": 165.068329,
+            "y": 196.396622
+          },
+          {
+            "index": 9,
+            "intensity": 123,
+            "star_id": 0,
+            "votes": 0,
+            "x": 640.260193,
+            "y": 208.813004
+          },
+          {
+            "index": 10,
+            "intensity": 503,
+            "star_id": 43023,
+            "votes": 6,
+            "x": 440.371765,
+            "y": 211.848907
+          },
+          {
+            "index": 11,
+            "intensity": 93,
+            "star_id": 0,
+            "votes": 0,
+            "x": 942.483887,
+            "y": 245.989243
+          },
+          {
+            "index": 12,
+            "intensity": 126,
+            "star_id": 0,
+            "votes": 0,
+            "x": 560.127014,
+            "y": 265.134918
+          },
+          {
+            "index": 13,
+            "intensity": 132,
+            "star_id": 0,
+            "votes": 0,
+            "x": 184.030304,
+            "y": 271.537872
+          },
+          {
+            "index": 14,
+            "intensity": 79,
+            "star_id": 0,
+            "votes": 0,
+            "x": 407.683533,
+            "y": 302.569611
+          },
+          {
+            "index": 15,
+            "intensity": 289,
+            "star_id": 42568,
+            "votes": 6,
+            "x": 721.34259,
+            "y": 313.619385
+          },
+          {
+            "index": 16,
+            "intensity": 137,
+            "star_id": 0,
+            "votes": 0,
+            "x": 557.072998,
+            "y": 339.05838
+          },
+          {
+            "index": 17,
+            "intensity": 110,
+            "star_id": 0,
+            "votes": 0,
+            "x": 652.054565,
+            "y": 388.336365
+          },
+          {
+            "index": 18,
+            "intensity": 119,
+            "star_id": 0,
+            "votes": 0,
+            "x": 41.882355,
+            "y": 392.512604
+          },
+          {
+            "index": 19,
+            "intensity": 241,
+            "star_id": 21421,
+            "votes": 7,
+            "x": 883.987549,
+            "y": 413.539429
+          },
+          {
+            "index": 20,
+            "intensity": 108,
+            "star_id": 0,
+            "votes": 0,
+            "x": 658.15741,
+            "y": 434.34259
+          },
+          {
+            "index": 21,
+            "intensity": 183,
+            "star_id": 0,
+            "votes": 0,
+            "x": 259.721313,
+            "y": 450.065582
+          },
+          {
+            "index": 22,
+            "intensity": 1164,
+            "star_id": 35550,
+            "votes": 11,
+            "x": 798.525757,
+            "y": 454.863403
+          },
+          {
+            "index": 23,
+            "intensity": 99,
+            "star_id": 0,
+            "votes": 0,
+            "x": 918.909119,
+            "y": 464.343445
+          },
+          {
+            "index": 24,
+            "intensity": 125,
+            "star_id": 0,
+            "votes": 0,
+            "x": 203.207993,
+            "y": 493.776001
+          },
+          {
+            "index": 25,
+            "intensity": 242,
+            "star_id": 68002,
+            "votes": 5,
+            "x": 867.983459,
+            "y": 498.053711
+          },
+          {
+            "index": 26,
+            "intensity": 137,
+            "star_id": 0,
+            "votes": 0,
+            "x": 68.897812,
+            "y": 498.649628
+          },
+          {
+            "index": 27,
+            "intensity": 240,
+            "star_id": 71352,
+            "votes": 8,
+            "x": 568.1875,
+            "y": 507.587494
+          },
+          {
+            "index": 28,
+            "intensity": 129,
+            "star_id": 0,
+            "votes": 0,
+            "x": 467.844971,
+            "y": 515.79071
+          },
+          {
+            "index": 29,
+            "intensity": 95,
+            "star_id": 0,
+            "votes": 0,
+            "x": 646.010498,
+            "y": 546.242126
+          },
+          {
+            "index": 30,
+            "intensity": 220,
+            "star_id": 0,
+            "votes": 0,
+            "x": 205.245453,
+            "y": 554.213623
+          },
+          {
+            "index": 31,
+            "intensity": 1539,
+            "star_id": 32246,
+            "votes": 12,
+            "x": 374.705658,
+            "y": 608.10199
+          },
+          {
+            "index": 32,
+            "intensity": 133,
+            "star_id": 0,
+            "votes": 0,
+            "x": 496.097748,
+            "y": 609.180481
+          },
+          {
+            "index": 33,
+            "intensity": 748,
+            "star_id": 34088,
+            "votes": 10,
+            "x": 704.271362,
+            "y": 634.720581
+          },
+          {
+            "index": 34,
+            "intensity": 1126,
+            "star_id": 35350,
+            "votes": 10,
+            "x": 969.22113,
+            "y": 677.627869
+          },
+          {
+            "index": 35,
+            "intensity": 227,
+            "star_id": 0,
+            "votes": 0,
+            "x": 551.555054,
+            "y": 684.550659
+          },
+          {
+            "index": 36,
+            "intensity": 250,
+            "star_id": 51576,
+            "votes": 7,
+            "x": 938.840027,
+            "y": 731.02002
+          },
+          {
+            "index": 37,
+            "intensity": 96,
+            "star_id": 0,
+            "votes": 0,
+            "x": 783.239563,
+            "y": 757.020813
+          },
+          {
+            "index": 38,
+            "intensity": 169,
+            "star_id": 0,
+            "votes": 0,
+            "x": 900.147949,
+            "y": 780.639038
+          },
+          {
+            "index": 39,
+            "intensity": 113,
+            "star_id": 0,
+            "votes": 0,
+            "x": 820.805298,
+            "y": 798.194702
+          },
+          {
+            "index": 40,
+            "intensity": 133,
+            "star_id": 0,
+            "votes": 0,
+            "x": 819.451111,
+            "y": 839.992493
+          },
+          {
+            "index": 41,
+            "intensity": 124,
+            "star_id": 0,
+            "votes": 0,
+            "x": 863.75,
+            "y": 853.096802
+          },
+          {
+            "index": 42,
+            "intensity": 1588,
+            "star_id": 30343,
+            "votes": 10,
+            "x": 262.167511,
+            "y": 864.263855
+          },
+          {
+            "index": 43,
+            "intensity": 650,
+            "star_id": 30883,
+            "votes": 11,
+            "x": 390.458466,
+            "y": 914.910767
+          },
+          {
+            "index": 44,
+            "intensity": 243,
+            "star_id": 52419,
+            "votes": 6,
+            "x": 599.534973,
+            "y": 917.60083
+          },
+          {
+            "index": 45,
+            "intensity": 118,
+            "star_id": 0,
+            "votes": 0,
+            "x": 716.889832,
+            "y": 917.830505
+          },
+          {
+            "index": 46,
+            "intensity": 1512,
+            "star_id": 31681,
+            "votes": 11,
+            "x": 594.688477,
+            "y": 1004.507935
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 23,
+        "pointing_error_deg": 0.012621736787080503,
+        "reported_extract_ms": 53.78790001850575,
+        "reported_solve_ms": 1.4891999308019876,
+        "solved": true,
+        "wall_ms": 55.69970002397895
+      },
+      "truth": {
+        "dec_deg": 24.86948695628044,
+        "ra_deg": 104.61538685038175,
+        "roll_deg": 319.68766260593634,
+        "visible_stars": 47
+      }
+    },
+    {
+      "case": 10,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.10276543006397586,
+        "centroid_us": 832.9,
+        "centroids": 41,
+        "cleaned_centroids": 41,
+        "correct_ids": 7,
+        "false_id_rate": 0.65,
+        "filter_object_bytes": 1864,
+        "filter_us": 0.7,
+        "identification_success": false,
+        "incorrect_ids": 13,
+        "index_us": 22501.7,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 41,
+        "match_us": 227.5,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5935104,
+        "pipeline_ms": 1.0611,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 119,
+            "star_id": 0,
+            "votes": 0,
+            "x": 459.520996,
+            "y": 25.991596
+          },
+          {
+            "index": 1,
+            "intensity": 160,
+            "star_id": 0,
+            "votes": 0,
+            "x": 281.075012,
+            "y": 62.112499
+          },
+          {
+            "index": 2,
+            "intensity": 120,
+            "star_id": 0,
+            "votes": 0,
+            "x": 206.933334,
+            "y": 159.333328
+          },
+          {
+            "index": 3,
+            "intensity": 195,
+            "star_id": 84970,
+            "votes": 8,
+            "x": 184.917953,
+            "y": 160.051285
+          },
+          {
+            "index": 4,
+            "intensity": 96,
+            "star_id": 0,
+            "votes": 0,
+            "x": 450.135406,
+            "y": 197.489578
+          },
+          {
+            "index": 5,
+            "intensity": 322,
+            "star_id": 28103,
+            "votes": 6,
+            "x": 465.714294,
+            "y": 249.683228
+          },
+          {
+            "index": 6,
+            "intensity": 255,
+            "star_id": 20885,
+            "votes": 6,
+            "x": 767.666687,
+            "y": 309.917633
+          },
+          {
+            "index": 7,
+            "intensity": 113,
+            "star_id": 0,
+            "votes": 0,
+            "x": 97.9823,
+            "y": 317.318573
+          },
+          {
+            "index": 8,
+            "intensity": 182,
+            "star_id": 45496,
+            "votes": 7,
+            "x": 135.054947,
+            "y": 346.186798
+          },
+          {
+            "index": 9,
+            "intensity": 134,
+            "star_id": 0,
+            "votes": 0,
+            "x": 178.940292,
+            "y": 421.119415
+          },
+          {
+            "index": 10,
+            "intensity": 146,
+            "star_id": 0,
+            "votes": 0,
+            "x": 550.006836,
+            "y": 424.08905
+          },
+          {
+            "index": 11,
+            "intensity": 420,
+            "star_id": 81304,
+            "votes": 6,
+            "x": 208.107147,
+            "y": 446.254761
+          },
+          {
+            "index": 12,
+            "intensity": 244,
+            "star_id": 62434,
+            "votes": 6,
+            "x": 146.045074,
+            "y": 470.225403
+          },
+          {
+            "index": 13,
+            "intensity": 96,
+            "star_id": 0,
+            "votes": 0,
+            "x": 79.0,
+            "y": 473.270844
+          },
+          {
+            "index": 14,
+            "intensity": 95,
+            "star_id": 0,
+            "votes": 0,
+            "x": 316.210541,
+            "y": 497.021057
+          },
+          {
+            "index": 15,
+            "intensity": 590,
+            "star_id": 62896,
+            "votes": 8,
+            "x": 313.879669,
+            "y": 526.14917
+          },
+          {
+            "index": 16,
+            "intensity": 343,
+            "star_id": 85696,
+            "votes": 4,
+            "x": 533.483948,
+            "y": 534.381897
+          },
+          {
+            "index": 17,
+            "intensity": 1581,
+            "star_id": 65109,
+            "votes": 7,
+            "x": 635.499695,
+            "y": 543.094238
+          },
+          {
+            "index": 18,
+            "intensity": 626,
+            "star_id": 67153,
+            "votes": 10,
+            "x": 958.153381,
+            "y": 568.661316
+          },
+          {
+            "index": 19,
+            "intensity": 560,
+            "star_id": 38827,
+            "votes": 9,
+            "x": 1009.56073,
+            "y": 611.330383
+          },
+          {
+            "index": 20,
+            "intensity": 116,
+            "star_id": 0,
+            "votes": 0,
+            "x": 40.094826,
+            "y": 625.672424
+          },
+          {
+            "index": 21,
+            "intensity": 640,
+            "star_id": 67457,
+            "votes": 7,
+            "x": 939.498413,
+            "y": 649.059387
+          },
+          {
+            "index": 22,
+            "intensity": 194,
+            "star_id": 60009,
+            "votes": 5,
+            "x": 250.489685,
+            "y": 651.536072
+          },
+          {
+            "index": 23,
+            "intensity": 157,
+            "star_id": 0,
+            "votes": 0,
+            "x": 376.318481,
+            "y": 657.133728
+          },
+          {
+            "index": 24,
+            "intensity": 259,
+            "star_id": 20635,
+            "votes": 5,
+            "x": 582.196899,
+            "y": 698.231689
+          },
+          {
+            "index": 25,
+            "intensity": 252,
+            "star_id": 86670,
+            "votes": 6,
+            "x": 857.523804,
+            "y": 699.496033
+          },
+          {
+            "index": 26,
+            "intensity": 114,
+            "star_id": 0,
+            "votes": 0,
+            "x": 212.14035,
+            "y": 702.122803
+          },
+          {
+            "index": 27,
+            "intensity": 123,
+            "star_id": 0,
+            "votes": 0,
+            "x": 391.520325,
+            "y": 709.089417
+          },
+          {
+            "index": 28,
+            "intensity": 845,
+            "star_id": 65936,
+            "votes": 9,
+            "x": 630.592896,
+            "y": 715.265076
+          },
+          {
+            "index": 29,
+            "intensity": 117,
+            "star_id": 0,
+            "votes": 0,
+            "x": 52.111111,
+            "y": 721.786316
+          },
+          {
+            "index": 30,
+            "intensity": 165,
+            "star_id": 74117,
+            "votes": 6,
+            "x": 929.030273,
+            "y": 724.036377
+          },
+          {
+            "index": 31,
+            "intensity": 219,
+            "star_id": 60260,
+            "votes": 6,
+            "x": 358.684937,
+            "y": 757.0
+          },
+          {
+            "index": 32,
+            "intensity": 143,
+            "star_id": 0,
+            "votes": 0,
+            "x": 532.118896,
+            "y": 771.972046
+          },
+          {
+            "index": 33,
+            "intensity": 139,
+            "star_id": 0,
+            "votes": 0,
+            "x": 674.798584,
+            "y": 796.223022
+          },
+          {
+            "index": 34,
+            "intensity": 105,
+            "star_id": 0,
+            "votes": 0,
+            "x": 382.371429,
+            "y": 814.828552
+          },
+          {
+            "index": 35,
+            "intensity": 99,
+            "star_id": 0,
+            "votes": 0,
+            "x": 651.676758,
+            "y": 868.090881
+          },
+          {
+            "index": 36,
+            "intensity": 88,
+            "star_id": 0,
+            "votes": 0,
+            "x": 634.113647,
+            "y": 898.522705
+          },
+          {
+            "index": 37,
+            "intensity": 1320,
+            "star_id": 67464,
+            "votes": 7,
+            "x": 688.600769,
+            "y": 922.184875
+          },
+          {
+            "index": 38,
+            "intensity": 99,
+            "star_id": 0,
+            "votes": 0,
+            "x": 517.949524,
+            "y": 937.666687
+          },
+          {
+            "index": 39,
+            "intensity": 123,
+            "star_id": 0,
+            "votes": 0,
+            "x": 316.756104,
+            "y": 953.243896
+          },
+          {
+            "index": 40,
+            "intensity": 1252,
+            "star_id": 67472,
+            "votes": 9,
+            "x": 661.985596,
+            "y": 952.625427
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 22,
+        "pointing_error_deg": 0.01408514897462009,
+        "reported_extract_ms": 51.80190003011376,
+        "reported_solve_ms": 2.935500000603497,
+        "solved": true,
+        "wall_ms": 55.150700034573674
+      },
+      "truth": {
+        "dec_deg": -37.701286060796946,
+        "ra_deg": 197.25064612373117,
+        "roll_deg": 36.43304192819143,
+        "visible_stars": 41
+      }
+    },
+    {
+      "case": 11,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.076011456972733,
+        "centroid_us": 848.8,
+        "centroids": 24,
+        "cleaned_centroids": 24,
+        "correct_ids": 0,
+        "false_id_rate": 1.0,
+        "filter_object_bytes": 1864,
+        "filter_us": 0.4,
+        "identification_success": false,
+        "incorrect_ids": 20,
+        "index_us": 22135.8,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 24,
+        "match_us": 180.6,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5881856,
+        "pipeline_ms": 1.0298,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 394,
+            "star_id": 85696,
+            "votes": 6,
+            "x": 643.860413,
+            "y": 55.081219
+          },
+          {
+            "index": 1,
+            "intensity": 120,
+            "star_id": 57669,
+            "votes": 6,
+            "x": 337.116669,
+            "y": 68.841667
+          },
+          {
+            "index": 2,
+            "intensity": 1565,
+            "star_id": 34088,
+            "votes": 5,
+            "x": 779.033203,
+            "y": 140.61853
+          },
+          {
+            "index": 3,
+            "intensity": 261,
+            "star_id": 47175,
+            "votes": 5,
+            "x": 551.980835,
+            "y": 175.892715
+          },
+          {
+            "index": 4,
+            "intensity": 112,
+            "star_id": 0,
+            "votes": 0,
+            "x": 723.848206,
+            "y": 178.169647
+          },
+          {
+            "index": 5,
+            "intensity": 257,
+            "star_id": 45101,
+            "votes": 5,
+            "x": 507.011688,
+            "y": 221.140076
+          },
+          {
+            "index": 6,
+            "intensity": 280,
+            "star_id": 59747,
+            "votes": 7,
+            "x": 805.903564,
+            "y": 270.210724
+          },
+          {
+            "index": 7,
+            "intensity": 891,
+            "star_id": 57363,
+            "votes": 6,
+            "x": 250.771042,
+            "y": 292.73175
+          },
+          {
+            "index": 8,
+            "intensity": 88,
+            "star_id": 0,
+            "votes": 0,
+            "x": 366.852264,
+            "y": 296.511353
+          },
+          {
+            "index": 9,
+            "intensity": 143,
+            "star_id": 77952,
+            "votes": 6,
+            "x": 252.426575,
+            "y": 312.657349
+          },
+          {
+            "index": 10,
+            "intensity": 203,
+            "star_id": 56561,
+            "votes": 7,
+            "x": 53.280788,
+            "y": 318.448273
+          },
+          {
+            "index": 11,
+            "intensity": 273,
+            "star_id": 42536,
+            "votes": 5,
+            "x": 234.10257,
+            "y": 333.875458
+          },
+          {
+            "index": 12,
+            "intensity": 118,
+            "star_id": 0,
+            "votes": 0,
+            "x": 836.050842,
+            "y": 336.991516
+          },
+          {
+            "index": 13,
+            "intensity": 132,
+            "star_id": 44511,
+            "votes": 5,
+            "x": 431.477264,
+            "y": 374.045441
+          },
+          {
+            "index": 14,
+            "intensity": 164,
+            "star_id": 80763,
+            "votes": 6,
+            "x": 899.475586,
+            "y": 379.780487
+          },
+          {
+            "index": 15,
+            "intensity": 371,
+            "star_id": 51232,
+            "votes": 5,
+            "x": 566.261475,
+            "y": 400.611847
+          },
+          {
+            "index": 16,
+            "intensity": 206,
+            "star_id": 46750,
+            "votes": 4,
+            "x": 671.762146,
+            "y": 444.966034
+          },
+          {
+            "index": 17,
+            "intensity": 1183,
+            "star_id": 42568,
+            "votes": 6,
+            "x": 352.570587,
+            "y": 545.862244
+          },
+          {
+            "index": 18,
+            "intensity": 204,
+            "star_id": 62434,
+            "votes": 6,
+            "x": 541.833313,
+            "y": 701.534302
+          },
+          {
+            "index": 19,
+            "intensity": 140,
+            "star_id": 62322,
+            "votes": 6,
+            "x": 628.049988,
+            "y": 747.942871
+          },
+          {
+            "index": 20,
+            "intensity": 130,
+            "star_id": 60260,
+            "votes": 6,
+            "x": 448.146149,
+            "y": 784.784607
+          },
+          {
+            "index": 21,
+            "intensity": 145,
+            "star_id": 46701,
+            "votes": 7,
+            "x": 752.834473,
+            "y": 804.813782
+          },
+          {
+            "index": 22,
+            "intensity": 124,
+            "star_id": 5434,
+            "votes": 7,
+            "x": 252.814514,
+            "y": 866.112915
+          },
+          {
+            "index": 23,
+            "intensity": 102,
+            "star_id": 0,
+            "votes": 0,
+            "x": 626.676453,
+            "y": 884.049011
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 19,
+        "pointing_error_deg": 0.013826835503066534,
+        "reported_extract_ms": 65.02960005309433,
+        "reported_solve_ms": 1.7866999842226505,
+        "solved": true,
+        "wall_ms": 67.30220001190901
+      },
+      "truth": {
+        "dec_deg": 36.02623529282204,
+        "ra_deg": 171.21351573154897,
+        "roll_deg": 53.39494117622759,
+        "visible_stars": 24
+      }
+    },
+    {
+      "case": 12,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.0791238495069044,
+        "centroid_us": 1224.5,
+        "centroids": 26,
+        "cleaned_centroids": 26,
+        "correct_ids": 0,
+        "false_id_rate": 1.0,
+        "filter_object_bytes": 1864,
+        "filter_us": 0.6,
+        "identification_success": false,
+        "incorrect_ids": 20,
+        "index_us": 21559.3,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 26,
+        "match_us": 193.3,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5918720,
+        "pipeline_ms": 1.4183999999999999,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 300,
+            "star_id": 21421,
+            "votes": 7,
+            "x": 582.833313,
+            "y": 25.806667
+          },
+          {
+            "index": 1,
+            "intensity": 765,
+            "star_id": 30324,
+            "votes": 6,
+            "x": 637.517639,
+            "y": 90.482353
+          },
+          {
+            "index": 2,
+            "intensity": 190,
+            "star_id": 48774,
+            "votes": 7,
+            "x": 650.636841,
+            "y": 92.610527
+          },
+          {
+            "index": 3,
+            "intensity": 125,
+            "star_id": 57439,
+            "votes": 8,
+            "x": 899.0,
+            "y": 234.0
+          },
+          {
+            "index": 4,
+            "intensity": 105,
+            "star_id": 0,
+            "votes": 0,
+            "x": 582.628601,
+            "y": 236.914291
+          },
+          {
+            "index": 5,
+            "intensity": 225,
+            "star_id": 42536,
+            "votes": 8,
+            "x": 406.813324,
+            "y": 283.94223
+          },
+          {
+            "index": 6,
+            "intensity": 129,
+            "star_id": 42913,
+            "votes": 10,
+            "x": 51.093021,
+            "y": 294.496124
+          },
+          {
+            "index": 7,
+            "intensity": 312,
+            "star_id": 45238,
+            "votes": 6,
+            "x": 147.554489,
+            "y": 310.205139
+          },
+          {
+            "index": 8,
+            "intensity": 103,
+            "star_id": 0,
+            "votes": 0,
+            "x": 695.883484,
+            "y": 403.70874
+          },
+          {
+            "index": 9,
+            "intensity": 103,
+            "star_id": 0,
+            "votes": 0,
+            "x": 563.087402,
+            "y": 404.689331
+          },
+          {
+            "index": 10,
+            "intensity": 208,
+            "star_id": 39429,
+            "votes": 7,
+            "x": 83.447113,
+            "y": 480.471161
+          },
+          {
+            "index": 11,
+            "intensity": 104,
+            "star_id": 0,
+            "votes": 0,
+            "x": 784.682678,
+            "y": 495.009613
+          },
+          {
+            "index": 12,
+            "intensity": 177,
+            "star_id": 50371,
+            "votes": 7,
+            "x": 1020.355957,
+            "y": 544.112976
+          },
+          {
+            "index": 13,
+            "intensity": 326,
+            "star_id": 23685,
+            "votes": 7,
+            "x": 928.294495,
+            "y": 557.693237
+          },
+          {
+            "index": 14,
+            "intensity": 381,
+            "star_id": 53253,
+            "votes": 8,
+            "x": 758.514465,
+            "y": 565.175842
+          },
+          {
+            "index": 15,
+            "intensity": 104,
+            "star_id": 0,
+            "votes": 0,
+            "x": 16.0,
+            "y": 595.701904
+          },
+          {
+            "index": 16,
+            "intensity": 499,
+            "star_id": 44382,
+            "votes": 5,
+            "x": 538.468933,
+            "y": 637.080139
+          },
+          {
+            "index": 17,
+            "intensity": 147,
+            "star_id": 45080,
+            "votes": 6,
+            "x": 156.340134,
+            "y": 640.680298
+          },
+          {
+            "index": 18,
+            "intensity": 98,
+            "star_id": 0,
+            "votes": 0,
+            "x": 320.642853,
+            "y": 643.918396
+          },
+          {
+            "index": 19,
+            "intensity": 354,
+            "star_id": 42568,
+            "votes": 7,
+            "x": 396.491516,
+            "y": 647.477417
+          },
+          {
+            "index": 20,
+            "intensity": 184,
+            "star_id": 109074,
+            "votes": 5,
+            "x": 232.771744,
+            "y": 650.043457
+          },
+          {
+            "index": 21,
+            "intensity": 117,
+            "star_id": 31125,
+            "votes": 7,
+            "x": 240.786331,
+            "y": 663.188049
+          },
+          {
+            "index": 22,
+            "intensity": 107,
+            "star_id": 22549,
+            "votes": 6,
+            "x": 741.897217,
+            "y": 685.850464
+          },
+          {
+            "index": 23,
+            "intensity": 687,
+            "star_id": 73807,
+            "votes": 5,
+            "x": 216.775833,
+            "y": 707.716187
+          },
+          {
+            "index": 24,
+            "intensity": 343,
+            "star_id": 68702,
+            "votes": 8,
+            "x": 877.253662,
+            "y": 721.661804
+          },
+          {
+            "index": 25,
+            "intensity": 615,
+            "star_id": 26311,
+            "votes": 6,
+            "x": 760.52356,
+            "y": 729.534973
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 16,
+        "pointing_error_deg": 0.012885693441797621,
+        "reported_extract_ms": 59.103299980051816,
+        "reported_solve_ms": 2.8966000536456704,
+        "solved": true,
+        "wall_ms": 62.73579993285239
+      },
+      "truth": {
+        "dec_deg": -20.091795793787366,
+        "ra_deg": 39.1420937478912,
+        "roll_deg": 114.75142008058839,
+        "visible_stars": 26
+      }
+    },
+    {
+      "case": 13,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.08262278642071956,
+        "centroid_us": 847.2,
+        "centroids": 36,
+        "cleaned_centroids": 36,
+        "correct_ids": 1,
+        "false_id_rate": 0.95,
+        "filter_object_bytes": 1864,
+        "filter_us": 0.8,
+        "identification_success": false,
+        "incorrect_ids": 19,
+        "index_us": 23152.2,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 36,
+        "match_us": 167.4,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5955584,
+        "pipeline_ms": 1.0154,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 136,
+            "star_id": 0,
+            "votes": 0,
+            "x": 615.029419,
+            "y": 45.036766
+          },
+          {
+            "index": 1,
+            "intensity": 439,
+            "star_id": 25813,
+            "votes": 8,
+            "x": 701.523926,
+            "y": 160.744873
+          },
+          {
+            "index": 2,
+            "intensity": 455,
+            "star_id": 33856,
+            "votes": 7,
+            "x": 908.797791,
+            "y": 203.654938
+          },
+          {
+            "index": 3,
+            "intensity": 144,
+            "star_id": 0,
+            "votes": 0,
+            "x": 816.9375,
+            "y": 227.756943
+          },
+          {
+            "index": 4,
+            "intensity": 1434,
+            "star_id": 50371,
+            "votes": 7,
+            "x": 434.61438,
+            "y": 246.10112
+          },
+          {
+            "index": 5,
+            "intensity": 129,
+            "star_id": 0,
+            "votes": 0,
+            "x": 119.193802,
+            "y": 322.240295
+          },
+          {
+            "index": 6,
+            "intensity": 343,
+            "star_id": 71865,
+            "votes": 7,
+            "x": 439.131195,
+            "y": 341.903778
+          },
+          {
+            "index": 7,
+            "intensity": 104,
+            "star_id": 0,
+            "votes": 0,
+            "x": 403.644226,
+            "y": 357.846161
+          },
+          {
+            "index": 8,
+            "intensity": 222,
+            "star_id": 72010,
+            "votes": 6,
+            "x": 988.61261,
+            "y": 400.540527
+          },
+          {
+            "index": 9,
+            "intensity": 125,
+            "star_id": 0,
+            "votes": 0,
+            "x": 68.167999,
+            "y": 431.855988
+          },
+          {
+            "index": 10,
+            "intensity": 266,
+            "star_id": 63613,
+            "votes": 8,
+            "x": 24.646616,
+            "y": 449.300751
+          },
+          {
+            "index": 11,
+            "intensity": 421,
+            "star_id": 52154,
+            "votes": 6,
+            "x": 203.638962,
+            "y": 456.356293
+          },
+          {
+            "index": 12,
+            "intensity": 115,
+            "star_id": 0,
+            "votes": 0,
+            "x": 572.147827,
+            "y": 457.147827
+          },
+          {
+            "index": 13,
+            "intensity": 184,
+            "star_id": 70090,
+            "votes": 8,
+            "x": 622.826111,
+            "y": 467.54892
+          },
+          {
+            "index": 14,
+            "intensity": 131,
+            "star_id": 0,
+            "votes": 0,
+            "x": 505.175568,
+            "y": 507.832062
+          },
+          {
+            "index": 15,
+            "intensity": 424,
+            "star_id": 71352,
+            "votes": 5,
+            "x": 595.79248,
+            "y": 510.51416
+          },
+          {
+            "index": 16,
+            "intensity": 886,
+            "star_id": 45496,
+            "votes": 7,
+            "x": 101.658012,
+            "y": 567.057556
+          },
+          {
+            "index": 17,
+            "intensity": 108,
+            "star_id": 0,
+            "votes": 0,
+            "x": 63.342594,
+            "y": 620.129639
+          },
+          {
+            "index": 18,
+            "intensity": 98,
+            "star_id": 0,
+            "votes": 0,
+            "x": 740.316345,
+            "y": 642.887756
+          },
+          {
+            "index": 19,
+            "intensity": 96,
+            "star_id": 0,
+            "votes": 0,
+            "x": 444.645844,
+            "y": 656.979187
+          },
+          {
+            "index": 20,
+            "intensity": 92,
+            "star_id": 0,
+            "votes": 0,
+            "x": 823.728271,
+            "y": 662.260864
+          },
+          {
+            "index": 21,
+            "intensity": 121,
+            "star_id": 0,
+            "votes": 0,
+            "x": 765.99176,
+            "y": 662.528931
+          },
+          {
+            "index": 22,
+            "intensity": 954,
+            "star_id": 76600,
+            "votes": 6,
+            "x": 914.577576,
+            "y": 687.430847
+          },
+          {
+            "index": 23,
+            "intensity": 1576,
+            "star_id": 89962,
+            "votes": 6,
+            "x": 401.319794,
+            "y": 693.376282
+          },
+          {
+            "index": 24,
+            "intensity": 507,
+            "star_id": 76297,
+            "votes": 5,
+            "x": 727.439819,
+            "y": 728.688354
+          },
+          {
+            "index": 25,
+            "intensity": 813,
+            "star_id": 51576,
+            "votes": 6,
+            "x": 786.646973,
+            "y": 789.361633
+          },
+          {
+            "index": 26,
+            "intensity": 192,
+            "star_id": 60718,
+            "votes": 6,
+            "x": 339.46875,
+            "y": 792.15625
+          },
+          {
+            "index": 27,
+            "intensity": 739,
+            "star_id": 58758,
+            "votes": 6,
+            "x": 723.566956,
+            "y": 806.01355
+          },
+          {
+            "index": 28,
+            "intensity": 365,
+            "star_id": 77450,
+            "votes": 6,
+            "x": 833.169861,
+            "y": 847.64386
+          },
+          {
+            "index": 29,
+            "intensity": 99,
+            "star_id": 0,
+            "votes": 0,
+            "x": 343.676758,
+            "y": 850.101013
+          },
+          {
+            "index": 30,
+            "intensity": 134,
+            "star_id": 0,
+            "votes": 0,
+            "x": 695.0,
+            "y": 864.5224
+          },
+          {
+            "index": 31,
+            "intensity": 250,
+            "star_id": 47175,
+            "votes": 9,
+            "x": 428.283997,
+            "y": 866.547974
+          },
+          {
+            "index": 32,
+            "intensity": 166,
+            "star_id": 24674,
+            "votes": 6,
+            "x": 692.927734,
+            "y": 878.891541
+          },
+          {
+            "index": 33,
+            "intensity": 133,
+            "star_id": 0,
+            "votes": 0,
+            "x": 724.142883,
+            "y": 899.195496
+          },
+          {
+            "index": 34,
+            "intensity": 125,
+            "star_id": 0,
+            "votes": 0,
+            "x": 303.511993,
+            "y": 921.031982
+          },
+          {
+            "index": 35,
+            "intensity": 347,
+            "star_id": 38414,
+            "votes": 5,
+            "x": 587.259338,
+            "y": 955.484131
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 22,
+        "pointing_error_deg": 0.013334320557971634,
+        "reported_extract_ms": 49.141100025735795,
+        "reported_solve_ms": 5.53069997113198,
+        "solved": true,
+        "wall_ms": 55.01170002389699
+      },
+      "truth": {
+        "dec_deg": -4.607327517930216,
+        "ra_deg": 271.5003736415377,
+        "roll_deg": 145.36446636475864,
+        "visible_stars": 36
+      }
+    },
+    {
+      "case": 14,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.07580005124489382,
+        "centroid_us": 1158.0,
+        "centroids": 33,
+        "cleaned_centroids": 33,
+        "correct_ids": 9,
+        "false_id_rate": 0.55,
+        "filter_object_bytes": 1864,
+        "filter_us": 0.8,
+        "identification_success": false,
+        "incorrect_ids": 11,
+        "index_us": 21747.1,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 33,
+        "match_us": 169.3,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5926912,
+        "pipeline_ms": 1.3280999999999998,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 126,
+            "star_id": 0,
+            "votes": 0,
+            "x": 561.769836,
+            "y": 84.166664
+          },
+          {
+            "index": 1,
+            "intensity": 638,
+            "star_id": 110003,
+            "votes": 8,
+            "x": 440.341705,
+            "y": 102.736679
+          },
+          {
+            "index": 2,
+            "intensity": 877,
+            "star_id": 110395,
+            "votes": 8,
+            "x": 774.054749,
+            "y": 105.363739
+          },
+          {
+            "index": 3,
+            "intensity": 130,
+            "star_id": 0,
+            "votes": 0,
+            "x": 377.053833,
+            "y": 114.969231
+          },
+          {
+            "index": 4,
+            "intensity": 196,
+            "star_id": 84143,
+            "votes": 6,
+            "x": 446.13266,
+            "y": 145.474487
+          },
+          {
+            "index": 5,
+            "intensity": 201,
+            "star_id": 73334,
+            "votes": 7,
+            "x": 185.298508,
+            "y": 148.985077
+          },
+          {
+            "index": 6,
+            "intensity": 123,
+            "star_id": 0,
+            "votes": 0,
+            "x": 604.84552,
+            "y": 167.845535
+          },
+          {
+            "index": 7,
+            "intensity": 100,
+            "star_id": 0,
+            "votes": 0,
+            "x": 166.699997,
+            "y": 180.919998
+          },
+          {
+            "index": 8,
+            "intensity": 101,
+            "star_id": 0,
+            "votes": 0,
+            "x": 485.029694,
+            "y": 181.693069
+          },
+          {
+            "index": 9,
+            "intensity": 1047,
+            "star_id": 110960,
+            "votes": 8,
+            "x": 858.67334,
+            "y": 184.396378
+          },
+          {
+            "index": 10,
+            "intensity": 137,
+            "star_id": 0,
+            "votes": 0,
+            "x": 168.094894,
+            "y": 249.963501
+          },
+          {
+            "index": 11,
+            "intensity": 114,
+            "star_id": 0,
+            "votes": 0,
+            "x": 790.508789,
+            "y": 264.114044
+          },
+          {
+            "index": 12,
+            "intensity": 744,
+            "star_id": 111497,
+            "votes": 10,
+            "x": 867.263428,
+            "y": 268.123657
+          },
+          {
+            "index": 13,
+            "intensity": 337,
+            "star_id": 74117,
+            "votes": 6,
+            "x": 326.080109,
+            "y": 301.00592
+          },
+          {
+            "index": 14,
+            "intensity": 293,
+            "star_id": 44382,
+            "votes": 5,
+            "x": 664.484619,
+            "y": 333.784973
+          },
+          {
+            "index": 15,
+            "intensity": 142,
+            "star_id": 0,
+            "votes": 0,
+            "x": 191.971832,
+            "y": 539.049316
+          },
+          {
+            "index": 16,
+            "intensity": 989,
+            "star_id": 112961,
+            "votes": 8,
+            "x": 527.029297,
+            "y": 546.585449
+          },
+          {
+            "index": 17,
+            "intensity": 130,
+            "star_id": 0,
+            "votes": 0,
+            "x": 662.076904,
+            "y": 557.799988
+          },
+          {
+            "index": 18,
+            "intensity": 752,
+            "star_id": 112716,
+            "votes": 8,
+            "x": 219.183517,
+            "y": 558.216736
+          },
+          {
+            "index": 19,
+            "intensity": 178,
+            "star_id": 78918,
+            "votes": 6,
+            "x": 972.01123,
+            "y": 563.932556
+          },
+          {
+            "index": 20,
+            "intensity": 108,
+            "star_id": 0,
+            "votes": 0,
+            "x": 326.361115,
+            "y": 589.888916
+          },
+          {
+            "index": 21,
+            "intensity": 108,
+            "star_id": 0,
+            "votes": 0,
+            "x": 688.509277,
+            "y": 634.953674
+          },
+          {
+            "index": 22,
+            "intensity": 1481,
+            "star_id": 113136,
+            "votes": 8,
+            "x": 115.802834,
+            "y": 638.147888
+          },
+          {
+            "index": 23,
+            "intensity": 167,
+            "star_id": 0,
+            "votes": 0,
+            "x": 93.005989,
+            "y": 643.065857
+          },
+          {
+            "index": 24,
+            "intensity": 175,
+            "star_id": 51232,
+            "votes": 5,
+            "x": 545.868591,
+            "y": 703.377136
+          },
+          {
+            "index": 25,
+            "intensity": 178,
+            "star_id": 83153,
+            "votes": 5,
+            "x": 777.573059,
+            "y": 802.5
+          },
+          {
+            "index": 26,
+            "intensity": 628,
+            "star_id": 114724,
+            "votes": 8,
+            "x": 646.098755,
+            "y": 805.708618
+          },
+          {
+            "index": 27,
+            "intensity": 609,
+            "star_id": 114855,
+            "votes": 8,
+            "x": 495.614136,
+            "y": 848.024658
+          },
+          {
+            "index": 28,
+            "intensity": 295,
+            "star_id": 73714,
+            "votes": 6,
+            "x": 566.145752,
+            "y": 850.08136
+          },
+          {
+            "index": 29,
+            "intensity": 164,
+            "star_id": 0,
+            "votes": 0,
+            "x": 702.512207,
+            "y": 863.152466
+          },
+          {
+            "index": 30,
+            "intensity": 525,
+            "star_id": 68002,
+            "votes": 5,
+            "x": 494.504761,
+            "y": 874.041931
+          },
+          {
+            "index": 31,
+            "intensity": 305,
+            "star_id": 54463,
+            "votes": 5,
+            "x": 474.724579,
+            "y": 890.495056
+          },
+          {
+            "index": 32,
+            "intensity": 243,
+            "star_id": 55425,
+            "votes": 8,
+            "x": 279.530853,
+            "y": 920.60907
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 25,
+        "pointing_error_deg": 0.012713436261745826,
+        "reported_extract_ms": 67.53790006041527,
+        "reported_solve_ms": 5.232800031080842,
+        "solved": true,
+        "wall_ms": 73.35050008259714
+      },
+      "truth": {
+        "dec_deg": -7.76349403883094,
+        "ra_deg": 342.42609028550925,
+        "roll_deg": 80.75913446385978,
+        "visible_stars": 33
+      }
+    },
+    {
+      "case": 15,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.09308939867340278,
+        "centroid_us": 1501.3,
+        "centroids": 32,
+        "cleaned_centroids": 32,
+        "correct_ids": 3,
+        "false_id_rate": 0.85,
+        "filter_object_bytes": 1864,
+        "filter_us": 1.0,
+        "identification_success": false,
+        "incorrect_ids": 17,
+        "index_us": 24256.0,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 32,
+        "match_us": 294.7,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5918720,
+        "pipeline_ms": 1.797,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 726,
+            "star_id": 63003,
+            "votes": 9,
+            "x": 351.318176,
+            "y": 39.763084
+          },
+          {
+            "index": 1,
+            "intensity": 136,
+            "star_id": 0,
+            "votes": 0,
+            "x": 684.036743,
+            "y": 53.933823
+          },
+          {
+            "index": 2,
+            "intensity": 291,
+            "star_id": 61585,
+            "votes": 6,
+            "x": 531.745728,
+            "y": 70.329895
+          },
+          {
+            "index": 3,
+            "intensity": 100,
+            "star_id": 0,
+            "votes": 0,
+            "x": 759.869995,
+            "y": 82.349998
+          },
+          {
+            "index": 4,
+            "intensity": 153,
+            "star_id": 42568,
+            "votes": 7,
+            "x": 269.15033,
+            "y": 133.38562
+          },
+          {
+            "index": 5,
+            "intensity": 241,
+            "star_id": 78384,
+            "votes": 6,
+            "x": 755.788391,
+            "y": 169.651459
+          },
+          {
+            "index": 6,
+            "intensity": 109,
+            "star_id": 0,
+            "votes": 0,
+            "x": 398.889923,
+            "y": 186.339447
+          },
+          {
+            "index": 7,
+            "intensity": 174,
+            "star_id": 73334,
+            "votes": 7,
+            "x": 432.614929,
+            "y": 309.063232
+          },
+          {
+            "index": 8,
+            "intensity": 338,
+            "star_id": 42913,
+            "votes": 6,
+            "x": 691.363892,
+            "y": 340.307678
+          },
+          {
+            "index": 9,
+            "intensity": 129,
+            "star_id": 0,
+            "votes": 0,
+            "x": 525.186035,
+            "y": 372.186035
+          },
+          {
+            "index": 10,
+            "intensity": 198,
+            "star_id": 64004,
+            "votes": 6,
+            "x": 343.878784,
+            "y": 396.398987
+          },
+          {
+            "index": 11,
+            "intensity": 187,
+            "star_id": 48774,
+            "votes": 5,
+            "x": 781.427795,
+            "y": 433.491974
+          },
+          {
+            "index": 12,
+            "intensity": 142,
+            "star_id": 54463,
+            "votes": 5,
+            "x": 795.830994,
+            "y": 433.633789
+          },
+          {
+            "index": 13,
+            "intensity": 509,
+            "star_id": 41312,
+            "votes": 5,
+            "x": 935.357544,
+            "y": 447.302551
+          },
+          {
+            "index": 14,
+            "intensity": 711,
+            "star_id": 88601,
+            "votes": 7,
+            "x": 857.554138,
+            "y": 453.848114
+          },
+          {
+            "index": 15,
+            "intensity": 136,
+            "star_id": 0,
+            "votes": 0,
+            "x": 477.169128,
+            "y": 457.235291
+          },
+          {
+            "index": 16,
+            "intensity": 129,
+            "star_id": 0,
+            "votes": 0,
+            "x": 765.813965,
+            "y": 466.875977
+          },
+          {
+            "index": 17,
+            "intensity": 122,
+            "star_id": 0,
+            "votes": 0,
+            "x": 1007.229492,
+            "y": 476.83606
+          },
+          {
+            "index": 18,
+            "intensity": 193,
+            "star_id": 24436,
+            "votes": 7,
+            "x": 561.404175,
+            "y": 490.34198
+          },
+          {
+            "index": 19,
+            "intensity": 769,
+            "star_id": 88192,
+            "votes": 5,
+            "x": 882.853027,
+            "y": 513.827026
+          },
+          {
+            "index": 20,
+            "intensity": 106,
+            "star_id": 0,
+            "votes": 0,
+            "x": 1015.63208,
+            "y": 534.02832
+          },
+          {
+            "index": 21,
+            "intensity": 365,
+            "star_id": 74117,
+            "votes": 5,
+            "x": 831.646545,
+            "y": 566.852051
+          },
+          {
+            "index": 22,
+            "intensity": 100,
+            "star_id": 0,
+            "votes": 0,
+            "x": 354.959991,
+            "y": 623.679993
+          },
+          {
+            "index": 23,
+            "intensity": 971,
+            "star_id": 87108,
+            "votes": 6,
+            "x": 1002.622009,
+            "y": 627.216248
+          },
+          {
+            "index": 24,
+            "intensity": 415,
+            "star_id": 71536,
+            "votes": 7,
+            "x": 607.248169,
+            "y": 650.513245
+          },
+          {
+            "index": 25,
+            "intensity": 978,
+            "star_id": 42536,
+            "votes": 6,
+            "x": 575.67688,
+            "y": 678.520447
+          },
+          {
+            "index": 26,
+            "intensity": 141,
+            "star_id": 0,
+            "votes": 0,
+            "x": 826.25531,
+            "y": 692.50354
+          },
+          {
+            "index": 27,
+            "intensity": 124,
+            "star_id": 0,
+            "votes": 0,
+            "x": 99.491936,
+            "y": 719.112915
+          },
+          {
+            "index": 28,
+            "intensity": 1556,
+            "star_id": 68245,
+            "votes": 8,
+            "x": 969.505127,
+            "y": 733.354736
+          },
+          {
+            "index": 29,
+            "intensity": 96,
+            "star_id": 0,
+            "votes": 0,
+            "x": 918.96875,
+            "y": 811.6875
+          },
+          {
+            "index": 30,
+            "intensity": 216,
+            "star_id": 21589,
+            "votes": 7,
+            "x": 134.949081,
+            "y": 824.796326
+          },
+          {
+            "index": 31,
+            "intensity": 402,
+            "star_id": 50371,
+            "votes": 9,
+            "x": 363.721405,
+            "y": 993.855713
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 25,
+        "pointing_error_deg": 0.01288840167591221,
+        "reported_extract_ms": 56.19699996896088,
+        "reported_solve_ms": 1.564699923619628,
+        "solved": true,
+        "wall_ms": 58.179000043310225
+      },
+      "truth": {
+        "dec_deg": 8.264890859874598,
+        "ra_deg": 275.14278380326084,
+        "roll_deg": 227.11527558214672,
+        "visible_stars": 33
+      }
+    },
+    {
+      "case": 16,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.1099403118282061,
+        "centroid_us": 1584.3,
+        "centroids": 24,
+        "cleaned_centroids": 24,
+        "correct_ids": 0,
+        "false_id_rate": 1.0,
+        "filter_object_bytes": 1864,
+        "filter_us": 0.6,
+        "identification_success": false,
+        "incorrect_ids": 20,
+        "index_us": 24010.6,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 24,
+        "match_us": 216.3,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5947392,
+        "pipeline_ms": 1.8012,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 124,
+            "star_id": 112724,
+            "votes": 9,
+            "x": 760.395142,
+            "y": 142.782257
+          },
+          {
+            "index": 1,
+            "intensity": 131,
+            "star_id": 82396,
+            "votes": 7,
+            "x": 725.091614,
+            "y": 177.969467
+          },
+          {
+            "index": 2,
+            "intensity": 498,
+            "star_id": 68002,
+            "votes": 7,
+            "x": 296.700806,
+            "y": 192.359436
+          },
+          {
+            "index": 3,
+            "intensity": 192,
+            "star_id": 70090,
+            "votes": 6,
+            "x": 65.270836,
+            "y": 343.020844
+          },
+          {
+            "index": 4,
+            "intensity": 385,
+            "star_id": 59747,
+            "votes": 7,
+            "x": 412.779236,
+            "y": 353.631165
+          },
+          {
+            "index": 5,
+            "intensity": 188,
+            "star_id": 52419,
+            "votes": 7,
+            "x": 217.287231,
+            "y": 361.287231
+          },
+          {
+            "index": 6,
+            "intensity": 103,
+            "star_id": 43783,
+            "votes": 5,
+            "x": 111.330093,
+            "y": 392.135925
+          },
+          {
+            "index": 7,
+            "intensity": 97,
+            "star_id": 0,
+            "votes": 0,
+            "x": 540.350525,
+            "y": 410.082489
+          },
+          {
+            "index": 8,
+            "intensity": 253,
+            "star_id": 77952,
+            "votes": 5,
+            "x": 117.292488,
+            "y": 419.620544
+          },
+          {
+            "index": 9,
+            "intensity": 197,
+            "star_id": 76552,
+            "votes": 6,
+            "x": 484.482239,
+            "y": 429.492371
+          },
+          {
+            "index": 10,
+            "intensity": 153,
+            "star_id": 68702,
+            "votes": 10,
+            "x": 919.993469,
+            "y": 437.973846
+          },
+          {
+            "index": 11,
+            "intensity": 87,
+            "star_id": 0,
+            "votes": 0,
+            "x": 319.264374,
+            "y": 441.264374
+          },
+          {
+            "index": 12,
+            "intensity": 102,
+            "star_id": 0,
+            "votes": 0,
+            "x": 530.872559,
+            "y": 474.647064
+          },
+          {
+            "index": 13,
+            "intensity": 157,
+            "star_id": 61585,
+            "votes": 6,
+            "x": 226.121017,
+            "y": 496.210205
+          },
+          {
+            "index": 14,
+            "intensity": 104,
+            "star_id": 26549,
+            "votes": 5,
+            "x": 377.692322,
+            "y": 531.09613
+          },
+          {
+            "index": 15,
+            "intensity": 100,
+            "star_id": 0,
+            "votes": 0,
+            "x": 852.929993,
+            "y": 578.340027
+          },
+          {
+            "index": 16,
+            "intensity": 242,
+            "star_id": 23972,
+            "votes": 6,
+            "x": 750.309937,
+            "y": 587.52478
+          },
+          {
+            "index": 17,
+            "intensity": 344,
+            "star_id": 75411,
+            "votes": 4,
+            "x": 240.633728,
+            "y": 612.328491
+          },
+          {
+            "index": 18,
+            "intensity": 274,
+            "star_id": 18724,
+            "votes": 8,
+            "x": 678.328491,
+            "y": 667.350342
+          },
+          {
+            "index": 19,
+            "intensity": 300,
+            "star_id": 45238,
+            "votes": 6,
+            "x": 162.639999,
+            "y": 713.276672
+          },
+          {
+            "index": 20,
+            "intensity": 427,
+            "star_id": 47175,
+            "votes": 7,
+            "x": 80.482437,
+            "y": 732.332581
+          },
+          {
+            "index": 21,
+            "intensity": 103,
+            "star_id": 80911,
+            "votes": 6,
+            "x": 208.640778,
+            "y": 752.097107
+          },
+          {
+            "index": 22,
+            "intensity": 115,
+            "star_id": 20711,
+            "votes": 5,
+            "x": 381.956512,
+            "y": 788.730408
+          },
+          {
+            "index": 23,
+            "intensity": 279,
+            "star_id": 34088,
+            "votes": 6,
+            "x": 401.354828,
+            "y": 945.240173
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 18,
+        "pointing_error_deg": 0.012313759601389026,
+        "reported_extract_ms": 64.17120003607124,
+        "reported_solve_ms": 2.456699963659048,
+        "solved": true,
+        "wall_ms": 67.07800005096942
+      },
+      "truth": {
+        "dec_deg": -1.1457692057087587,
+        "ra_deg": 162.02591148883576,
+        "roll_deg": 216.56385394704975,
+        "visible_stars": 24
+      }
+    },
+    {
+      "case": 17,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.11650903901783126,
+        "centroid_us": 1066.1,
+        "centroids": 28,
+        "cleaned_centroids": 28,
+        "correct_ids": 0,
+        "false_id_rate": 1.0,
+        "filter_object_bytes": 1864,
+        "filter_us": 0.7,
+        "identification_success": false,
+        "incorrect_ids": 20,
+        "index_us": 22581.6,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 28,
+        "match_us": 275.1,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5943296,
+        "pipeline_ms": 1.3419,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 190,
+            "star_id": 74395,
+            "votes": 6,
+            "x": 695.85791,
+            "y": 34.647369
+          },
+          {
+            "index": 1,
+            "intensity": 310,
+            "star_id": 45101,
+            "votes": 6,
+            "x": 481.493561,
+            "y": 52.154839
+          },
+          {
+            "index": 2,
+            "intensity": 93,
+            "star_id": 0,
+            "votes": 0,
+            "x": 506.612915,
+            "y": 58.279572
+          },
+          {
+            "index": 3,
+            "intensity": 323,
+            "star_id": 21444,
+            "votes": 5,
+            "x": 555.712097,
+            "y": 60.727554
+          },
+          {
+            "index": 4,
+            "intensity": 144,
+            "star_id": 54463,
+            "votes": 6,
+            "x": 301.159729,
+            "y": 203.819443
+          },
+          {
+            "index": 5,
+            "intensity": 103,
+            "star_id": 0,
+            "votes": 0,
+            "x": 437.29126,
+            "y": 221.097092
+          },
+          {
+            "index": 6,
+            "intensity": 1532,
+            "star_id": 57363,
+            "votes": 5,
+            "x": 659.392273,
+            "y": 229.637726
+          },
+          {
+            "index": 7,
+            "intensity": 527,
+            "star_id": 71536,
+            "votes": 6,
+            "x": 601.713501,
+            "y": 250.368118
+          },
+          {
+            "index": 8,
+            "intensity": 187,
+            "star_id": 87261,
+            "votes": 5,
+            "x": 708.208557,
+            "y": 363.775391
+          },
+          {
+            "index": 9,
+            "intensity": 261,
+            "star_id": 45080,
+            "votes": 7,
+            "x": 621.279663,
+            "y": 379.421448
+          },
+          {
+            "index": 10,
+            "intensity": 215,
+            "star_id": 50371,
+            "votes": 6,
+            "x": 780.962769,
+            "y": 441.995361
+          },
+          {
+            "index": 11,
+            "intensity": 324,
+            "star_id": 82729,
+            "votes": 7,
+            "x": 411.123444,
+            "y": 449.219147
+          },
+          {
+            "index": 12,
+            "intensity": 445,
+            "star_id": 71683,
+            "votes": 7,
+            "x": 254.262924,
+            "y": 460.597748
+          },
+          {
+            "index": 13,
+            "intensity": 189,
+            "star_id": 47175,
+            "votes": 7,
+            "x": 984.470886,
+            "y": 503.566132
+          },
+          {
+            "index": 14,
+            "intensity": 122,
+            "star_id": 0,
+            "votes": 0,
+            "x": 781.114746,
+            "y": 546.483582
+          },
+          {
+            "index": 15,
+            "intensity": 278,
+            "star_id": 17448,
+            "votes": 7,
+            "x": 10.071942,
+            "y": 564.179871
+          },
+          {
+            "index": 16,
+            "intensity": 144,
+            "star_id": 50099,
+            "votes": 7,
+            "x": 672.833313,
+            "y": 601.375
+          },
+          {
+            "index": 17,
+            "intensity": 125,
+            "star_id": 53253,
+            "votes": 6,
+            "x": 923.736023,
+            "y": 612.231995
+          },
+          {
+            "index": 18,
+            "intensity": 100,
+            "star_id": 0,
+            "votes": 0,
+            "x": 556.799988,
+            "y": 656.48999
+          },
+          {
+            "index": 19,
+            "intensity": 871,
+            "star_id": 30122,
+            "votes": 5,
+            "x": 818.338684,
+            "y": 710.84845
+          },
+          {
+            "index": 20,
+            "intensity": 151,
+            "star_id": 45556,
+            "votes": 6,
+            "x": 321.139069,
+            "y": 758.980103
+          },
+          {
+            "index": 21,
+            "intensity": 187,
+            "star_id": 45496,
+            "votes": 5,
+            "x": 862.037415,
+            "y": 771.203186
+          },
+          {
+            "index": 22,
+            "intensity": 124,
+            "star_id": 0,
+            "votes": 0,
+            "x": 385.967743,
+            "y": 785.669373
+          },
+          {
+            "index": 23,
+            "intensity": 171,
+            "star_id": 42570,
+            "votes": 6,
+            "x": 570.672485,
+            "y": 825.842102
+          },
+          {
+            "index": 24,
+            "intensity": 353,
+            "star_id": 78990,
+            "votes": 6,
+            "x": 803.878174,
+            "y": 833.552429
+          },
+          {
+            "index": 25,
+            "intensity": 101,
+            "star_id": 0,
+            "votes": 0,
+            "x": 484.861389,
+            "y": 834.663391
+          },
+          {
+            "index": 26,
+            "intensity": 109,
+            "star_id": 0,
+            "votes": 0,
+            "x": 611.798157,
+            "y": 914.210999
+          },
+          {
+            "index": 27,
+            "intensity": 117,
+            "star_id": 0,
+            "votes": 0,
+            "x": 515.512817,
+            "y": 978.119629
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 24,
+        "pointing_error_deg": 0.012825997223599476,
+        "reported_extract_ms": 58.22679994162172,
+        "reported_solve_ms": 3.608300001360476,
+        "solved": true,
+        "wall_ms": 62.43010004982352
+      },
+      "truth": {
+        "dec_deg": 9.14529166240208,
+        "ra_deg": 248.07990432411322,
+        "roll_deg": 300.1843911917174,
+        "visible_stars": 28
+      }
+    },
+    {
+      "case": 18,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.08612815517891236,
+        "centroid_us": 1831.4,
+        "centroids": 50,
+        "cleaned_centroids": 50,
+        "correct_ids": 7,
+        "false_id_rate": 0.65,
+        "filter_object_bytes": 1864,
+        "filter_us": 1.1,
+        "identification_success": false,
+        "incorrect_ids": 13,
+        "index_us": 22246.2,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 50,
+        "match_us": 324.3,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5939200,
+        "pipeline_ms": 2.1568,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 116,
+            "star_id": 0,
+            "votes": 0,
+            "x": 657.224121,
+            "y": 57.775864
+          },
+          {
+            "index": 1,
+            "intensity": 174,
+            "star_id": 0,
+            "votes": 0,
+            "x": 773.643677,
+            "y": 81.448273
+          },
+          {
+            "index": 2,
+            "intensity": 332,
+            "star_id": 22449,
+            "votes": 7,
+            "x": 742.247009,
+            "y": 161.373489
+          },
+          {
+            "index": 3,
+            "intensity": 177,
+            "star_id": 0,
+            "votes": 0,
+            "x": 296.10733,
+            "y": 166.983047
+          },
+          {
+            "index": 4,
+            "intensity": 740,
+            "star_id": 51232,
+            "votes": 8,
+            "x": 311.602692,
+            "y": 179.054047
+          },
+          {
+            "index": 5,
+            "intensity": 211,
+            "star_id": 0,
+            "votes": 0,
+            "x": 826.853088,
+            "y": 181.81517
+          },
+          {
+            "index": 6,
+            "intensity": 246,
+            "star_id": 0,
+            "votes": 0,
+            "x": 528.812988,
+            "y": 197.626022
+          },
+          {
+            "index": 7,
+            "intensity": 552,
+            "star_id": 60823,
+            "votes": 6,
+            "x": 541.063416,
+            "y": 978.597839
+          },
+          {
+            "index": 8,
+            "intensity": 126,
+            "star_id": 0,
+            "votes": 0,
+            "x": 224.214279,
+            "y": 232.269836
+          },
+          {
+            "index": 9,
+            "intensity": 515,
+            "star_id": 50099,
+            "votes": 9,
+            "x": 307.221344,
+            "y": 239.0233
+          },
+          {
+            "index": 10,
+            "intensity": 125,
+            "star_id": 0,
+            "votes": 0,
+            "x": 620.83197,
+            "y": 269.880005
+          },
+          {
+            "index": 11,
+            "intensity": 99,
+            "star_id": 0,
+            "votes": 0,
+            "x": 352.494965,
+            "y": 290.959595
+          },
+          {
+            "index": 12,
+            "intensity": 241,
+            "star_id": 0,
+            "votes": 0,
+            "x": 689.468872,
+            "y": 296.348541
+          },
+          {
+            "index": 13,
+            "intensity": 833,
+            "star_id": 21444,
+            "votes": 10,
+            "x": 644.148865,
+            "y": 311.253296
+          },
+          {
+            "index": 14,
+            "intensity": 332,
+            "star_id": 52419,
+            "votes": 8,
+            "x": 196.376511,
+            "y": 314.246979
+          },
+          {
+            "index": 15,
+            "intensity": 490,
+            "star_id": 71536,
+            "votes": 8,
+            "x": 578.146912,
+            "y": 935.863281
+          },
+          {
+            "index": 16,
+            "intensity": 134,
+            "star_id": 0,
+            "votes": 0,
+            "x": 490.194031,
+            "y": 394.141785
+          },
+          {
+            "index": 17,
+            "intensity": 765,
+            "star_id": 22109,
+            "votes": 10,
+            "x": 720.005249,
+            "y": 399.789551
+          },
+          {
+            "index": 18,
+            "intensity": 111,
+            "star_id": 0,
+            "votes": 0,
+            "x": 1010.783813,
+            "y": 439.144135
+          },
+          {
+            "index": 19,
+            "intensity": 227,
+            "star_id": 0,
+            "votes": 0,
+            "x": 433.140961,
+            "y": 443.969177
+          },
+          {
+            "index": 20,
+            "intensity": 226,
+            "star_id": 0,
+            "votes": 0,
+            "x": 403.800873,
+            "y": 467.203552
+          },
+          {
+            "index": 21,
+            "intensity": 124,
+            "star_id": 0,
+            "votes": 0,
+            "x": 647.056458,
+            "y": 506.467743
+          },
+          {
+            "index": 22,
+            "intensity": 549,
+            "star_id": 44382,
+            "votes": 8,
+            "x": 689.280518,
+            "y": 542.380676
+          },
+          {
+            "index": 23,
+            "intensity": 150,
+            "star_id": 0,
+            "votes": 0,
+            "x": 201.646667,
+            "y": 546.853333
+          },
+          {
+            "index": 24,
+            "intensity": 129,
+            "star_id": 0,
+            "votes": 0,
+            "x": 499.015503,
+            "y": 549.992249
+          },
+          {
+            "index": 25,
+            "intensity": 148,
+            "star_id": 0,
+            "votes": 0,
+            "x": 294.033783,
+            "y": 943.925659
+          },
+          {
+            "index": 26,
+            "intensity": 164,
+            "star_id": 0,
+            "votes": 0,
+            "x": 727.871948,
+            "y": 568.701233
+          },
+          {
+            "index": 27,
+            "intensity": 108,
+            "star_id": 0,
+            "votes": 0,
+            "x": 816.09259,
+            "y": 602.731506
+          },
+          {
+            "index": 28,
+            "intensity": 291,
+            "star_id": 70090,
+            "votes": 6,
+            "x": 314.415802,
+            "y": 612.498291
+          },
+          {
+            "index": 29,
+            "intensity": 113,
+            "star_id": 0,
+            "votes": 0,
+            "x": 953.778748,
+            "y": 636.212402
+          },
+          {
+            "index": 30,
+            "intensity": 255,
+            "star_id": 62434,
+            "votes": 6,
+            "x": 829.400024,
+            "y": 657.031372
+          },
+          {
+            "index": 31,
+            "intensity": 252,
+            "star_id": 60260,
+            "votes": 5,
+            "x": 852.83728,
+            "y": 670.872986
+          },
+          {
+            "index": 32,
+            "intensity": 875,
+            "star_id": 21594,
+            "votes": 7,
+            "x": 221.296005,
+            "y": 674.549744
+          },
+          {
+            "index": 33,
+            "intensity": 356,
+            "star_id": 20635,
+            "votes": 6,
+            "x": 686.019653,
+            "y": 681.331482
+          },
+          {
+            "index": 34,
+            "intensity": 1561,
+            "star_id": 23875,
+            "votes": 8,
+            "x": 820.308105,
+            "y": 681.431763
+          },
+          {
+            "index": 35,
+            "intensity": 170,
+            "star_id": 0,
+            "votes": 0,
+            "x": 227.894119,
+            "y": 687.382324
+          },
+          {
+            "index": 36,
+            "intensity": 184,
+            "star_id": 0,
+            "votes": 0,
+            "x": 549.054321,
+            "y": 760.934753
+          },
+          {
+            "index": 37,
+            "intensity": 104,
+            "star_id": 0,
+            "votes": 0,
+            "x": 819.288452,
+            "y": 761.932678
+          },
+          {
+            "index": 38,
+            "intensity": 114,
+            "star_id": 0,
+            "votes": 0,
+            "x": 678.666687,
+            "y": 796.92981
+          },
+          {
+            "index": 39,
+            "intensity": 599,
+            "star_id": 23972,
+            "votes": 7,
+            "x": 681.237061,
+            "y": 807.729553
+          },
+          {
+            "index": 40,
+            "intensity": 359,
+            "star_id": 26311,
+            "votes": 7,
+            "x": 457.688019,
+            "y": 832.376038
+          },
+          {
+            "index": 41,
+            "intensity": 1138,
+            "star_id": 24674,
+            "votes": 7,
+            "x": 824.346191,
+            "y": 835.255737
+          },
+          {
+            "index": 42,
+            "intensity": 126,
+            "star_id": 0,
+            "votes": 0,
+            "x": 217.817459,
+            "y": 839.753967
+          },
+          {
+            "index": 43,
+            "intensity": 1566,
+            "star_id": 24436,
+            "votes": 8,
+            "x": 745.077271,
+            "y": 845.55426
+          },
+          {
+            "index": 44,
+            "intensity": 167,
+            "star_id": 0,
+            "votes": 0,
+            "x": 185.934128,
+            "y": 849.880249
+          },
+          {
+            "index": 45,
+            "intensity": 278,
+            "star_id": 62867,
+            "votes": 6,
+            "x": 234.71582,
+            "y": 852.151062
+          },
+          {
+            "index": 46,
+            "intensity": 98,
+            "star_id": 0,
+            "votes": 0,
+            "x": 515.948975,
+            "y": 905.73468
+          },
+          {
+            "index": 47,
+            "intensity": 138,
+            "star_id": 0,
+            "votes": 0,
+            "x": 264.847839,
+            "y": 908.630432
+          },
+          {
+            "index": 48,
+            "intensity": 140,
+            "star_id": 0,
+            "votes": 0,
+            "x": 250.007141,
+            "y": 916.957153
+          },
+          {
+            "index": 49,
+            "intensity": 160,
+            "star_id": 0,
+            "votes": 0,
+            "x": 571.981262,
+            "y": 926.0
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 23,
+        "pointing_error_deg": 0.014254443984065725,
+        "reported_extract_ms": 61.44329998642206,
+        "reported_solve_ms": 5.620600073598325,
+        "solved": true,
+        "wall_ms": 67.53750005736947
+      },
+      "truth": {
+        "dec_deg": -7.840197443092836,
+        "ra_deg": 70.5856933369343,
+        "roll_deg": 51.90204141719141,
+        "visible_stars": 53
+      }
+    },
+    {
+      "case": 19,
+      "cpp": {
+        "catalog_bytes": 100820,
+        "centroid_object_bytes": 106512,
+        "centroid_rmse_px": 0.11400088491627998,
+        "centroid_us": 1670.2,
+        "centroids": 26,
+        "cleaned_centroids": 26,
+        "correct_ids": 3,
+        "false_id_rate": 0.85,
+        "filter_object_bytes": 1864,
+        "filter_us": 1.2,
+        "identification_success": false,
+        "incorrect_ids": 17,
+        "index_us": 21480.2,
+        "indexed_pairs": 22299,
+        "indexed_stars": 768,
+        "localized_centroids": 26,
+        "match_us": 320.2,
+        "matcher_object_bytes": 244824,
+        "peak_process_bytes": 5951488,
+        "pipeline_ms": 1.9916,
+        "points": [
+          {
+            "index": 0,
+            "intensity": 1112,
+            "star_id": 7097,
+            "votes": 7,
+            "x": 701.333618,
+            "y": 174.323746
+          },
+          {
+            "index": 1,
+            "intensity": 103,
+            "star_id": 0,
+            "votes": 0,
+            "x": 865.0,
+            "y": 196.728149
+          },
+          {
+            "index": 2,
+            "intensity": 342,
+            "star_id": 21589,
+            "votes": 8,
+            "x": 232.324554,
+            "y": 211.122803
+          },
+          {
+            "index": 3,
+            "intensity": 109,
+            "star_id": 81304,
+            "votes": 7,
+            "x": 813.807312,
+            "y": 216.174316
+          },
+          {
+            "index": 4,
+            "intensity": 159,
+            "star_id": 60260,
+            "votes": 7,
+            "x": 546.641479,
+            "y": 262.79245
+          },
+          {
+            "index": 5,
+            "intensity": 84,
+            "star_id": 0,
+            "votes": 0,
+            "x": 766.142883,
+            "y": 268.5
+          },
+          {
+            "index": 6,
+            "intensity": 501,
+            "star_id": 67472,
+            "votes": 6,
+            "x": 216.67865,
+            "y": 357.377258
+          },
+          {
+            "index": 7,
+            "intensity": 104,
+            "star_id": 52419,
+            "votes": 6,
+            "x": 806.673096,
+            "y": 368.134613
+          },
+          {
+            "index": 8,
+            "intensity": 573,
+            "star_id": 8198,
+            "votes": 6,
+            "x": 408.6492,
+            "y": 383.905762
+          },
+          {
+            "index": 9,
+            "intensity": 872,
+            "star_id": 45496,
+            "votes": 6,
+            "x": 934.243103,
+            "y": 417.207581
+          },
+          {
+            "index": 10,
+            "intensity": 1590,
+            "star_id": 82273,
+            "votes": 6,
+            "x": 1014.064758,
+            "y": 420.091187
+          },
+          {
+            "index": 11,
+            "intensity": 101,
+            "star_id": 0,
+            "votes": 0,
+            "x": 512.128723,
+            "y": 439.693054
+          },
+          {
+            "index": 12,
+            "intensity": 100,
+            "star_id": 0,
+            "votes": 0,
+            "x": 136.350006,
+            "y": 457.140015
+          },
+          {
+            "index": 13,
+            "intensity": 254,
+            "star_id": 53253,
+            "votes": 7,
+            "x": 864.854309,
+            "y": 473.204712
+          },
+          {
+            "index": 14,
+            "intensity": 428,
+            "star_id": 43023,
+            "votes": 7,
+            "x": 119.649536,
+            "y": 525.443909
+          },
+          {
+            "index": 15,
+            "intensity": 114,
+            "star_id": 72010,
+            "votes": 5,
+            "x": 654.026306,
+            "y": 567.0
+          },
+          {
+            "index": 16,
+            "intensity": 103,
+            "star_id": 0,
+            "votes": 0,
+            "x": 126.14563,
+            "y": 609.378662
+          },
+          {
+            "index": 17,
+            "intensity": 134,
+            "star_id": 66657,
+            "votes": 7,
+            "x": 974.074646,
+            "y": 620.470154
+          },
+          {
+            "index": 18,
+            "intensity": 881,
+            "star_id": 9487,
+            "votes": 9,
+            "x": 112.47673,
+            "y": 635.775269
+          },
+          {
+            "index": 19,
+            "intensity": 130,
+            "star_id": 69996,
+            "votes": 6,
+            "x": 763.946167,
+            "y": 681.50769
+          },
+          {
+            "index": 20,
+            "intensity": 141,
+            "star_id": 50099,
+            "votes": 7,
+            "x": 423.028381,
+            "y": 710.524841
+          },
+          {
+            "index": 21,
+            "intensity": 551,
+            "star_id": 52154,
+            "votes": 5,
+            "x": 439.83667,
+            "y": 729.056274
+          },
+          {
+            "index": 22,
+            "intensity": 167,
+            "star_id": 26241,
+            "votes": 6,
+            "x": 551.11377,
+            "y": 862.658691
+          },
+          {
+            "index": 23,
+            "intensity": 584,
+            "star_id": 71908,
+            "votes": 7,
+            "x": 449.200348,
+            "y": 922.006836
+          },
+          {
+            "index": 24,
+            "intensity": 94,
+            "star_id": 0,
+            "votes": 0,
+            "x": 791.691467,
+            "y": 926.936157
+          },
+          {
+            "index": 25,
+            "intensity": 145,
+            "star_id": 82396,
+            "votes": 5,
+            "x": 668.579285,
+            "y": 995.172424
+          }
+        ],
+        "reported_matches": 20
+      },
+      "tetra3": {
+        "false_solve": false,
+        "incorrect_ids": 0,
+        "matches": 18,
+        "pointing_error_deg": 0.012754591793832598,
+        "reported_extract_ms": 62.00669996906072,
+        "reported_solve_ms": 8.825400029309094,
+        "solved": true,
+        "wall_ms": 71.34080003015697
+      },
+      "truth": {
+        "dec_deg": 10.850099228728153,
+        "ra_deg": 29.156588405271705,
+        "roll_deg": 82.31154738546974,
+        "visible_stars": 26
+      }
+    }
+  ]
+}

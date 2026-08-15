@@ -1,0 +1,1157 @@
+{
+  "cross_generator": {
+    "perfect_project": {
+      "cases": [
+        {
+          "boresight_error_between_deg": 0.0006417868233951137,
+          "case": "tetra3_native_0000",
+          "extractor": "perfect_project",
+          "fov_commanded_deg": 20.0,
+          "lost": {
+            "attitude_ms": 6.872678,
+            "available": true,
+            "crashed": false,
+            "dec_deg": -20.0,
+            "exit_code": 0,
+            "false_solve": false,
+            "num_centroids": 21,
+            "num_star_ids": 21,
+            "pointing_error_deg": 0.0,
+            "ra_deg": 20.0,
+            "residual": {
+              "ddec_deg": 0.0,
+              "dra_deg": 0.0,
+              "droll_deg": 179.999999,
+              "droll_negated_deg": 179.999999
+            },
+            "roll_deg": 179.999999,
+            "solved": true,
+            "star_id_ms": 2.681739,
+            "stderr": "",
+            "total_ms": 9.554417
+          },
+          "num_centroids": 21,
+          "tetra3": {
+            "dec_deg": -19.999495533529487,
+            "false_solve": false,
+            "fov_deg": 19.999183034624853,
+            "matched_cat_ids": [
+              3419,
+              8102,
+              9347,
+              6670,
+              9061,
+              6960,
+              3505,
+              8209,
+              7450,
+              4104,
+              6748,
+              7679,
+              3849
+            ],
+            "matches": 13,
+            "pointing_error_deg": 0.0006417868233951137,
+            "ra_deg": 19.99957779617921,
+            "residual": {
+              "ddec_deg": 0.0005044664705131652,
+              "dra_deg": -0.0004222038207899459,
+              "droll_deg": -179.9935780489867,
+              "droll_negated_deg": -179.9935780489867
+            },
+            "rmse_arcsec": 16.70409593218938,
+            "roll_deg": 180.00642195101327,
+            "solved": true,
+            "t_solve_ms": 2.043199958279729
+          },
+          "truth": {
+            "dec_deg": -20.0,
+            "ra_deg": 20.0,
+            "roll_deg": 0.0,
+            "visible_stars": 21
+          }
+        },
+        {
+          "boresight_error_between_deg": 0.001298736774510498,
+          "case": "tetra3_native_0001",
+          "extractor": "perfect_project",
+          "fov_commanded_deg": 20.0,
+          "lost": {
+            "attitude_ms": 6.337502,
+            "available": true,
+            "crashed": false,
+            "dec_deg": -10.0,
+            "exit_code": 0,
+            "false_solve": false,
+            "num_centroids": 30,
+            "num_star_ids": 30,
+            "pointing_error_deg": 8.537736462515939e-07,
+            "ra_deg": 50.0,
+            "residual": {
+              "ddec_deg": 0.0,
+              "dra_deg": 0.0,
+              "droll_deg": 99.999999,
+              "droll_negated_deg": 179.999999
+            },
+            "roll_deg": 139.999999,
+            "solved": true,
+            "star_id_ms": 2.135353,
+            "stderr": "",
+            "total_ms": 8.472855
+          },
+          "num_centroids": 30,
+          "tetra3": {
+            "dec_deg": -10.00125301635285,
+            "false_solve": false,
+            "fov_deg": 20.00158980758089,
+            "matched_cat_ids": [
+              18543,
+              17378,
+              16537,
+              13701,
+              12770,
+              17593,
+              16341,
+              15197,
+              14954,
+              13717,
+              14456,
+              16803,
+              18141,
+              17167,
+              13951,
+              16780,
+              16263,
+              15383,
+              15411,
+              16142,
+              14060,
+              12444,
+              14110,
+              16989
+            ],
+            "matches": 24,
+            "pointing_error_deg": 0.001298736774510498,
+            "ra_deg": 49.99965316403233,
+            "residual": {
+              "ddec_deg": -0.0012530163528499116,
+              "dra_deg": -0.00034683596766882374,
+              "droll_deg": -179.99813680607588,
+              "droll_negated_deg": -99.99813680607588
+            },
+            "rmse_arcsec": 9.651270969843102,
+            "roll_deg": 220.0018631939241,
+            "solved": true,
+            "t_solve_ms": 1.6230999026447535
+          },
+          "truth": {
+            "dec_deg": -10.0,
+            "ra_deg": 50.0,
+            "roll_deg": 40.0,
+            "visible_stars": 30
+          }
+        },
+        {
+          "boresight_error_between_deg": 8.172625312509627e-05,
+          "case": "tetra3_native_0002",
+          "extractor": "perfect_project",
+          "fov_commanded_deg": 20.0,
+          "lost": {
+            "attitude_ms": 5.513269,
+            "available": true,
+            "crashed": false,
+            "dec_deg": -0.0,
+            "exit_code": 0,
+            "false_solve": false,
+            "num_centroids": 81,
+            "num_star_ids": 70,
+            "pointing_error_deg": 0.0,
+            "ra_deg": 80.0,
+            "residual": {
+              "ddec_deg": -0.0,
+              "dra_deg": 0.0,
+              "droll_deg": 20.0,
+              "droll_negated_deg": -180.0
+            },
+            "roll_deg": 100.0,
+            "solved": true,
+            "star_id_ms": 1.847918,
+            "stderr": "",
+            "total_ms": 7.361187
+          },
+          "num_centroids": 81,
+          "tetra3": {
+            "dec_deg": -7.088465105625938e-05,
+            "false_solve": false,
+            "fov_deg": 19.999651451383656,
+            "matched_cat_ids": [
+              24436,
+              25336,
+              26311,
+              26727,
+              25930,
+              26241,
+              23875,
+              25281,
+              24674,
+              22549,
+              22797,
+              22109,
+              25247,
+              23972,
+              22701,
+              24331,
+              23123,
+              26594,
+              25473,
+              25923,
+              25044,
+              27750,
+              23364,
+              25302
+            ],
+            "matches": 24,
+            "pointing_error_deg": 8.172625312509627e-05,
+            "ra_deg": 79.99995931946707,
+            "residual": {
+              "ddec_deg": -7.088465105625938e-05,
+              "dra_deg": -4.0680532933379254e-05,
+              "droll_deg": 179.99979667626673,
+              "droll_negated_deg": -20.00020332373333
+            },
+            "rmse_arcsec": 0.7587539289570516,
+            "roll_deg": 259.9997966762667,
+            "solved": true,
+            "t_solve_ms": 2.962700091302395
+          },
+          "truth": {
+            "dec_deg": 0.0,
+            "ra_deg": 80.0,
+            "roll_deg": 80.0,
+            "visible_stars": 81
+          }
+        },
+        {
+          "boresight_error_between_deg": 0.000796883251971165,
+          "case": "tetra3_native_0003",
+          "extractor": "perfect_project",
+          "fov_commanded_deg": 20.0,
+          "lost": {
+            "attitude_ms": 3.717107,
+            "available": true,
+            "crashed": false,
+            "dec_deg": 10.0,
+            "exit_code": 0,
+            "false_solve": false,
+            "num_centroids": 47,
+            "num_star_ids": 47,
+            "pointing_error_deg": 8.537736462515939e-07,
+            "ra_deg": 110.0,
+            "residual": {
+              "ddec_deg": 0.0,
+              "dra_deg": 0.0,
+              "droll_deg": -59.999999,
+              "droll_negated_deg": -179.999999
+            },
+            "roll_deg": 60.000001,
+            "solved": true,
+            "star_id_ms": 2.742041,
+            "stderr": "",
+            "total_ms": 6.459148
+          },
+          "num_centroids": 47,
+          "tetra3": {
+            "dec_deg": 9.999368505132257,
+            "false_solve": false,
+            "fov_deg": 19.99946644700804,
+            "matched_cat_ids": [
+              37279,
+              36188,
+              32362,
+              35350,
+              36425,
+              31978,
+              33202,
+              32533,
+              37300,
+              34909,
+              34033,
+              36265,
+              36641,
+              37921,
+              36760,
+              34987,
+              35987,
+              36616,
+              34440,
+              37521,
+              36723,
+              35005,
+              33715
+            ],
+            "matches": 23,
+            "pointing_error_deg": 0.000796883251971165,
+            "ra_deg": 109.9995064600067,
+            "residual": {
+              "ddec_deg": -0.0006314948677434984,
+              "dra_deg": -0.0004935399933003737,
+              "droll_deg": 179.9959756018775,
+              "droll_negated_deg": 59.99597560187749
+            },
+            "rmse_arcsec": 7.953204957357465,
+            "roll_deg": 299.9959756018775,
+            "solved": true,
+            "t_solve_ms": 1.1090999469161034
+          },
+          "truth": {
+            "dec_deg": 10.0,
+            "ra_deg": 110.0,
+            "roll_deg": 120.0,
+            "visible_stars": 47
+          }
+        },
+        {
+          "boresight_error_between_deg": 0.0006950734802185297,
+          "case": "tetra3_native_0004",
+          "extractor": "perfect_project",
+          "fov_commanded_deg": 20.0,
+          "lost": {
+            "attitude_ms": 4.419853,
+            "available": true,
+            "crashed": false,
+            "dec_deg": 20.0,
+            "exit_code": 0,
+            "false_solve": false,
+            "num_centroids": 19,
+            "num_star_ids": 19,
+            "pointing_error_deg": 0.0,
+            "ra_deg": 140.0,
+            "residual": {
+              "ddec_deg": 0.0,
+              "dra_deg": 0.0,
+              "droll_deg": -140.0,
+              "droll_negated_deg": -180.0
+            },
+            "roll_deg": 20.0,
+            "solved": true,
+            "star_id_ms": 4.10596,
+            "stderr": "",
+            "total_ms": 8.525813
+          },
+          "num_centroids": 19,
+          "tetra3": {
+            "dec_deg": 19.999431896593066,
+            "false_solve": false,
+            "fov_deg": 19.999257614081365,
+            "matched_cat_ids": [
+              47908,
+              48455,
+              42911,
+              44066,
+              46750,
+              46146,
+              42806,
+              46771,
+              44946,
+              43970,
+              43834,
+              44798,
+              48390,
+              45410,
+              47723
+            ],
+            "matches": 15,
+            "pointing_error_deg": 0.0006950734802185297,
+            "ra_deg": 139.9995738174032,
+            "residual": {
+              "ddec_deg": -0.0005681034069340285,
+              "dra_deg": -0.0004261825968114863,
+              "droll_deg": -179.99904033708629,
+              "droll_negated_deg": 140.00095966291371
+            },
+            "rmse_arcsec": 2.8513638973026856,
+            "roll_deg": 340.0009596629137,
+            "solved": true,
+            "t_solve_ms": 5.764400004409254
+          },
+          "truth": {
+            "dec_deg": 20.0,
+            "ra_deg": 140.0,
+            "roll_deg": 160.0,
+            "visible_stars": 19
+          }
+        }
+      ],
+      "summary": {
+        "both_solved": 5,
+        "cases": 5,
+        "lost": {
+          "false_solve_rate": 0.0,
+          "false_solves": 0,
+          "median_pointing_error_deg": 0.0,
+          "solve_rate": 1.0,
+          "solved": 5
+        },
+        "tetra3": {
+          "false_solve_rate": 0.0,
+          "false_solves": 0,
+          "median_pointing_error_deg": 0.0006950734802185297,
+          "solve_rate": 1.0,
+          "solved": 5
+        }
+      }
+    },
+    "tetra3_extract": {
+      "cases": [
+        {
+          "boresight_error_between_deg": 0.0005470557553133004,
+          "case": "tetra3_native_0000",
+          "extractor": "tetra3_extract",
+          "fov_commanded_deg": 20.0,
+          "lost": {
+            "attitude_ms": 4.516064,
+            "available": true,
+            "crashed": false,
+            "dec_deg": -20.009155,
+            "exit_code": 0,
+            "false_solve": false,
+            "num_centroids": 21,
+            "num_star_ids": 21,
+            "pointing_error_deg": 0.012989165308978775,
+            "ra_deg": 19.990194,
+            "residual": {
+              "ddec_deg": -0.009154999999999802,
+              "dra_deg": -0.009806000000001092,
+              "droll_deg": -179.99495000000002,
+              "droll_negated_deg": -179.99495000000002
+            },
+            "roll_deg": 180.00505,
+            "solved": true,
+            "star_id_ms": 2.54732,
+            "stderr": "",
+            "total_ms": 7.063384
+          },
+          "num_centroids": 21,
+          "tetra3": {
+            "dec_deg": -20.008884733543635,
+            "false_solve": false,
+            "fov_deg": 20.00191113056073,
+            "matched_cat_ids": [
+              3419,
+              8102,
+              9347,
+              6670,
+              9061,
+              6960,
+              3505,
+              8209,
+              7450,
+              4104,
+              6748,
+              7679,
+              3849
+            ],
+            "matches": 13,
+            "pointing_error_deg": 0.013146665679878107,
+            "ra_deg": 19.989687813785547,
+            "residual": {
+              "ddec_deg": -0.008884733543634837,
+              "dra_deg": -0.010312186214452623,
+              "droll_deg": -179.9965738249349,
+              "droll_negated_deg": -179.9965738249349
+            },
+            "rmse_arcsec": 18.25685980605522,
+            "roll_deg": 180.00342617506507,
+            "solved": true,
+            "t_solve_ms": 2.3487999569624662
+          },
+          "truth": {
+            "dec_deg": -20.0,
+            "ra_deg": 20.0,
+            "roll_deg": 0.0,
+            "visible_stars": 21
+          }
+        },
+        {
+          "boresight_error_between_deg": 0.0013674988732761786,
+          "case": "tetra3_native_0001",
+          "extractor": "tetra3_extract",
+          "fov_commanded_deg": 20.0,
+          "lost": {
+            "attitude_ms": 5.526964,
+            "available": true,
+            "crashed": false,
+            "dec_deg": -10.013286,
+            "exit_code": 0,
+            "false_solve": false,
+            "num_centroids": 30,
+            "num_star_ids": 30,
+            "pointing_error_deg": 0.01334557024209254,
+            "ra_deg": 49.998721,
+            "residual": {
+              "ddec_deg": -0.013286000000000797,
+              "dra_deg": -0.0012789999999966994,
+              "droll_deg": 100.00104499999998,
+              "droll_negated_deg": -179.99895500000002
+            },
+            "roll_deg": 140.001045,
+            "solved": true,
+            "star_id_ms": 1.708359,
+            "stderr": "",
+            "total_ms": 7.235323
+          },
+          "num_centroids": 30,
+          "tetra3": {
+            "dec_deg": -10.014581372107894,
+            "false_solve": false,
+            "fov_deg": 20.001326030300895,
+            "matched_cat_ids": [
+              18543,
+              17378,
+              16537,
+              13701,
+              12770,
+              17593,
+              16341,
+              15197,
+              14954,
+              13717,
+              14456,
+              16803,
+              18141,
+              17167,
+              13951,
+              16780,
+              16263,
+              15383,
+              15411,
+              16142,
+              14060,
+              12444,
+              14110,
+              16989
+            ],
+            "matches": 24,
+            "pointing_error_deg": 0.014679882282050206,
+            "ra_deg": 49.99827596817533,
+            "residual": {
+              "ddec_deg": -0.014581372107894452,
+              "dra_deg": -0.0017240318246720676,
+              "droll_deg": -179.99871498157597,
+              "droll_negated_deg": -99.99871498157597
+            },
+            "rmse_arcsec": 12.572124796762939,
+            "roll_deg": 220.00128501842406,
+            "solved": true,
+            "t_solve_ms": 2.6038000360131264
+          },
+          "truth": {
+            "dec_deg": -10.0,
+            "ra_deg": 50.0,
+            "roll_deg": 40.0,
+            "visible_stars": 30
+          }
+        },
+        {
+          "boresight_error_between_deg": 0.000763677976884935,
+          "case": "tetra3_native_0002",
+          "extractor": "tetra3_extract",
+          "fov_commanded_deg": 20.0,
+          "lost": {
+            "attitude_ms": 4.725644,
+            "available": true,
+            "crashed": false,
+            "dec_deg": -0.010476,
+            "exit_code": 0,
+            "false_solve": false,
+            "num_centroids": 30,
+            "num_star_ids": 25,
+            "pointing_error_deg": 0.01269131480808682,
+            "ra_deg": 80.007164,
+            "residual": {
+              "ddec_deg": -0.010476,
+              "dra_deg": 0.007164000000003057,
+              "droll_deg": 19.998925999999983,
+              "droll_negated_deg": 179.99892599999998
+            },
+            "roll_deg": 99.998926,
+            "solved": true,
+            "star_id_ms": 3.887071,
+            "stderr": "",
+            "total_ms": 8.612715
+          },
+          "num_centroids": 30,
+          "tetra3": {
+            "dec_deg": -0.010305185084240035,
+            "false_solve": false,
+            "fov_deg": 19.999176006230496,
+            "matched_cat_ids": [
+              24436,
+              25336,
+              26311,
+              26727,
+              25930,
+              26241,
+              23875,
+              25281,
+              24674,
+              22549,
+              22797,
+              22109,
+              25247,
+              23972,
+              22701,
+              24331,
+              23123,
+              26594,
+              25473,
+              25923,
+              25044,
+              27750,
+              23364
+            ],
+            "matches": 23,
+            "pointing_error_deg": 0.012989938932367731,
+            "ra_deg": 80.0079083294468,
+            "residual": {
+              "ddec_deg": -0.010305185084240035,
+              "dra_deg": 0.007908329446806306,
+              "droll_deg": 179.9998618663053,
+              "droll_negated_deg": -20.00013813369469
+            },
+            "rmse_arcsec": 13.621727093641784,
+            "roll_deg": 259.9998618663053,
+            "solved": true,
+            "t_solve_ms": 44.2124999826774
+          },
+          "truth": {
+            "dec_deg": 0.0,
+            "ra_deg": 80.0,
+            "roll_deg": 80.0,
+            "visible_stars": 81
+          }
+        },
+        {
+          "boresight_error_between_deg": 0.0009511076739456371,
+          "case": "tetra3_native_0003",
+          "extractor": "tetra3_extract",
+          "fov_commanded_deg": 20.0,
+          "lost": {
+            "attitude_ms": 5.51983,
+            "available": true,
+            "crashed": false,
+            "dec_deg": 9.996544,
+            "exit_code": 0,
+            "false_solve": false,
+            "num_centroids": 30,
+            "num_star_ids": 30,
+            "pointing_error_deg": 0.013269390745224227,
+            "ra_deg": 110.013009,
+            "residual": {
+              "ddec_deg": -0.0034559999999999036,
+              "dra_deg": 0.013008999999996718,
+              "droll_deg": -60.000213,
+              "droll_negated_deg": 179.99978699999997
+            },
+            "roll_deg": 59.999787,
+            "solved": true,
+            "star_id_ms": 2.820579,
+            "stderr": "",
+            "total_ms": 8.340409
+          },
+          "num_centroids": 30,
+          "tetra3": {
+            "dec_deg": 9.995841653852997,
+            "false_solve": false,
+            "fov_deg": 19.998398238449507,
+            "matched_cat_ids": [
+              37279,
+              36188,
+              32362,
+              35350,
+              36425,
+              31978,
+              33202,
+              32533,
+              37300,
+              34909,
+              34033,
+              36265,
+              36641,
+              37921,
+              36760,
+              34987,
+              35987,
+              36616,
+              34440,
+              37521,
+              36723,
+              35005,
+              33715
+            ],
+            "matches": 23,
+            "pointing_error_deg": 0.01286092632008154,
+            "ra_deg": 110.012357774748,
+            "residual": {
+              "ddec_deg": -0.004158346147002945,
+              "dra_deg": 0.012357774747997041,
+              "droll_deg": 179.99480156833624,
+              "droll_negated_deg": 59.99480156833624
+            },
+            "rmse_arcsec": 10.111228313249297,
+            "roll_deg": 299.99480156833624,
+            "solved": true,
+            "t_solve_ms": 2.5927999522536993
+          },
+          "truth": {
+            "dec_deg": 10.0,
+            "ra_deg": 110.0,
+            "roll_deg": 120.0,
+            "visible_stars": 47
+          }
+        },
+        {
+          "boresight_error_between_deg": 0.000448517290410573,
+          "case": "tetra3_native_0004",
+          "extractor": "tetra3_extract",
+          "fov_commanded_deg": 20.0,
+          "lost": {
+            "attitude_ms": 3.95011,
+            "available": true,
+            "crashed": false,
+            "dec_deg": 20.005468,
+            "exit_code": 0,
+            "false_solve": false,
+            "num_centroids": 19,
+            "num_star_ids": 19,
+            "pointing_error_deg": 0.01284738676513591,
+            "ra_deg": 140.012372,
+            "residual": {
+              "ddec_deg": 0.0054680000000004725,
+              "dra_deg": 0.012371999999999161,
+              "droll_deg": -139.99802499999998,
+              "droll_negated_deg": -179.99802499999998
+            },
+            "roll_deg": 20.001975,
+            "solved": true,
+            "star_id_ms": 3.909204,
+            "stderr": "",
+            "total_ms": 7.859314
+          },
+          "num_centroids": 19,
+          "tetra3": {
+            "dec_deg": 20.005221027719028,
+            "false_solve": false,
+            "fov_deg": 20.000315600274973,
+            "matched_cat_ids": [
+              47908,
+              48455,
+              42911,
+              44066,
+              46750,
+              46146,
+              42806,
+              46771,
+              44946,
+              43970,
+              43834,
+              44798,
+              48390,
+              45410,
+              47723
+            ],
+            "matches": 15,
+            "pointing_error_deg": 0.012403647857284686,
+            "ra_deg": 140.0119735629309,
+            "residual": {
+              "ddec_deg": 0.00522102771902766,
+              "dra_deg": 0.01197356293090479,
+              "droll_deg": 179.99933748310252,
+              "droll_negated_deg": 139.99933748310252
+            },
+            "rmse_arcsec": 6.308469686180011,
+            "roll_deg": 339.9993374831025,
+            "solved": true,
+            "t_solve_ms": 10.65720000769943
+          },
+          "truth": {
+            "dec_deg": 20.0,
+            "ra_deg": 140.0,
+            "roll_deg": 160.0,
+            "visible_stars": 19
+          }
+        }
+      ],
+      "summary": {
+        "both_solved": 5,
+        "cases": 5,
+        "lost": {
+          "false_solve_rate": 0.0,
+          "false_solves": 0,
+          "median_pointing_error_deg": 0.012989165308978775,
+          "solve_rate": 1.0,
+          "solved": 5
+        },
+        "tetra3": {
+          "false_solve_rate": 0.0,
+          "false_solves": 0,
+          "median_pointing_error_deg": 0.012989938932367731,
+          "solve_rate": 1.0,
+          "solved": 5
+        }
+      }
+    }
+  },
+  "diagnosis": {
+    "cases": [
+      {
+        "boresight_error_between_deg": 0.00041847190749640963,
+        "case": "lost_synth_0000",
+        "lost_residual": {
+          "ddec_deg": -1.0000000010279564e-06,
+          "dra_deg": -4.000000000559112e-06,
+          "droll_deg": 1.499999999055035e-05,
+          "droll_negated_deg": 1.499999999055035e-05
+        },
+        "roll_delta_tetra_minus_lost_deg": 0.004332483356989769,
+        "roll_delta_tetra_minus_neg_lost_deg": 0.00436248335697087,
+        "tetra3_residual": {
+          "ddec_deg": 3.0018633921713445e-05,
+          "dra_deg": 0.0004401046746274062,
+          "droll_deg": 0.0043474833569803195,
+          "droll_negated_deg": 0.0043474833569803195
+        },
+        "truth": {
+          "dec_deg": -20.0,
+          "ra_deg": 20.0,
+          "roll_deg": 0.0
+        }
+      },
+      {
+        "boresight_error_between_deg": 0.00031343029436903735,
+        "case": "lost_synth_0001",
+        "lost_residual": {
+          "ddec_deg": 2.9999999995311555e-06,
+          "dra_deg": -9.999999974752427e-07,
+          "droll_deg": 1.3999999993075107e-05,
+          "droll_negated_deg": 80.00001399999996
+        },
+        "roll_delta_tetra_minus_lost_deg": -80.00006526527454,
+        "roll_delta_tetra_minus_neg_lost_deg": -3.7265274499986845e-05,
+        "tetra3_residual": {
+          "ddec_deg": 0.00021224221786297903,
+          "dra_deg": 0.00023595984310276208,
+          "droll_deg": -80.00005126527452,
+          "droll_negated_deg": -5.126527457832708e-05
+        },
+        "truth": {
+          "dec_deg": -10.0,
+          "ra_deg": 50.0,
+          "roll_deg": 40.0
+        }
+      },
+      {
+        "boresight_error_between_deg": 5.053878465470254e-05,
+        "case": "lost_synth_0002",
+        "lost_residual": {
+          "ddec_deg": 0.0,
+          "dra_deg": 0.0,
+          "droll_deg": 3.999999989900971e-06,
+          "droll_negated_deg": 160.000004
+        },
+        "roll_delta_tetra_minus_lost_deg": -160.0007525722521,
+        "roll_delta_tetra_minus_neg_lost_deg": -0.0007445722521879361,
+        "tetra3_residual": {
+          "ddec_deg": -9.33688317416359e-06,
+          "dra_deg": -4.966601321143571e-05,
+          "droll_deg": -160.00074857225212,
+          "droll_negated_deg": -0.0007485722521778371
+        },
+        "truth": {
+          "dec_deg": 0.0,
+          "ra_deg": 80.0,
+          "roll_deg": 80.0
+        }
+      },
+      {
+        "boresight_error_between_deg": 0.004614299587115032,
+        "case": "lost_synth_0003",
+        "lost_residual": {
+          "ddec_deg": -2.000000000279556e-06,
+          "dra_deg": 1.9999999949504854e-06,
+          "droll_deg": -9.000000005698894e-06,
+          "droll_negated_deg": -120.00000899999998
+        },
+        "roll_delta_tetra_minus_lost_deg": 119.99642562704287,
+        "roll_delta_tetra_minus_neg_lost_deg": -0.003592372957086809,
+        "tetra3_residual": {
+          "ddec_deg": -0.00028613242822217444,
+          "dra_deg": -0.004674589346208791,
+          "droll_deg": 119.99641662704289,
+          "droll_negated_deg": -0.003583372957109532
+        },
+        "truth": {
+          "dec_deg": 10.0,
+          "ra_deg": 110.0,
+          "roll_deg": 120.0
+        }
+      },
+      {
+        "boresight_error_between_deg": 0.0005386770461251605,
+        "case": "lost_synth_0004",
+        "lost_residual": {
+          "ddec_deg": 2.9999999995311555e-06,
+          "dra_deg": 9.999999974752427e-07,
+          "droll_deg": -2.4999999993724487e-05,
+          "droll_negated_deg": -40.000024999999994
+        },
+        "roll_delta_tetra_minus_lost_deg": 40.00151049668645,
+        "roll_delta_tetra_minus_neg_lost_deg": 0.001460496686490842,
+        "tetra3_residual": {
+          "ddec_deg": -0.0004987237755891272,
+          "dra_deg": -0.00020765907663644612,
+          "droll_deg": 40.001485496686456,
+          "droll_negated_deg": 0.001485496686427723
+        },
+        "truth": {
+          "dec_deg": 20.0,
+          "ra_deg": 140.0,
+          "roll_deg": 160.0
+        }
+      }
+    ],
+    "interpretation": {
+      "boresight": "RA/Dec residuals are small and change sign/magnitude across cases \u2192 not a fixed convention bias; consistent with estimator/FOV-fit noise.",
+      "roll": "tetra3_roll \u2248 (-lost_roll) mod 360 on every case \u2192 systematic roll-sign convention mismatch, not accuracy."
+    },
+    "tetra3_vs_lost_roll": {
+      "max_abs_roll_delta_after_negating_lost_deg": 0.00436248335697087,
+      "mean_roll_delta_after_negating_lost_deg": 0.00028975391193739595,
+      "mean_roll_delta_deg": -15.99970984608807
+    },
+    "tetra3_vs_truth": {
+      "mean_ddec_deg": -0.00011038644704015454,
+      "mean_dra_deg": -0.0008511699836653008,
+      "mean_droll_deg": -15.999710046088063,
+      "mean_droll_vs_negated_truth_deg": 0.00028995391190846933,
+      "std_ddec_deg": 0.00025127928174872584,
+      "std_dra_deg": 0.0019248008742406878,
+      "std_droll_deg": 96.66390536545295
+    }
+  },
+  "focal_sweep": {
+    "errors_pct": [
+      -5.0,
+      -3.0,
+      -2.0,
+      -1.0,
+      0.0,
+      1.0,
+      2.0,
+      3.0,
+      5.0
+    ],
+    "extractor": "perfect_project",
+    "nominal_fov_deg": 20.0,
+    "sweep": [
+      {
+        "focal_error_pct": -5.0,
+        "fov_commanded_deg": 19.0,
+        "summary": {
+          "both_solved": 2,
+          "cases": 5,
+          "lost": {
+            "false_solve_rate": 1.0,
+            "false_solves": 5,
+            "median_pointing_error_deg": 37.459861001429324,
+            "solve_rate": 1.0,
+            "solved": 5
+          },
+          "tetra3": {
+            "false_solve_rate": 0.0,
+            "false_solves": 0,
+            "median_pointing_error_deg": 0.0009910655468927118,
+            "solve_rate": 0.4,
+            "solved": 2
+          }
+        }
+      },
+      {
+        "focal_error_pct": -3.0,
+        "fov_commanded_deg": 19.4,
+        "summary": {
+          "both_solved": 5,
+          "cases": 5,
+          "lost": {
+            "false_solve_rate": 1.0,
+            "false_solves": 5,
+            "median_pointing_error_deg": 100.47638959715398,
+            "solve_rate": 1.0,
+            "solved": 5
+          },
+          "tetra3": {
+            "false_solve_rate": 0.0,
+            "false_solves": 0,
+            "median_pointing_error_deg": 0.00078105217840786,
+            "solve_rate": 1.0,
+            "solved": 5
+          }
+        }
+      },
+      {
+        "focal_error_pct": -2.0,
+        "fov_commanded_deg": 19.6,
+        "summary": {
+          "both_solved": 5,
+          "cases": 5,
+          "lost": {
+            "false_solve_rate": 1.0,
+            "false_solves": 5,
+            "median_pointing_error_deg": 80.68523393296866,
+            "solve_rate": 1.0,
+            "solved": 5
+          },
+          "tetra3": {
+            "false_solve_rate": 0.0,
+            "false_solves": 0,
+            "median_pointing_error_deg": 0.0007526836700622911,
+            "solve_rate": 1.0,
+            "solved": 5
+          }
+        }
+      },
+      {
+        "focal_error_pct": -1.0,
+        "fov_commanded_deg": 19.8,
+        "summary": {
+          "both_solved": 5,
+          "cases": 5,
+          "lost": {
+            "false_solve_rate": 1.0,
+            "false_solves": 5,
+            "median_pointing_error_deg": 88.4600056452876,
+            "solve_rate": 1.0,
+            "solved": 5
+          },
+          "tetra3": {
+            "false_solve_rate": 0.0,
+            "false_solves": 0,
+            "median_pointing_error_deg": 0.0007240242150280397,
+            "solve_rate": 1.0,
+            "solved": 5
+          }
+        }
+      },
+      {
+        "focal_error_pct": 0.0,
+        "fov_commanded_deg": 20.0,
+        "summary": {
+          "both_solved": 5,
+          "cases": 5,
+          "lost": {
+            "false_solve_rate": 0.0,
+            "false_solves": 0,
+            "median_pointing_error_deg": 0.0,
+            "solve_rate": 1.0,
+            "solved": 5
+          },
+          "tetra3": {
+            "false_solve_rate": 0.0,
+            "false_solves": 0,
+            "median_pointing_error_deg": 0.0006950734802185297,
+            "solve_rate": 1.0,
+            "solved": 5
+          }
+        }
+      },
+      {
+        "focal_error_pct": 1.0,
+        "fov_commanded_deg": 20.2,
+        "summary": {
+          "both_solved": 5,
+          "cases": 5,
+          "lost": {
+            "false_solve_rate": 1.0,
+            "false_solves": 5,
+            "median_pointing_error_deg": 77.76531333752963,
+            "solve_rate": 1.0,
+            "solved": 5
+          },
+          "tetra3": {
+            "false_solve_rate": 0.0,
+            "false_solves": 0,
+            "median_pointing_error_deg": 0.0006658345243037117,
+            "solve_rate": 1.0,
+            "solved": 5
+          }
+        }
+      },
+      {
+        "focal_error_pct": 2.0,
+        "fov_commanded_deg": 20.4,
+        "summary": {
+          "both_solved": 5,
+          "cases": 5,
+          "lost": {
+            "false_solve_rate": 1.0,
+            "false_solves": 5,
+            "median_pointing_error_deg": 88.69806330004603,
+            "solve_rate": 1.0,
+            "solved": 5
+          },
+          "tetra3": {
+            "false_solve_rate": 0.0,
+            "false_solves": 0,
+            "median_pointing_error_deg": 0.0006495910291159235,
+            "solve_rate": 1.0,
+            "solved": 5
+          }
+        }
+      },
+      {
+        "focal_error_pct": 3.0,
+        "fov_commanded_deg": 20.6,
+        "summary": {
+          "both_solved": 5,
+          "cases": 5,
+          "lost": {
+            "false_solve_rate": 1.0,
+            "false_solves": 5,
+            "median_pointing_error_deg": 75.72434511013175,
+            "solve_rate": 1.0,
+            "solved": 5
+          },
+          "tetra3": {
+            "false_solve_rate": 0.0,
+            "false_solves": 0,
+            "median_pointing_error_deg": 0.0006570469138963988,
+            "solve_rate": 1.0,
+            "solved": 5
+          }
+        }
+      },
+      {
+        "focal_error_pct": 5.0,
+        "fov_commanded_deg": 21.0,
+        "summary": {
+          "both_solved": 2,
+          "cases": 5,
+          "lost": {
+            "false_solve_rate": 1.0,
+            "false_solves": 5,
+            "median_pointing_error_deg": 105.87475864830739,
+            "solve_rate": 1.0,
+            "solved": 5
+          },
+          "tetra3": {
+            "false_solve_rate": 0.0,
+            "false_solves": 0,
+            "median_pointing_error_deg": 0.0013824648909868623,
+            "solve_rate": 0.4,
+            "solved": 2
+          }
+        }
+      }
+    ]
+  }
+}
