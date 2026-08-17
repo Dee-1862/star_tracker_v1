@@ -45,9 +45,12 @@ LisGridMatcher::LisGridMatcher(const Config& config)
 
 float LisGridMatcher::catalogPairAngle(
     const CatalogStar& first, const CatalogStar& second) {
-    const float dot =
-        first.x * second.x + first.y * second.y + first.z * second.z;
-    return std::acos(clampUnit(dot));
+    return std::acos(clampUnit(catalogPairCosine(first, second)));
+}
+
+float LisGridMatcher::catalogPairCosine(
+    const CatalogStar& first, const CatalogStar& second) {
+    return (first.x * second.x) + (first.y * second.y) + (first.z * second.z);
 }
 
 std::size_t LisGridMatcher::angleToBin(float angle_radians) const {
@@ -313,16 +316,24 @@ void LisGridMatcher::buildAdjacency(
 
             const Bearing& a = bearings[nodes_[first].centroid];
             const Bearing& b = bearings[nodes_[second].centroid];
-            const float observed = std::acos(clampUnit(
-                (a[0U] * b[0U]) + (a[1U] * b[1U]) + (a[2U] * b[2U])));
+            const float observed_cosine = clampUnit(
+                (a[0U] * b[0U]) + (a[1U] * b[1U]) + (a[2U] * b[2U]));
 
             const CatalogStar& s =
                 (*catalog_)[indexed_catalog_positions_[nodes_[first].indexed_star]];
             const CatalogStar& t =
                 (*catalog_)[indexed_catalog_positions_[nodes_[second].indexed_star]];
-            const float expected = catalogPairAngle(s, t);
+            const float expected_cosine = clampUnit(catalogPairCosine(s, t));
 
-            const float error = std::fabs(observed - expected);
+            // Angular error without any acos. Since d(cos w)/dw = -sin w,
+            // a difference in cosine maps to a difference in angle by
+            // dividing by sin. The residuals of interest are ~10 arcsec
+            // (5e-5 rad), where this first-order relation is exact to far
+            // better than the measurement itself.
+            const float expected_sine = std::sqrt(std::max(
+                1.0e-12F, 1.0F - (expected_cosine * expected_cosine)));
+            const float error =
+                std::fabs(expected_cosine - observed_cosine) / expected_sine;
             if (error > angular_tolerance_radians_) {
                 continue;
             }
@@ -387,9 +398,11 @@ std::size_t LisGridMatcher::findBestClique(
     std::size_t node_count,
     const std::array<Bearing, Centroiding::kMaxCentroids>& bearings,
     std::array<std::uint16_t, kMaxNodes>& best,
-    float& best_rms_arcsec) const {
+    float& best_rms_arcsec,
+    std::size_t& expansions) const {
     std::size_t best_size = 0U;
     best_rms_arcsec = -1.0F;
+    expansions = 0U;
     std::array<std::uint16_t, kMaxNodes> current = {};
 
     for (std::size_t seed = 0U; seed < node_count; ++seed) {
@@ -415,6 +428,7 @@ std::size_t LisGridMatcher::findBestClique(
                  ++candidate) {
                 bool compatible = true;
                 for (std::size_t member = 0U; member < size; ++member) {
+                    ++expansions;
                     if ((candidate == current[member]) ||
                         !adjacent(candidate, current[member])) {
                         compatible = false;
@@ -530,6 +544,18 @@ LisGridMatcher::MatchResult LisGridMatcher::match(
             const std::size_t lower_bin = angleToBin(lower_angle);
             const std::size_t upper_bin = angleToBin(upper_angle);
 
+            // Compare cosines, not angles. cos is monotonically decreasing on
+            // [0, pi], so |theta_cat - theta_obs| <= tol is exactly
+            // cos(theta_obs + tol) <= cos(theta_cat) <= cos(theta_obs - tol).
+            // Two cosines computed once per observed pair replace one acos per
+            // *catalogue entry scanned* -- and tens of entries are scanned per
+            // pair. On a part without hardware transcendentals this was the
+            // dominant cost of the whole matcher.
+            const float cosine_low =
+                std::cos(observed_angle + angular_tolerance_radians_);
+            const float cosine_high =
+                std::cos(observed_angle - angular_tolerance_radians_);
+
             for (std::size_t bin = lower_bin; bin <= upper_bin; ++bin) {
                 std::uint16_t entry_index = bin_heads_[bin];
                 while (entry_index != kInvalidEntry) {
@@ -538,10 +564,10 @@ LisGridMatcher::MatchResult LisGridMatcher::match(
                         (*catalog_)[indexed_catalog_positions_[entry.first_star]];
                     const CatalogStar& second_star =
                         (*catalog_)[indexed_catalog_positions_[entry.second_star]];
-                    const float catalog_angle =
-                        catalogPairAngle(first_star, second_star);
-                    if (std::fabs(catalog_angle - observed_angle) <=
-                        angular_tolerance_radians_) {
+                    const float catalog_cosine =
+                        catalogPairCosine(first_star, second_star);
+                    if ((catalog_cosine >= cosine_low) &&
+                        (catalog_cosine <= cosine_high)) {
                         addVote(first_selection, entry.first_star);
                         addVote(first_selection, entry.second_star);
                         addVote(second_selection, entry.first_star);
@@ -558,6 +584,7 @@ LisGridMatcher::MatchResult LisGridMatcher::match(
     // no longer be accepted merely because it scored well in isolation, which
     // is what allowed mutually contradictory assignments to survive before.
     const std::size_t node_count = buildNodes(selected, selected_count);
+    result.node_count = node_count;
     if (node_count == 0U) {
         return result;
     }
@@ -566,8 +593,11 @@ LisGridMatcher::MatchResult LisGridMatcher::match(
 
     std::array<std::uint16_t, kMaxNodes> clique = {};
     float clique_rms = -1.0F;
+    std::size_t expansions = 0U;
     const std::size_t clique_size =
-        findBestClique(node_count, rays, clique, clique_rms);
+        findBestClique(node_count, rays, clique, clique_rms, expansions);
+    result.node_count = node_count;
+    result.expansions = expansions;
 
     result.clique_size = clique_size;
     if (clique_size < config_.minimum_clique_size) {
@@ -587,6 +617,12 @@ LisGridMatcher::MatchResult LisGridMatcher::match(
     }
 
     return result;
+}
+
+void LisGridMatcher::setFocalLength(float focal_length_pixels) {
+    if (focal_length_pixels > 0.0F) {
+        config_.focal_length_pixels = focal_length_pixels;
+    }
 }
 
 std::size_t LisGridMatcher::indexedStarCount() const {

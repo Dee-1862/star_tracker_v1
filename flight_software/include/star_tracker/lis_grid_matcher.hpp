@@ -86,9 +86,16 @@ public:
         /// every member agrees pairwise with every other, so a large clique
         /// arising by chance is vanishingly unlikely.
         std::size_t clique_size;
+        /// Candidate correspondences in the consistency graph this frame.
+        std::size_t node_count;
+        /// Compatibility tests performed during clique growth. This is the
+        /// work term: wall time is dominated by it, and it is the quantity a
+        /// worst-case execution bound has to be stated against.
+        std::size_t expansions;
 
         MatchResult()
-            : star_ids(), votes(), matched_count(0U), clique_size(0U) {}
+            : star_ids(), votes(), matched_count(0U), clique_size(0U),
+              node_count(0U), expansions(0U) {}
     };
 
     LisGridMatcher();
@@ -96,6 +103,15 @@ public:
 
     bool buildIndex(const Catalog& catalog, std::size_t catalog_count);
     MatchResult match(const Centroiding::Result& centroids);
+
+    /// Change focal length while keeping the built index.
+    ///
+    /// The pair index is pure catalogue geometry -- angular separations between
+    /// catalogue stars -- and does not depend on the camera at all. Focal
+    /// length only affects how observed pixels become bearings. Rebuilding the
+    /// index per trial during a focal-length sweep is therefore pure waste, and
+    /// the dominant cost of the sweep.
+    void setFocalLength(float focal_length_pixels);
     std::size_t indexedStarCount() const;
     std::size_t indexedPairCount() const;
 
@@ -128,6 +144,11 @@ private:
     std::size_t angleToBin(float angle_radians) const;
     static float catalogPairAngle(
         const CatalogStar& first, const CatalogStar& second);
+    /// Cosine of the separation -- the same information without the acos.
+    /// Every hot loop uses this; catalogPairAngle survives only for the
+    /// index build, which runs once at startup.
+    static float catalogPairCosine(
+        const CatalogStar& first, const CatalogStar& second);
     void selectBrightestStars();
     void selectObservedStars(
         const Centroiding::Result& centroids,
@@ -153,7 +174,8 @@ private:
         std::size_t node_count,
         const std::array<Bearing, Centroiding::kMaxCentroids>& bearings,
         std::array<std::uint16_t, kMaxNodes>& best,
-        float& best_rms_arcsec) const;
+        float& best_rms_arcsec,
+        std::size_t& expansions) const;
     bool adjacent(std::size_t first, std::size_t second) const;
     bool chiralityAgrees(
         const std::array<Bearing, Centroiding::kMaxCentroids>& bearings,

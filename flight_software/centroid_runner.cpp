@@ -152,22 +152,23 @@ int main(int argc, char** argv) {
     float lockedFocal = focal;
     if (!solution.valid && (searchPct > 0.0)) {
         const std::size_t kSteps = 25U;
+        const double step_fraction = (searchPct / 100.0) / 12.0;
         for (std::size_t step = 0U; (step < kSteps) && !solution.valid; ++step) {
-            // Walk outward from nominal so the common small-drift case is
-            // found first.
-            const double half = static_cast<double>(kSteps - 1U) / 2.0;
-            const double offset = static_cast<double>(step) - half;
-            const double fraction = (offset / half) * (searchPct / 100.0);
-            const float trialFocal =
-                static_cast<float>(static_cast<double>(focal) * (1.0 + fraction));
+            // Walk OUTWARD from nominal: 0, +1, -1, +2, -2, ... Thermal drift
+            // is usually small, so the common case is found in a few trials
+            // instead of at the far end of a linear scan. This also limits the
+            // number of hypotheses actually tested, which bounds the
+            // multiple-comparisons exposure of the search.
+            const long index = static_cast<long>(step + 1U) / 2L;
+            const double signed_index =
+                ((step % 2U) == 1U) ? static_cast<double>(index)
+                                    : -static_cast<double>(index);
+            const float trialFocal = static_cast<float>(
+                static_cast<double>(focal) * (1.0 + (signed_index * step_fraction)));
 
-            star_tracker::LisGridMatcher::Config trialMatcher = matcherConfig;
-            trialMatcher.focal_length_pixels = trialFocal;
-            matcher = star_tracker::LisGridMatcher(trialMatcher);
-            if (!matcher.buildIndex(star_tracker::kHipparcosCatalog,
-                                    star_tracker::kHipparcosCatalogCount)) {
-                continue;
-            }
+            // The catalogue pair index is focal-independent, so it is built
+            // once outside this loop and only the bearing scale changes here.
+            matcher.setFocalLength(trialFocal);
 
             star_tracker::AttitudeSolver::Config trialSolver = solverConfig;
             trialSolver.focal_length_pixels = trialFocal;
@@ -227,11 +228,18 @@ int main(int argc, char** argv) {
     std::cout << "num_centroids " << centroids.count << "\n";
     std::cout << "num_star_ids " << matches.matched_count << "\n";
     std::cout << "num_paired " << solution.matched_count << "\n";
+    // index_ns is one-time startup work (catalogue pair index), NOT per-frame.
+    // solve_ns is the per-frame cost that a frame-rate budget must cover:
+    // shortlist, consistency graph, clique search, attitude, integrity gate,
+    // and any focal search or refinement.
     std::cout << "index_ns " << indexNs << "\n";
+    std::cout << "solve_ns " << matchNs << "\n";
     std::cout << "starid_average_ns " << matchNs << "\n";
     std::cout << "attitude_average_ns " << attitudeNs << "\n";
     std::cout << "total_average_ns " << (matchNs + attitudeNs) << "\n";
     std::cout << "clique_size " << matches.clique_size << "\n";
+    std::cout << "node_count " << matches.node_count << "\n";
+    std::cout << "expansions " << matches.expansions << "\n";
     std::cout << "focal_nominal_px " << focal << "\n";
     std::cout << "focal_locked_px " << lockedFocal << "\n";
     std::cout << "focal_refined_px " << refinedFocal << "\n";

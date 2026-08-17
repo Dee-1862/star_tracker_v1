@@ -67,7 +67,8 @@ groups both fit, it discards the whole thing rather than guessing.
 > accurate. If it is off by even a little you confidently land in the wrong city, because
 > wrong coordinates are still perfectly self-consistent coordinates.
 
-Database: **2.7 MB**. But the ruler must be right.
+Database: **2.76 MB** as generated here (size depends heavily on generation parameters --
+see section 3.11). But the ruler must be right.
 
 ### Ours — find the *largest group whose stories agree*
 
@@ -95,32 +96,57 @@ Then two checks the others lack in combination:
 
 ### The pipeline
 
-```
- [0] frame                 1024x1024, 8-bit
-      |
- [1] centroiding           connected components, one raster pass, no recursion
-      |                    -> ~30 dot positions
- [2] conditioning          brightest 20, 3-frame kinematic outlier filter
-      |
- [3] bearing projection    pixel -> unit vector.  <-- focal length enters HERE, once,
-      |                    explicitly. Both baselines bury this inside their matcher,
-      |                    which is why a focal error there becomes a wrong answer
-      |                    instead of a refusal.
-      |
- [4] shortlist             pair-angle lookup -> up to 4 candidate stars per dot
-      |
- [5] consistency graph     edge = two guesses agree; + handedness check
-      |
- [6] largest clique        the mutually-agreeing set. size = confidence
-      |
- [7] attitude              QUEST (no SVD, no eigensolver, no matrix library)
-      |
- [8] integrity gate        reprojection residual > 30 arcsec -> REFUSE
-      |
- [9] output                quaternion, RA/Dec/Roll, residual, refusal reason
+```mermaid
+flowchart TD
+    A["Frame<br/>1024x1024, 8-bit"] --> B["1. Centroiding<br/><i>connected components, one raster pass</i>"]
+    B -->|"~30 dot positions"| C["2. Conditioning<br/><i>brightest 20, 3-frame outlier filter</i>"]
+    C --> D["3. Bearing projection<br/><i>pixel to unit vector</i>"]
+    F["Focal length"] -.->|"enters ONCE, explicitly"| D
+    D -->|"unit vectors"| E["4. Shortlist<br/><i>pair-angle lookup, 4 candidates per dot</i>"]
+    CAT[("Catalogue<br/>5041 stars, 101 KB<br/>+ pair index built at boot")] -.-> E
+    E -->|"up to 80 candidate guesses"| G["5. Consistency graph<br/><i>edge = two guesses agree</i><br/><i>+ handedness check</i>"]
+    G --> H["6. Largest clique<br/><i>the mutually-agreeing set</i>"]
+    H -->|"clique &lt; 5"| R1["REFUSE<br/>too few stars"]
+    H -->|"typically 13-17 stars"| I["7. Attitude<br/><i>QUEST, no SVD or eigensolver</i>"]
+    I --> J["8. Integrity gate<br/><i>reprojection residual</i>"]
+    J -->|"&gt; 30 arcsec"| R2["REFUSE<br/>residual too large"]
+    J -->|"pass"| K["9. Output<br/>quaternion, RA/Dec/Roll,<br/>residual, clique size"]
+    I -.->|"105 pair measurements"| L["Focal refinement<br/><i>golden section</i>"]
+    L -.->|"tracked, drift monitored"| F
+
+    style R1 fill:#5b2320,stroke:#d2685c,color:#fff
+    style R2 fill:#5b2320,stroke:#d2685c,color:#fff
+    style K fill:#1d4029,stroke:#74b481,color:#fff
+    style D fill:#143135,stroke:#4fc2cc,color:#fff
 ```
 
-Stage 3 is the structural difference from both baselines.
+**Stage 3 is the structural difference from both baselines.** They compute pixel-to-bearing
+*inside* the matcher, so a camera-model error becomes a wrong answer. We do it once,
+explicitly, which is what makes a camera-model error a *refusal* — and what makes focal
+length recoverable (section 3.5).
+
+### How the three differ
+
+```mermaid
+flowchart LR
+    subgraph T["tetra3 — match the SHAPE"]
+        T1["pick 4 dots"] --> T2["6 gaps"] --> T3["divide by largest<br/>→ 5 ratios"] --> T4["hash into<br/>12.4M-row table"] --> T5["verify by<br/>reprojection"]
+    end
+    subgraph L["LOST — measure DISTANCES, then a witness"]
+        L1["pick 3 dots"] --> L2["actual angles"] --> L3["k-vector lookup<br/>→ matching triangle"] --> L4["4th dot<br/>as witness"] --> L5["unique?<br/>else discard"]
+    end
+    subgraph O["ours — LARGEST AGREEING GROUP"]
+        O1["all 20 dots"] --> O2["4 candidates each"] --> O3["connect pairs<br/>that agree"] --> O4["largest clique<br/>+ handedness"] --> O5["reprojection gate<br/>→ solve or REFUSE"]
+    end
+```
+
+| | tetra3 | LOST | ours |
+|---|---|---|---|
+| Group size | fixed 4 | fixed 3+1 | **as many as agree (13–17)** |
+| Needs correct focal length | no | yes | yes — but recovers it |
+| Detects camera-model error | no | no | **yes** |
+| Can say "I don't know" | yes | yes | yes |
+| Database | 49.4 MB | 2.76 MB | **101 KB + boot-time index** |
 
 ---
 
@@ -160,6 +186,23 @@ Neither baseline detects a mirrored image. LOST corrupts the boresight loudly; t
 corrupts the roll quietly. **This is only visible if you score roll** — scoring the
 boresight alone makes tetra3 look flawless.
 
+**Why a mirrored image is a realistic fault, not a curiosity.** Optics do not flip in
+flight; they are fixed at integration. Mirroring happens *before* launch — a fold mirror in
+the optical path (common in volume-constrained trackers), a sensor mounted in reversed
+orientation, a sign error in a config file, a coordinate convention mismatch between vendor
+and integrator. These are integration-time faults, they are common, and they are expensive
+to find late.
+
+So the claim is not "detects mirrored images". It is: **catches camera-model mismatch
+during integration, where both baselines instead produce a confident wrong attitude that
+looks entirely plausible on a bench.** We found exactly this bug in our own simulator, and
+the tracker would have caught it in an afternoon.
+
+The general property is the real feature: **ours validates against the full camera model,
+not against distances alone.** Mirroring is the visible demo; the same mechanism covers
+focal length (section 3.5), and extends to principal point and distortion. Distance-only
+matching is structurally blind to all of it.
+
 ### 3.2 Accuracy (clean input)
 
 | | Boresight error (median) | Roll error (median) |
@@ -169,6 +212,15 @@ boresight alone makes tetra3 look flawless.
 | LOST | 0.0131° | (negated convention) |
 
 Typical mutually-consistent group size: **13–17 stars**, against a required minimum of 5.
+
+**This is a tie by construction, not coincidence.** All three solvers received *identical*
+centroids. Matching cannot improve on centroid quality — it can only fail to degrade it —
+so these three numbers are measuring one centroider, three times.
+
+That matters commercially: 0.013° is **~46 arcsec**, while Sodern-class trackers are
+arcsecond-class cross-boresight. Put next to a competitor's datasheet this loses badly, and
+**the entire fix lies in stage 1** — PSF fitting, sub-pixel refinement, deblending — which
+has not been touched. Our accuracy ceiling is set by code currently considered finished.
 
 ### 3.3 Robustness (ours)
 
@@ -267,7 +319,175 @@ The residual gate is a *backstop*, not the primary filter: the consistency and h
 checks remove wrong answers upstream, and **no wrong answer reached the gate in any
 sweep**.
 
-### 3.7 Footprint
+### 3.7 False-solve bound
+
+Zero observed failures is not a rate of zero. The number a datasheet can carry is the
+one-sided upper confidence bound.
+
+300 sky fields x 12 operating conditions = **3,600 attempts, 0 wrong answers**:
+
+| Condition | Attempts | Correct | **Wrong** | Refused |
+|---|---|---|---|---|
+| clean | 300 | 299 | **0** | 1 |
+| mirrored | 300 | 0 | **0** | 300 |
+| focal −1% / +1% | 600 | 0 | **0** | 600 |
+| focal −3% / +3% | 600 | 0 | **0** | 600 |
+| focal −2% + search | 300 | 298 | **0** | 2 |
+| focal +2% + search | 300 | 300 | **0** | 0 |
+| mirrored + search | 300 | 0 | **0** | 300 |
+| 6 false stars | 300 | 299 | **0** | 1 |
+| 12 false stars | 300 | 299 | **0** | 1 |
+| pure noise | 300 | 0 | **0** | 300 |
+| **pooled** | **3,600** | | **0** | |
+
+> **False-solve rate ≤ 8.3 × 10⁻⁴ per attempt, 95% confidence** (Clopper–Pearson,
+> 0 failures in 3,600 attempts).
+
+That is the claim. It is *not* 10⁻⁷, and no amount of clean sweeping gets there quickly:
+
+| To claim | Needs consecutive failure-free attempts |
+|---|---|
+| ≤ 10⁻² | 299 |
+| ≤ 10⁻³ | 2,995 |
+| ≤ 10⁻⁴ | 29,956 |
+| ≤ 10⁻⁷ | ~30,000,000 |
+
+**On search and multiple comparisons.** The focal search tests up to 25 hypotheses per
+frame, which multiplies exposure to a false accept — the same multiplicity problem tetra3
+has with its 70 pattern trials. The `mirrored + search` row measures it directly: the
+search never succeeds there, so all 25 trials run on adversarial input, giving
+**300 × 25 = 7,500 individual accept/reject decisions with zero false accepts**.
+
+> **Per-trial false-accept rate ≤ 4.0 × 10⁻⁴, 95% confidence.**
+
+So the exposure is real in principle and measured at zero in practice. It should still be
+re-measured whenever the search width, step count, or gate threshold changes.
+
+Run it: `python bench/run_false_solve_bound.py --fields 300` (scenes are cached; raise
+`--fields` to tighten the bound).
+
+### 3.8 Two operating modes, two timing budgets
+
+The focal search and the fixed-time guarantee pull in opposite directions, so they are
+separate modes and must be quoted separately.
+
+| | Acquisition | Tracking |
+|---|---|---|
+| When | power-on, loss of lock, post-anomaly | every frame once locked |
+| Focal length | unknown — searched | known and tracked |
+| Matcher trials | **1 to 25** (data-dependent) | **1** (fixed) |
+| Timing | budgeted, not hard real-time | hard deadline |
+| Frequency | rare | continuous |
+
+Trials to lock, measured (12 fields per row, outward-from-nominal search):
+
+| Lens drift | 0% | ±0.5% | ±1% | ±2% | ±3% | ±5% |
+|---|---|---|---|---|---|---|
+| Median trials | 1 | 4 | 5–6 | 9–10 | 13–14 | 21 |
+
+Worst case is 25 by construction. **Do not quote a single latency figure for both modes.**
+
+One implementation note that matters for the budget: the catalogue pair index is pure
+catalogue geometry and does not depend on focal length, so it is built **once** and only
+the bearing scale changes per trial. Rebuilding it per trial — which an earlier version
+did — made the search roughly 25x more expensive than it needs to be.
+
+### 3.9 Speed and compute
+
+60 identical centroid sets. Each solver's **own internal timer**, so process startup,
+interpreter warmup and database loading are excluded — those dominate naive wall-clock
+measurement and say nothing about in-flight cost.
+
+| Solver | p50 | p95 | p99 | max | max/p50 |
+|---|---|---|---|---|---|
+| **ours** | **0.27 ms** | **0.37 ms** | **0.59 ms** | **0.76 ms** | 2.8x |
+| tetra3 | 1.62 ms | 11.01 ms | 14.03 ms | 15.14 ms | 9.3x |
+| LOST | 7.32 ms | 10.18 ms | 12.53 ms | 12.63 ms | 1.7x |
+
+Ours is ~6x faster than tetra3 and ~27x faster than LOST at the median.
+
+tetra3's fat tail is structural: it returns on the first pattern that verifies, so an easy
+field finishes in one or two attempts and a hard one grinds through many. Good average,
+poor worst case — the opposite of what hard real-time wants.
+
+One-time startup, charged once at boot:
+
+| | Startup |
+|---|---|
+| ours — catalogue pair index build | **36.8 ms** |
+| tetra3 — 49.4 MB database load | 283.7 ms |
+| LOST — 2.7 MB database load | excluded from its figure above, as for ours |
+
+**Caveats, and they matter.** Ours and tetra3 run natively; **LOST runs under WSL2**, which
+inflates its numbers by an unmeasured amount. All three run on the same desktop x86-64,
+which is **not** target hardware. Treat the ordering as sound and the ratios as indicative.
+
+**What the per-frame work actually is:**
+
+| | Work |
+|---|---|
+| ours | ~30k integer/bitmask compatibility tests, ~190 `acos` + ~380 `cos` + ~3.2k `sqrt`, one 3x3 QUEST |
+| tetra3 | ~32 hash probes x up to 70 patterns over a 12.4M-row table, then SVD + binomial test, in NumPy |
+| LOST | 3 k-vector range queries + hash-map intersection, then Eigen 4x4 eigendecomposition |
+
+**Extrapolating to flight hardware.** A rad-hard LEON3 at ~100 MHz or Cortex-M7 at
+~200 MHz runs roughly 30–50x slower than this desktop for scalar work, putting ours near
+**10–18 ms per frame** — comfortable for 1–10 Hz operation. But that extrapolation has a
+known weak point: the ~6,400 `acos` calls in adjacency construction. On a part without
+hardware transcendentals those could dominate everything else.
+
+**This has now been fixed.** Both hot loops compared *angles*, which required an `acos` per
+candidate; they now compare *cosines* directly against precomputed bounds, since cosine is
+monotonic on [0, pi]. Angular error is recovered without `acos` from the first-order
+relation `dw = -dcos / sin w`, exact to far better than the ~10 arcsec being measured.
+
+| | before | after |
+|---|---|---|
+| Voting loop | ~7,600 `acos` (one per catalogue entry scanned) | 190 `acos` + 380 `cos` (per *pair*, not per entry) |
+| Adjacency build | ~6,400 `acos` | ~3,200 `sqrt` |
+| **Total transcendentals** | **~14,200** | **~570 + 3,200 sqrt** |
+
+Desktop gain is modest — **0.35 to 0.27 ms** (23%) — because x86 `acos` is a fast
+instruction. The point is the flight case: `sqrt` is a hardware instruction on Cortex-M4F
+and M7, while `acos` is a software routine of hundreds of cycles. The projected 32 ms
+`acos` burden on a 100 MHz part is largely removed. **That projection is still arithmetic,
+not target-hardware measurement.**
+
+Neither baseline is a candidate for this class of hardware regardless: tetra3 needs Python,
+NumPy, SciPy and 49.4 MB; LOST needs Eigen and allocates `std::vector` throughout.
+
+Run it: `python bench/run_speed_comparison.py --fields 60`
+
+### 3.10 Maximum slew rate
+
+A rotating spacecraft smears each star into a streak. Past some rate the centroider
+rejects them as too elongated and the tracker refuses. Every datasheet quotes this number.
+
+20 fields, 100 ms exposure, stars rendered as sub-exposures along the motion vector:
+
+| Rate | Smear | Solved | **Wrong** | Refused | Median error | Clique |
+|---|---|---|---|---|---|---|
+| 0.0 °/s | 0.0 px | 20/20 | **0** | 0 | 0.0127° | 13 |
+| 0.5 °/s | 2.5 px | 20/20 | **0** | 0 | 0.0130° | 13 |
+| 1.0 °/s | 5.1 px | 20/20 | **0** | 0 | 0.0129° | 13 |
+| **1.5 °/s** | **7.6 px** | **20/20** | **0** | 0 | 0.0131° | 13 |
+| 2.0 °/s | 10.1 px | 18/20 | **0** | 2 | 0.0131° | 12 |
+| 3.0 °/s | 15.2 px | 17/20 | **0** | 3 | 0.0131° | 11 |
+
+> **Maximum slew rate: 1.5 °/s at 100 ms exposure**, full solve rate and zero wrong
+> answers. Degradation past that is graceful — refusals, never errors.
+
+This scales inversely with exposure: at 50 ms it should be ~3 °/s. Accuracy is essentially
+unaffected up to the limit, because the centroid of a symmetric streak is still unbiased.
+
+The cutoff matches `maximum_elongation = 4.0` analytically: a streak of length L blurred by
+a Gaussian of width s has elongation `sqrt(L²/12 + s²)/s`, which reaches 4.0 near
+L ≈ 13.5 px — between the 10.1 px and 15.2 px rows, exactly where refusals appear. **The
+threshold is now expressed in degrees per second rather than pixels.**
+
+Run it: `python bench/run_motion_blur_sweep.py --fields 20 --exposure 0.1`
+
+### 3.11 Footprint
 
 Measured with `sizeof`, x86-64 release:
 
@@ -284,10 +504,36 @@ in `flight_software/LLM_SYSTEM_PROMPT.md` refers to working state and does not i
 frame** — a full-frame buffer alone exceeds it, so a flight build must stream or tile the
 sensor read.
 
-| | ours | tetra3 | LOST |
+#### Database comparison — read the breakdown, not the headline
+
+An earlier version of this table said "101 KB vs 2.7 MB", which compared **our catalogue
+alone** against **LOST's catalogue plus its pre-built index**. That is not like-for-like.
+The honest breakdown, from the actual files:
+
+| | ours | LOST | tetra3 |
 |---|---|---|---|
-| Database | **101 KB** | 49.4 MB | 2.7 MB |
-| Heap allocation | **none** | Python/NumPy | `std::vector` throughout |
+| Catalogue, stored | 101 KB (5041 x 20 B) | 160 KB (5000 x 32 B) | part of the npz |
+| Pair/pattern index, stored | **0 — built at boot** | 2.60 MB | 49.4 MB |
+| **Total persistent storage** | **101 KB** | **2.76 MB** | **49.4 MB** |
+| Index in RAM once running | 205 KB | 2.60 MB | 49.4 MB |
+| Boot cost to build it | 36 ms | 0 (loaded) | 281 ms (loaded) |
+| Heap allocation | **none** | `std::vector` throughout | Python/NumPy |
+
+**The real difference is architectural, not a 27x compression trick.** We do not ship a
+pair index; we rebuild it from the catalogue in 36 ms at power-on. That trades a one-time
+boot cost for 2.6 MB of storage that never has to exist.
+
+Even in RAM, our index is ~13x smaller, and that is a *design choice with a cost*: we index
+2048 stars over pairs up to 10°, LOST indexes 5000 stars over 0.2–15°. LOST has far denser
+coverage; we get away with less because the clique needs fewer, better candidates rather
+than more of them.
+
+> **Do not quote "LOST needs 2.7 MB" as a property of LOST.** That is the size of the
+> database *we generated for this comparison* — Hipparcos, `--max-stars 5000`,
+> `--kvector-min-distance 0.2 --kvector-max-distance 15 --kvector-distance-bins 10000`
+> (from `BASELINE.md`). LOST's own default build, from the 9110-star bright-star catalogue
+> with narrower parameters, is considerably smaller. Database size is dominated by
+> generation parameters, not by the solver.
 
 ---
 
@@ -435,11 +681,23 @@ python bench/run_roll_sweep.py
 # Quick 12-field version of the same comparison
 python bench/run_three_way_decoupled.py
 
+# Section 3.7 -- false-solve bound (3,600 attempts, scenes cached)
+python bench/run_false_solve_bound.py --fields 300
+
 # Section 3.3 / 3.6 -- robustness sweep and threshold derivation
 python bench/run_gate_calibration.py
 
 # Section 3.5 -- focal-length self-calibration under simulated lens drift
 python bench/run_focal_selfcal.py
+
+# Section 3.9 -- speed comparison, each solver's own internal timer
+python bench/run_speed_comparison.py --fields 60
+
+# Section 3.10 -- maximum slew rate from motion blur
+python bench/run_motion_blur_sweep.py --fields 20 --exposure 0.1
+
+# Clique work distribution and latency tails, stratified by galactic latitude
+python bench/run_latency_sweep.py --fields 250
 ```
 
 Single frame through our solver:
@@ -459,9 +717,27 @@ including `clique_size`, `residual_rms_arcsec`, `gate_reason`, `attitude_known`.
 - **Focal acquisition is bounded by step granularity.** Section 3.5 recovers ±2% fully and
   ±3–5% partially. Wider or finer search costs linear time; the capture range per step has
   not been characterised.
-- **The integrity gate is unfalsified, not validated.** No wrong answer was produced in any
-  sweep, so there is no measured false-solve rate — and therefore no basis for an
-  aerospace-style integrity risk figure.
+- **The false-solve bound is 8.3e-4, not zero and not 1e-7.** Section 3.7 is the honest
+  figure. Reaching 1e-4 needs ~30,000 failure-free attempts; 1e-7 needs ~30 million. Do
+  not quote an aerospace integrity risk until the runs exist to support it.
+- **Accuracy is limited by centroiding, not matching.** 0.013° (~46 arcsec) is an order of
+  magnitude off arcsecond-class commercial trackers, and no matching improvement will close
+  it. Stage 1 is untouched.
+- **~6,400 `acos` calls per frame** in adjacency construction. Fine on desktop x86, likely
+  dominant on a part without hardware transcendentals. Comparing cosines directly would
+  remove them entirely; not done.
+- **No target-hardware timing.** All figures are desktop x86-64; LOST's are further
+  inflated by running under WSL2. The 10–18 ms flight extrapolation is arithmetic, not
+  measurement.
+- **Acquisition is a search, not a scale-free method.** Locking requires the focal guess to
+  fall inside a capture radius, hence up to 25 trials. Ratio-based (scale-invariant)
+  acquisition would make it one trial and remove the multiplicity exposure entirely. Not
+  built.
+- **No per-frame protection level.** Section 3.7 is a global Monte-Carlo bound, not a
+  per-solve error bound. Splitting a large clique and solving each half independently would
+  give an empirical per-frame figure. Not built.
+- **Radial distortion is unmodelled.** Only focal length is estimated. Real COTS lenses have
+  meaningful k1, and it drifts with temperature too.
 - **Synthetic imagery only.** Rendered fields with Gaussian PSF and Gaussian noise. No real
   sensor data, no optical distortion, no stray light, no motion blur.
 - **Coordinate conventions are load-bearing and were wrong twice.** The matcher's bearing
