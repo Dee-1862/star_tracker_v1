@@ -67,8 +67,8 @@ groups both fit, it discards the whole thing rather than guessing.
 > accurate. If it is off by even a little you confidently land in the wrong city, because
 > wrong coordinates are still perfectly self-consistent coordinates.
 
-Database: **2.63 MiB** as generated here (size depends heavily on generation parameters --
-see section 3.12). But the ruler must be right.
+Database: **428 KiB** at the configuration giving its best solve rate here, and under
+350 KiB in their own published build (section 3.12). But the ruler must be right.
 
 ### Ours, find the *largest group whose stories agree*
 
@@ -228,7 +228,7 @@ flowchart LR
 | Needs correct focal length | no | yes | yes, but recovers it |
 | Detects camera-model error | no | no | **yes** |
 | Can say "I don't know" | yes | yes | yes |
-| Database, stored | 47.1 MiB | 2.63 MiB | **98.5 KiB + boot-time index** |
+| Database, stored | 47.1 MiB | 428 KiB (best config) | **98.5 KiB + boot-time index** |
 
 ---
 
@@ -500,11 +500,24 @@ did, made the search roughly 25x more expensive than it needs to be.
 interpreter warmup and database loading are excluded, those dominate naive wall-clock
 measurement and say nothing about in-flight cost.
 
-| Solver | p50 | p95 | p99 | max | max/p50 |
-|---|---|---|---|---|---|
-| **ours** | **0.27 ms** | **0.37 ms** | **0.59 ms** | **0.76 ms** | 2.8x |
-| tetra3 | 1.62 ms | 11.01 ms | 14.03 ms | 15.14 ms | 9.3x |
-| LOST | 7.32 ms | 10.18 ms | 12.53 ms | 12.63 ms | 1.7x |
+| Solver | p50 | p95 | p99 | max |
+|---|---|---|---|---|
+| **ours** | **0.28 ms** | **0.44 ms** | **0.61 ms** | **0.77 ms** |
+| tetra3 | 3.20 ms | 24.65 ms | 27.40 ms | 28.53 ms |
+| LOST | 8.10 ms | 15.06 ms | 25.90 ms | 27.65 ms |
+
+**LOST is run against its own best configuration**, not the database we happened to build
+first: LOST's own catalogue at 428 KiB, which gave both its best solve rate and its best
+p50 across the sweep in section 3.12. An earlier version of this table used a 2,696 KiB
+Hipparcos database of our own making, which was not representative of LOST.
+
+**Run-to-run variance on this desktop is large.** Two runs of the identical script over the
+identical 60 fields gave tetra3 p50 1.62 ms and 3.20 ms, and p95 11.01 ms and 24.65 ms.
+Background load moves these figures by about 2x. **The ordering is stable across runs; the
+absolute values are not.** Treat them as indicative and re-run before quoting.
+
+LOST solved 59 of 60 fields at this configuration; the missing one is a refusal, not an
+error.
 
 Ours is several times faster than tetra3 and roughly an order of magnitude faster than
 LOST at the median **on this desktop**: see the caveats below before quoting a multiple.
@@ -519,7 +532,7 @@ One-time startup, charged once at boot:
 |---|---|
 | ours, catalogue pair index build | **36.8 ms** |
 | tetra3, 47.1 MiB database load | 283.7 ms |
-| LOST, 2.63 MiB database load | excluded from its figure above, as for ours |
+| LOST, 428 KiB database load | excluded from its figure above, as for ours |
 
 **Caveats, and they matter.** Ours and tetra3 run natively; **LOST runs under WSL2**, which
 inflates its numbers by an unmeasured amount. All three run on the same desktop x86-64,
@@ -669,16 +682,18 @@ sensor read.
 
 #### Database comparison, read the breakdown, not the headline
 
-An earlier version of this table said "101 KB vs 2.7 MB", which compared **our catalogue
-alone** against **LOST's catalogue plus its pre-built index**. That is not like-for-like.
+An earlier version of this table said "101 KB vs 2.7 MB". That was wrong twice over: it
+compared **our catalogue alone** against **LOST's catalogue plus its index**, and the LOST
+figure came from a database we generated with a substituted catalogue rather than from any
+configuration LOST would ship.
 The honest breakdown, from the actual files:
 
-| | ours | LOST (as built here) | tetra3 |
+| | ours | LOST (best config, 428 KiB) | tetra3 |
 |---|---|---|---|
 | Catalogue, stored | 98.5 KiB (5041 x 20 B) | 156.3 KiB (5000 x 32 B) | inside the npz |
-| Pair/pattern index, stored | **0, built at boot** | 2.48 MiB | 47.1 MiB (compressed) |
-| **Total persistent storage** | **98.5 KiB** | **2.63 MiB** | **47.1 MiB** |
-| **Resident once running** | **200 KiB** | 2.63 MiB | **94.6 MiB** |
+| Pair/pattern index, stored | **0, built at boot** | 272 KiB | 47.1 MiB (compressed) |
+| **Total persistent storage** | **98.5 KiB** | **428 KiB** | **47.1 MiB** |
+| **Resident once running** | **200 KiB** | 428 KiB | **94.6 MiB** |
 | Boot cost | 36 ms (build) | 0 (loaded) | 281 ms (load + inflate) |
 | Heap allocation | **none** | `std::vector` throughout | Python/NumPy |
 
@@ -699,21 +714,44 @@ So tetra3 costs **47.1 MiB of storage but 94.6 MiB of RAM**, essentially all of 
 
 **The real difference is architectural, not a 27x compression trick.** We do not ship a
 pair index; we rebuild it from the catalogue in 36 ms at power-on. That trades a one-time
-boot cost for 2.48 MiB of storage that never has to exist.
+boot cost for storage that never has to exist.
 
 Even in RAM, our index is ~13x smaller, and that is a *design choice with a cost*: we index
 2048 stars over pairs up to 10°, LOST indexes 5000 stars over 0.2-15°. LOST has far denser
 coverage; we get away with less because the clique needs fewer, better candidates rather
 than more of them.
 
-> **Do not quote "LOST needs 2.63 MiB" as a property of LOST.** LOST's own SmallSat paper
-> reports a database **under 350 KiB**, a pipeline under 1 MiB of memory, and under 35 ms
-> per solve on a Raspberry Pi. Those figures are theirs and are not in conflict with the
-> table above: 2.63 MiB is the size of the database *we generated for this comparison*, Hipparcos, `--max-stars 5000`,
-> `--kvector-min-distance 0.2 --kvector-max-distance 15 --kvector-distance-bins 10000`
-> (from `BASELINE.md`). LOST's own default build, from the 9110-star bright-star catalogue
-> with narrower parameters, is considerably smaller. Database size is dominated by
-> generation parameters, not by the solver.
+#### LOST's database size is a configuration choice, and we chose badly at first
+
+LOST's own SmallSat paper reports a database **under 350 KiB**, a pipeline under 1 MiB of
+memory, and under 35 ms per solve on a Raspberry Pi. That is reproducible here. Built with
+LOST's own bright-star catalogue:
+
+| Configuration | Size | Solved (25 fields) | Wrong | Refused | p50 | p95 |
+|---|---|---|---|---|---|---|
+| Hipparcos, 0.2-15 deg (**our first build**) | 2,696 KiB | 25/25 | 0 | 0 | 11.04 ms | 14.79 ms |
+| `BASELINE.md` params, LOST catalogue | 1,126 KiB | 25/25 | 0 | 0 | 10.92 ms | 16.63 ms |
+| `--max-stars 5000 --kvector 1.0-8 deg` | 428 KiB | 25/25 | 0 | 0 | **8.94 ms** | 20.47 ms |
+| `--max-stars 5000 --kvector 0.5-6 deg` | **314 KiB** | 19/25 | 0 | **6** | 8.97 ms | 11.45 ms |
+| `--max-stars 3000 --kvector 0.5-10 deg` | 251 KiB | 23/25 | 0 | 2 | 14.86 ms | 60.19 ms |
+
+Three things follow, and two of them correct earlier claims here:
+
+1. **The 2,696 KiB figure was ours, not LOST's.** Running `BASELINE.md`'s exact parameters
+   against LOST's *own* catalogue gives 1,126 KiB. The inflation came mostly from us
+   substituting Hipparcos, not from the k-vector settings. An earlier version of this
+   section blamed the parameters; that was wrong.
+2. **Their published sub-350 KiB claim holds.** A 314 KiB build is straightforward to
+   produce.
+3. **At that size LOST trades coverage for footprint**: 19/25 with 6 refusals on our 20 deg
+   fields, because a 0.5-6 deg pair range is narrow for this field size. **Zero wrong
+   answers at every configuration** - it degrades honestly.
+
+> **We do not know which configuration produced their 35 ms Raspberry Pi figure, or at what
+> field of view.** A database tuned for a different FOV should not be judged on our 20 deg
+> fields, so the 6 refusals may reflect our parameter guess rather than their design. The
+> defensible statement is narrow: their published size is reproducible, and at that size on
+> *our* test conditions it trades coverage for footprint.
 
 ---
 
@@ -789,11 +827,11 @@ large file once added. Fetch what you need; the table says which results depend 
 | `benchmarking/dust/DUST.zip` | **822 MB** | Not used by any result below |
 | `benchmarking/dust/DUST-code.zip` | 2.4 MB | Not used by any result below |
 | `benchmarking/tetra3_baseline/tetra3/data/default_database.npz` | 47.1 MiB | tetra3 comparison (auto-downloads) |
-| `bench/data/lost_database_hip.dat` | 2.7 MB | LOST comparison (generated, §5.4) |
+| `bench/data/lost_bsc_428k.dat` | 428 KiB | LOST comparison (generated, section 5.5) |
 
 **Hipparcos**: the only mandatory download. The `hip_main.dat` catalogue from the ESA
 Hipparcos archive (VizieR catalogue `I/239/hip_main`). Place it at
-`sim_environment/data/raw/hip_main.dat`, then run §5.4 to build the processed binary, the
+`sim_environment/data/raw/hip_main.dat`, then run section 5.4 to build the processed binary, the
 C++ static array, and the LOST database. Every number in section 3 comes from this.
 
 **DUST**: *"DUST: An On-Orbit Star Tracker Benchmark for RSO Detection and Attitude
@@ -844,6 +882,12 @@ wsl -e bash -lc "cd /mnt/c/<path>/star_tracker_suite/bench/adapters && make -f M
 ### 5.5 Catalogue and database
 
 ```bash
+# LOST databases, using LOST's OWN catalogue (section 3.12 compares these)
+cd benchmarking/lost_baseline
+./lost database --max-stars 5000 --kvector --kvector-min-distance 1.0     --kvector-max-distance 8 --kvector-distance-bins 1000     --output ../../bench/data/lost_bsc_428k.dat          # best solve rate + p50
+./lost database --max-stars 5000 --kvector --kvector-min-distance 0.5     --kvector-max-distance 6 --kvector-distance-bins 1000     --output ../../bench/data/lost_bsc_paperscale.dat    # 314 KiB, paper scale
+cd ../..
+
 # Hipparcos -> processed binary -> C++ static array
 python sim_environment/src/prepare_catalog.py
 python sim_environment/src/generate_cpp_catalog.py

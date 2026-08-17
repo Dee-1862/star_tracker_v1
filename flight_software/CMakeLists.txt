@@ -62,4 +62,12 @@ if(STAR_TRACKER_BUILD_BENCHMARKS)
         "${CMAKE_CURRENT_SOURCE_DIR}/centroid_runner.cpp"
     )
     target_link_libraries(star_tracker_centroid_runner PRIVATE star_tracker_fsw)
+
+    # Sequence mode: many frames through one tracker, so cross-frame behaviour
+    # (focal tracking, mode changes, refusal bursts) can be measured.
+    add_executable(
+        star_tracker_sequence_runner
+        "${CMAKE_CURRENT_SOURCE_DIR}/sequence_runner.cpp"
+    )
+    target_link_libraries(star_tracker_sequence_runner PRIVATE star_tracker_fsw)
 endif()
