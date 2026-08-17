@@ -1,0 +1,27 @@
+# commit e7a703e | 2026-08-17 | python bench/run_speed_comparison.py --fields 40
+# desktop x86-64; LOST under WSL2 (see README 3.9 caveats)
+
+
+40 identical centroid sets. Each solver's OWN timer.
+
+    solver     n    p50 ms    p95 ms    p99 ms    max ms
+--------------------------------------------------------
+      ours    40      0.28      0.41      0.43      0.43
+    tetra3    40      2.45     17.17     18.24     18.64
+      LOST    40     11.96     14.66     17.40     19.01
+
+--- one-time startup (charged once, not per frame) ---
+      ours catalogue pair index build:     46.0 ms
+    tetra3 49.4 MB database load:         630.1 ms
+      LOST 2.7 MB database load:       (excluded, as for ours)
+
+  CAVEAT: ours and tetra3 run natively; LOST runs under WSL2, which
+  adds some overhead to its figures. Same x86-64 host throughout --
+  none of this is target-hardware timing.
+
+--- what the per-frame work actually is ---
+  ours   : ~30k integer/float compatibility tests + one 3x3 QUEST
+  tetra3 : ~32 hash probes x 70 patterns over a 12.4M-row table,
+           then SVD + binomial test, in NumPy
+  LOST   : 3 k-vector range queries + hash-map intersection,
+           then Eigen 4x4 eigendecomposition (DQM)

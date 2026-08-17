@@ -13,8 +13,8 @@ Compares three solvers on the same inputs:
 A solver can win because its centroiding is better, not because its pattern matching is better.
 The harness therefore supports two modes:
 
-1. **Full pipeline** — image in, attitude out (current `run_comparison.py` + LOST wrapper).
-2. **Star-ID only** — frozen centroid JSON in, attitude/IDs out (`adapters/*_from_centroids`).
+1. **Full pipeline**: image in, attitude out (current `run_comparison.py` + LOST wrapper).
+2. **Star-ID only**: frozen centroid JSON in, attitude/IDs out (`adapters/*_from_centroids`).
 
 Frozen centroids live in `centroids/`. Export them once with `export_centroids.py`.
 
@@ -24,9 +24,9 @@ Frozen centroids live in `centroids/`. Export them once with `export_centroids.p
 bench/
   README.md
   run_three_way.py                    # full-pipeline tetra3 + LOST + ours
-  run_decoupled_lost_vs_tetra3.py     # star-ID only: same centroids → both solvers
+  run_decoupled_lost_vs_tetra3.py     # star-ID only: same centroids -> both solvers
   export_centroids.py
-  export_hipparcos_for_lost.py        # Hipparcos → LOST TSV catalog
+  export_hipparcos_for_lost.py        # Hipparcos -> LOST TSV catalog
   data/
     hipparcos_for_lost.tsv
     lost_database_hip.dat             # LOST k-vector DB built from Hipparcos
@@ -84,7 +84,7 @@ python bench/run_three_way.py --synthetic-cases 20
 
 ## Honest claim scope
 
-Do not pitch "faster/smaller than tetra3" — LOST already beats tetra3 on both in print.
+Do not pitch "faster/smaller than tetra3", LOST already beats tetra3 on both in print.
 The contribution target is **multi-frame temporal consistency**: run pyramid at relaxed
 per-frame thresholds and recover confidence across a short frame history, with bounded-time
 anytime behavior for hard real-time scheduling.

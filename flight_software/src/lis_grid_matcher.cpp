@@ -258,13 +258,17 @@ std::size_t LisGridMatcher::buildNodes(
         std::array<std::uint16_t, kCandidatesPerCentroid> best_stars = {};
         std::array<std::uint8_t, kCandidatesPerCentroid> best_votes = {};
         std::size_t kept = 0U;
+        const std::size_t width =
+            (config_.candidates_per_centroid < kCandidatesPerCentroid)
+                ? config_.candidates_per_centroid
+                : kCandidatesPerCentroid;
 
         for (std::size_t star = 0U; star < indexed_star_count_; ++star) {
             const std::uint8_t vote = votes_[selection][star];
             if (vote < config_.minimum_votes) {
                 continue;
             }
-            if (kept < kCandidatesPerCentroid) {
+            if (kept < width) {
                 best_stars[kept] = static_cast<std::uint16_t>(star);
                 best_votes[kept] = vote;
                 ++kept;

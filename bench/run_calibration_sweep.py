@@ -1,9 +1,9 @@
 """Calibration-robustness sweep: LOST vs tetra3 (TRUE / FALSE / REFUSE).
 
 Design (reviewer-facing):
-  - Attitudes: HEALPix RING nside × random roll(s); log galactic |b| and stratify.
+  - Attitudes: HEALPix RING nside x random roll(s); log galactic |b| and stratify.
   - Focal grid (%): fine near 0 so LOST's edge is resolved.
-  - tetra3 fov_max_error is a swept axis (not a constant) — refusal boundary should
+  - tetra3 fov_max_error is a swept axis (not a constant), refusal boundary should
     track the search window; time cost should grow with it.
   - LOST: for each focal error, sweep angular-tolerance multipliers and
     max-mismatch-prob; report the *best* config (tuned oracle), not defaults.
@@ -262,7 +262,7 @@ def aggregate_counts(outcomes: list[str]) -> dict[str, Any]:
 
 def run_sweep(args: argparse.Namespace) -> dict[str, Any]:
     if not LOST_ADAPTER.is_file() or not LOST_DATABASE.is_file():
-        raise FileNotFoundError("LOST adapter/database missing — build in WSL first")
+        raise FileNotFoundError("LOST adapter/database missing, build in WSL first")
 
     catalog = to_binary_records(parse_catalog(CATALOG_PATH, magnitude_limit=6.0))
     attitudes = sample_attitudes(args.nside, args.rolls, args.seed)
@@ -298,7 +298,7 @@ def run_sweep(args: argparse.Namespace) -> dict[str, Any]:
         f"Attitudes={len(attitudes)} nside={args.nside} rolls={args.rolls} "
         f"focal={len(focal_grid)} tetra_fov_max={tetra_fov_max} "
         f"lost_gates={args.lost_gates} "
-        f"({len(lost_tol_mult)}×{len(lost_mismatch)} configs)"
+        f"({len(lost_tol_mult)}x{len(lost_mismatch)} configs)"
     )
 
     with tempfile.TemporaryDirectory() as tmp:
@@ -424,7 +424,7 @@ def summarize_records(
     threshold_key: str,
     lost_gates: bool,
 ) -> dict[str, Any]:
-    # tetra3: focal × fov_max_error
+    # tetra3: focal x fov_max_error
     tetra_grid: dict[str, Any] = {}
     for focal in focal_grid:
         tetra_grid[f"{focal:g}"] = {}
@@ -508,7 +508,7 @@ def summarize_records(
                     continue
                 for row in rec["lost"]:
                     cfg = (
-                        f"tol×{row['tol_mult']:g}_mismatch={row['max_mismatch_prob']:g}"
+                        f"tolx{row['tol_mult']:g}_mismatch={row['max_mismatch_prob']:g}"
                     )
                     by_cfg[cfg].append(row["score"]["outcomes"][threshold_key])
             gate_study[f"{focal_use:g}"] = {
@@ -529,7 +529,7 @@ def write_markdown(payload: dict[str, Any], path: Path) -> None:
         "# Calibration robustness sweep",
         "",
         f"- HEALPix nside={meta['nside']}, rolls={meta['rolls']}, "
-        f"N≈{meta['n_attitudes']}",
+        f"N~{meta['n_attitudes']}",
         f"- Primary outcome threshold: {meta['primary_threshold_deg']}° "
         f"(sensitivity {meta['sensitivity_thresholds_deg']})",
         f"- tetra3 `fov_max_error` swept: {meta['tetra_fov_max_error_deg']}",
@@ -537,7 +537,7 @@ def write_markdown(payload: dict[str, Any], path: Path) -> None:
         "",
         meta["note"],
         "",
-        "## tetra3 TRUE/FALSE/REFUSE (primary thr) — focal × fov_max_error",
+        "## tetra3 TRUE/FALSE/REFUSE (primary thr), focal x fov_max_error",
         "",
     ]
     fov_max_list = meta["tetra_fov_max_error_deg"]
@@ -557,7 +557,7 @@ def write_markdown(payload: dict[str, Any], path: Path) -> None:
     lines.extend(
         [
             "",
-            "## tetra3 timing (ms) at focal=0 — vs fov_max_error",
+            "## tetra3 timing (ms) at focal=0, vs fov_max_error",
             "",
             "| fov_max_error | p50 | p95 | p99 | max |",
             "|---------------|-----|-----|-----|-----|",
@@ -596,7 +596,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--pilot",
         action="store_true",
-        help="nside=2, 1 roll — validate cliffs before scaling",
+        help="nside=2, 1 roll, validate cliffs before scaling",
     )
     parser.add_argument("--nside", type=int, default=None)
     parser.add_argument("--rolls", type=int, default=None)

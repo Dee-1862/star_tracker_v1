@@ -516,7 +516,7 @@ def write_report(results: dict[str, Any], path: Path) -> None:
 
 The benchmark is now operational and reproducible, but the two systems are not equivalent. tetra3 returns and verifies a full attitude solution using a four-star pattern database. The current C++ pair-voting matcher returns per-centroid IDs without a geometric attitude verification stage. Any nonzero but incorrect C++ IDs are therefore false identifications, not successful lost-in-space solutions.
 
-Real-frame “agreement” uses tetra3's matched Hipparcos IDs as the reference because the two bundled images do not include independent truth files. It demonstrates execution on real sensor data but must not be presented as independent accuracy validation.
+Real-frame "agreement" uses tetra3's matched Hipparcos IDs as the reference because the two bundled images do not include independent truth files. It demonstrates execution on real sensor data but must not be presented as independent accuracy validation.
 
 Raw per-case measurements and configuration are in `comparison_results.json`.
 """

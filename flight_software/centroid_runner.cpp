@@ -80,7 +80,7 @@ const char* reasonText(star_tracker::AttitudeSolver::Reason reason) {
 }  // namespace
 
 int main(int argc, char** argv) {
-    if (argc < 5 || argc > 7) {
+    if (argc < 5 || argc > 8) {
         std::cerr << "Usage: centroid_runner CENTROIDS.tsv WIDTH HEIGHT "
                      "FOV_DEG [MAX_RESIDUAL_ARCSEC=30] [SEARCH_PCT=0]\n"
                      "\n"
@@ -98,6 +98,8 @@ int main(int argc, char** argv) {
     const float maxResidual = (argc >= 6) ? static_cast<float>(std::atof(argv[5]))
                                           : 30.0F;
     const double searchPct = (argc >= 7) ? std::atof(argv[6]) : 0.0;
+    const std::size_t candidates =
+        (argc >= 8) ? static_cast<std::size_t>(std::atoi(argv[7])) : 4U;
 
     if (width <= 0 || height <= 0 || fovDeg <= 0.0 || maxResidual <= 0.0F) {
         std::cerr << "ERROR: invalid width/height/fov/residual\n";
@@ -118,6 +120,9 @@ int main(int argc, char** argv) {
     matcherConfig.focal_length_pixels = focal;
     matcherConfig.principal_x = static_cast<float>(width) / 2.0F;
     matcherConfig.principal_y = static_cast<float>(height) / 2.0F;
+    if (candidates > 0U) {
+        matcherConfig.candidates_per_centroid = candidates;
+    }
     matcher = star_tracker::LisGridMatcher(matcherConfig);
 
     star_tracker::AttitudeSolver::Config solverConfig;

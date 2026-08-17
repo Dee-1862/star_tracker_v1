@@ -93,6 +93,11 @@ env/
 .DS_Store
 Thumbs.db
 
+# results/ IS committed: raw benchmark output so README tables can be checked
+# without re-running anything. Small JSON/text only.
+!results/
+!results/**
+
 # ---------------------------------------------------------------------------
 # Scratch
 # ---------------------------------------------------------------------------

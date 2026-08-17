@@ -1,13 +1,13 @@
 # Calibration robustness sweep
 
-- HEALPix nside=2, rolls=1, N≈2
+- HEALPix nside=2, rolls=1, N~2
 - Primary outcome threshold: 0.05° (sensitivity [0.01, 0.05, 0.2])
 - tetra3 `fov_max_error` swept: [0.5, 1.0, 2.0]
 - LOST oracle gates: False
 
 tetra3 fov_max_error is swept; a cliff at ±(fov_max_error/FOV) is a search-window effect, not an intrinsic algorithm property. LOST rates use best-of-gates oracle when lost_gates=true.
 
-## tetra3 TRUE/FALSE/REFUSE (primary thr) — focal × fov_max_error
+## tetra3 TRUE/FALSE/REFUSE (primary thr), focal x fov_max_error
 
 | focal % | fov_max=0.5° | fov_max=1° | fov_max=2° |
 |---------|------|------|------|
@@ -15,7 +15,7 @@ tetra3 fov_max_error is swept; a cliff at ±(fov_max_error/FOV) is a search-wind
 | +0 | T2/F0/R0 | T2/F0/R0 | T2/F0/R0 |
 | +5 | T0/F0/R2 | T0/F0/R2 | T2/F0/R0 |
 
-## tetra3 timing (ms) at focal=0 — vs fov_max_error
+## tetra3 timing (ms) at focal=0, vs fov_max_error
 
 | fov_max_error | p50 | p95 | p99 | max |
 |---------------|-----|-----|-----|-----|

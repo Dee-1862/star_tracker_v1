@@ -2,9 +2,9 @@
 
 ## 1. Residual vectors on LOST-native centroids
 
-RA/Dec residuals are small and change sign/magnitude across cases → not a fixed convention bias; consistent with estimator/FOV-fit noise.
+RA/Dec residuals are small and change sign/magnitude across cases -> not a fixed convention bias; consistent with estimator/FOV-fit noise.
 
-tetra3_roll ≈ (-lost_roll) mod 360 on every case → systematic roll-sign convention mismatch, not accuracy.
+tetra3_roll ~ (-lost_roll) mod 360 on every case -> systematic roll-sign convention mismatch, not accuracy.
 
 Per-case tetra3 residuals vs truth (deg):
 

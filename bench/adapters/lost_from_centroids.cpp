@@ -1,5 +1,5 @@
 /**
- * LOST adapter: frozen centroids in → pyramid star-ID + DQM attitude out.
+ * LOST adapter: frozen centroids in -> pyramid star-ID + DQM attitude out.
  *
  * Usage:
  *   lost_from_centroids CENTROIDS.tsv DATABASE.dat WIDTH HEIGHT FOV_DEG

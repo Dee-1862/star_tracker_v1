@@ -32,7 +32,7 @@ from prepare_catalog import parse_catalog, to_binary_records  # noqa: E402
 EXE = str(ROOT / "build-vs" / "flight_software" / "Release" /
           "star_tracker_centroid_runner.exe")
 LOST = ROOT / "bench" / "adapters" / "lost_from_centroids"
-LOSTDB = ROOT / "bench" / "data" / "lost_database_hip.dat"
+LOSTDB_DEFAULT = ROOT / "bench" / "data" / "lost_bsc_428k.dat"
 W = H = 1024
 FOV = 20.0
 
@@ -62,6 +62,9 @@ def pct(v, q):
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--fields", type=int, default=60)
+    ap.add_argument("--lost-db", type=Path, default=LOSTDB_DEFAULT,
+                    help="LOST database. Default is LOST's own catalogue at the "
+                         "configuration giving its best solve rate and p50.")
     args = ap.parse_args()
 
     cat = to_binary_records(parse_catalog(
@@ -104,7 +107,7 @@ def main() -> None:
         if "index_ns" in d:
             ours_index.append(float(d["index_ns"]) / 1e6)
 
-        cmd = (f"{wsl(LOST)} {wsl(tsv)} {wsl(LOSTDB)} {W} {H} {FOV} 0.05 0.0001")
+        cmd = (f"{wsl(LOST)} {wsl(tsv)} {wsl(args.lost_db)} {W} {H} {FOV} 0.05 0.0001")
         dl = kv(subprocess.run(["wsl", "-e", "bash", "-lc", cmd],
                                capture_output=True, text=True).stdout)
         if "total_average_ns" in dl:

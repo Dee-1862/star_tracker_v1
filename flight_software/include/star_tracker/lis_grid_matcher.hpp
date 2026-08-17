@@ -23,7 +23,10 @@ public:
     /// Consistency-graph sizing. Pair voting only shortlists candidates; the
     /// accepted set is the largest mutually consistent clique among them.
     static constexpr std::size_t kMaxCliqueObserved = 20U;
-    static constexpr std::size_t kCandidatesPerCentroid = 4U;
+    /// Upper bound on shortlist width. The *operating* value is
+    /// Config::candidates_per_centroid; this only sizes the arrays, and the
+    /// graph cost grows as its square.
+    static constexpr std::size_t kCandidatesPerCentroid = 8U;
     static constexpr std::size_t kMaxNodes =
         kMaxCliqueObserved * kCandidatesPerCentroid;
     static constexpr std::size_t kAdjacencyWords = (kMaxNodes + 31U) / 32U;
@@ -52,6 +55,12 @@ public:
         /// what separated true from false solves in calibration.
         std::size_t minimum_clique_size;
 
+        /// How many catalogue candidates each dot keeps after voting. A dot
+        /// whose true star falls outside this list cannot join the clique --
+        /// but it cannot corrupt it either, so the cost is a smaller clique,
+        /// never a wrong answer. Capped by kCandidatesPerCentroid.
+        std::size_t candidates_per_centroid;
+
         /// Verification threshold. A correct clique's pairwise angles agree to
         /// roughly the centroid noise (~10 arcsec at f=2904); a spurious one
         /// is spread across the whole edge tolerance. Rejecting on this is
@@ -75,6 +84,7 @@ public:
               maximum_observed_stars(20U),
               minimum_votes(3U),
               minimum_clique_size(5U),
+              candidates_per_centroid(4U),
               maximum_clique_rms_arcsec(20.0F) {}
     };
 

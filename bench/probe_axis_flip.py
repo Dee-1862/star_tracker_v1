@@ -1,4 +1,4 @@
-"""Quick test: axis flips on Hipparcos-projected centroids → LOST vs tetra3."""
+"""Quick test: axis flips on Hipparcos-projected centroids -> LOST vs tetra3."""
 
 from __future__ import annotations
 

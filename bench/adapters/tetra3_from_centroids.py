@@ -1,4 +1,4 @@
-"""tetra3 adapter: frozen centroids in → attitude + star IDs out."""
+"""tetra3 adapter: frozen centroids in -> attitude + star IDs out."""
 
 from __future__ import annotations
 

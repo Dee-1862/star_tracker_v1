@@ -1,0 +1,19 @@
+# commit e7a703e | 2026-08-17 | python bench/run_motion_blur_sweep.py --fields 20 --exposure 0.1
+
+
+exposure 100 ms, 20 fields, focal 2904 px
+    rate    smear  centroids  solved  wrong  refused   err mdn  clique
+----------------------------------------------------------------------
+    0.0°/s     0.0px         30      20      0        0    0.0127      13
+    0.1°/s     0.5px         30      20      0        0    0.0129      13
+    0.2°/s     1.0px         30      20      0        0    0.0129      13
+    0.3°/s     1.5px         30      20      0        0    0.0129      13
+    0.5°/s     2.5px         30      20      0        0    0.0130      13
+    0.7°/s     3.5px         30      20      0        0    0.0130      13
+    1.0°/s     5.1px         30      20      0        0    0.0129      13
+    1.5°/s     7.6px         30      20      0        0    0.0131      13
+    2.0°/s    10.1px         30      18      0        2    0.0131      12
+    3.0°/s    15.2px         30      17      0        3    0.0131      11
+
+max slew rate = highest rate with full solve rate and zero wrong answers.
+Scales inversely with exposure: halve the exposure, double the rate.

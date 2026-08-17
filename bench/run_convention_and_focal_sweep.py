@@ -2,7 +2,7 @@
 
 1. Residual vectors (dRA, dDec, dRoll) for existing LOST-native results
 2. Tetra3-native / Hipparcos-projected centroids scored by both solvers
-3. Focal-length (FOV) error sweep — Pitch 2 probe
+3. Focal-length (FOV) error sweep, Pitch 2 probe
 """
 
 from __future__ import annotations
@@ -109,11 +109,11 @@ def diagnose_existing(path: Path) -> dict[str, Any]:
         "interpretation": {
             "boresight": (
                 "RA/Dec residuals are small and change sign/magnitude across cases "
-                "→ not a fixed convention bias; consistent with estimator/FOV-fit noise."
+                "-> not a fixed convention bias; consistent with estimator/FOV-fit noise."
             ),
             "roll": (
-                "tetra3_roll ≈ (-lost_roll) mod 360 on every case "
-                "→ systematic roll-sign convention mismatch, not accuracy."
+                "tetra3_roll ~ (-lost_roll) mod 360 on every case "
+                "-> systematic roll-sign convention mismatch, not accuracy."
             ),
         },
         "tetra3_vs_truth": {
